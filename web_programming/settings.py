@@ -53,6 +53,11 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "accounts.apps.AccountsConfig",
+    "campings.apps.CampingsConfig",
+    "tags.apps.TagsConfig",
+    "comments.apps.CommentsConfig",
+    "widget_tweaks",
+    "bootstrap4",
 ]
 
 MIDDLEWARE = [

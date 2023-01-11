@@ -1,9 +1,7 @@
+{% load static %}
 <header class="header navbar navbar-expand-lg bg-light shadow-sm fixed-top">
     <div class="container px-3">
-        <a href="index.html" class="navbar-brand pe-3">
-            <img src="assets/img/logo.svg" width="47" alt="Silicon">
-            Silicon
-        </a>
+
         <div id="navbarNav" class="offcanvas offcanvas-end">
             <div class="offcanvas-header border-bottom">
                 <h5 class="offcanvas-title">Menu</h5>
@@ -59,63 +57,14 @@
                                     <h6 class="px-3 mb-2">About</h6>
                                     <ul class="list-unstyled mb-3">
                                         <li><a href="about-v1.html" class="dropdown-item py-1">About v.1</a></li>
-                                        <li><a href="about-v2.html" class="dropdown-item py-1">About v.2</a></li>
                                     </ul>
                                     <h6 class="px-3 mb-2">Blog</h6>
                                     <ul class="list-unstyled mb-3">
-                                        <li><a href="blog-list-with-sidebar.html" class="dropdown-item py-1">List View
-                                            with Sidebar</a></li>
-                                        <li><a href="blog-grid-with-sidebar.html" class="dropdown-item py-1">Grid View
-                                            with Sidebar</a></li>
-                                        <li><a href="blog-list-no-sidebar.html" class="dropdown-item py-1">List View no
-                                            Sidebar</a></li>
-                                        <li><a href="blog-grid-no-sidebar.html" class="dropdown-item py-1">Grid View no
-                                            Sidebar</a></li>
-                                        <li><a href="blog-simple-feed.html" class="dropdown-item py-1">Simple Feed</a>
-                                        </li>
-                                        <li><a href="blog-single.html" class="dropdown-item py-1">Single Post</a></li>
-                                        <li><a href="blog-podcast.html" class="dropdown-item py-1">Podcast</a></li>
+                                        <li><a href="{% url 'campings:index' %}" class="dropdown-item py-1">Camping</a></li>
                                     </ul>
                                 </div>
                                 <div class="mega-dropdown-column">
-                                    <h6 class="px-3 mb-2">Portfolio</h6>
-                                    <ul class="list-unstyled mb-3">
-                                        <li><a href="portfolio-grid.html" class="dropdown-item py-1">Grid View</a></li>
-                                        <li><a href="portfolio-list.html" class="dropdown-item py-1">List View</a></li>
-                                        <li><a href="portfolio-slider.html" class="dropdown-item py-1">Slider View</a>
-                                        </li>
-                                        <li><a href="portfolio-courses.html" class="dropdown-item py-1">Courses</a></li>
-                                        <li><a href="portfolio-single-project.html" class="dropdown-item py-1">Single
-                                            Project</a></li>
-                                        <li><a href="portfolio-single-course.html" class="dropdown-item py-1">Single
-                                            Course</a></li>
-                                    </ul>
-                                    <h6 class="px-3 mb-2">Services</h6>
-                                    <ul class="list-unstyled mb-3">
-                                        <li><a href="services-v1.html" class="dropdown-item py-1">Services v.1</a></li>
-                                        <li><a href="services-v2.html" class="dropdown-item py-1">Services v.2</a></li>
-                                        <li><a href="services-single-v1.html" class="dropdown-item py-1">Service Details
-                                            v.1</a></li>
-                                        <li><a href="services-single-v2.html" class="dropdown-item py-1">Service Details
-                                            v.2</a></li>
-                                    </ul>
-                                </div>
-                                <div class="mega-dropdown-column">
-                                    <h6 class="px-3 mb-2">Pricing</h6>
-                                    <ul class="list-unstyled mb-3">
-                                        <li><a href="pricing.html" class="dropdown-item py-1">Pricing Page</a></li>
-                                    </ul>
-                                    <h6 class="px-3 mb-2">Contacts</h6>
-                                    <ul class="list-unstyled mb-3">
-                                        <li><a href="contacts-v1.html" class="dropdown-item py-1">Contacts v.1</a></li>
-                                        <li><a href="contacts-v2.html" class="dropdown-item py-1">Contacts v.2</a></li>
-                                        <li><a href="contacts-v3.html" class="dropdown-item py-1">Contacts v.3</a></li>
-                                    </ul>
-                                    <h6 class="px-3 mb-2">Specialty</h6>
-                                    <ul class="list-unstyled">
-                                        <li><a href="404-v1.html" class="dropdown-item py-1">404 Error v.1</a></li>
-                                        <li><a href="404-v2.html" class="dropdown-item py-1">404 Error v.2</a></li>
-                                    </ul>
+
                                 </div>
                             </div>
                         </div>
@@ -133,38 +82,15 @@
                             <li><a href="{% url 'accounts:signup' %}" class="dropdown-item">Sign Up</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item">
-                        <a href="components/typography.html" class="nav-link">UI Kit</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="docs/getting-started.html" class="nav-link">Docs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="docs/getting-started.html" class="nav-link">{{ user.username }}</a>
+                    <li class="nav-item ">
+                        <a href="#" class="nav-link disabled justify-content-end">{{ user.email }}</a>
                     </li>
                 </ul>
             </div>
-            <div class="offcanvas-header border-top">
-                <a href="https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/"
-                   class="btn btn-primary w-100" target="_blank" rel="noopener">
-                    <i class="bx bx-cart fs-4 lh-1 me-1"></i>
-                    &nbsp;Buy now
-                </a>
-            </div>
+
         </div>
-        <div class="form-check form-switch mode-switch pe-lg-1 ms-auto me-4" data-bs-toggle="mode">
-            <input type="checkbox" class="form-check-input" id="theme-mode">
-            <label class="form-check-label d-none d-sm-block" for="theme-mode">Light</label>
-            <label class="form-check-label d-none d-sm-block" for="theme-mode">Dark</label>
-        </div>
-        <button type="button" class="navbar-toggler" data-bs-toggle="offcanvas" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <a href="https://themes.getbootstrap.com/product/silicon-business-technology-template-ui-kit/"
-           class="btn btn-primary btn-sm fs-sm rounded d-none d-lg-inline-flex" target="_blank" rel="noopener">
-            <i class="bx bx-cart fs-5 lh-1 me-1"></i>
-            &nbsp;Buy now
-        </a>
+
+
+
     </div>
 </header>

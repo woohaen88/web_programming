@@ -1,5 +1,6 @@
 {% extends 'layout.html' %}
 {% load static %}
+{% load bootstrap4 %}
 {% block content %}
 
     <!-- Page wrapper for sticky footer -->
@@ -24,49 +25,11 @@
                     <form class="needs-validation" method="post" enctype="multipart/form-data">
                         {% csrf_token %}
                         <div class="row">
-                            <div class="col-sm-12">
-                                <div class="position-relative mb-4">
-                                    <label for="email" class="form-label fs-base">Email</label>
-                                    {{ form.email }}
-                                    <div class="invalid-feedback position-absolute start-0 top-100">Please enter a valid
-                                        email address!
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 mb-4">
-                                <label for="password" class="form-label fs-base">Password</label>
-                                <div class="password-toggle">
-                                    {{ form.password1 }}
-                                    <label class="password-toggle-btn" aria-label="Show/hide password">
-                                        <input class="password-toggle-check" type="checkbox">
-                                        <span class="password-toggle-indicator"></span>
-                                    </label>
-                                    <div class="invalid-feedback position-absolute start-0 top-100">Please enter a
-                                        password!
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 mb-4">
-                                <label for="password-confirm" class="form-label fs-base">Confirm password</label>
-                                <div class="password-toggle">
-                                    {{ form.password2 }}
-                                    <label class="password-toggle-btn" aria-label="Show/hide password">
-                                        <input class="password-toggle-check" type="checkbox">
-                                        <span class="password-toggle-indicator"></span>
-                                    </label>
-                                    <div class="invalid-feedback position-absolute start-0 top-100">Please enter a
-                                        password!
-                                    </div>
-                                </div>
-                            </div>
+                     {% bootstrap_form form %}
+
+
                         </div>
-                        <div class="mb-4">
-                            <div class="form-check">
-                                <input type="checkbox" id="terms" class="form-check-input">
-                                <label for="terms" class="form-check-label fs-base">I agree to <a href="#">Terms &amp;
-                                    Conditions</a></label>
-                            </div>
-                        </div>
+
                         <button type="submit" class="btn btn-primary shadow-primary btn-lg w-100">Sign up</button>
                     </form>
                     <hr class="my-4">

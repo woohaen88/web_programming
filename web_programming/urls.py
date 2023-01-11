@@ -7,6 +7,8 @@ from . import views
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("account/", include("accounts.urls")),
+    path("camping/", include("campings.urls")),
+    path("tag/", include("tags.urls")),
     path("", views.IndexView.as_view(), name="index"),
 ]
 
