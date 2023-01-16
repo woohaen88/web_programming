@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, F
 from campings.forms import CampingCreateForm, CampingUpdateForm
 from campings.models import Camping
 from tags.models import Tag
+from tags.forms import TagCreateForm
 
 
 class CampingListView(ListView):
@@ -28,6 +29,7 @@ class CampingCreateView(CreateView):
     form_class = CampingCreateForm
     success_url = reverse_lazy("campings:index")
     template_name = "campings/create.html"
+    second_form_class = TagCreateForm
 
     def form_valid(self, form):
         valid = super().form_valid(form)
@@ -35,6 +37,17 @@ class CampingCreateView(CreateView):
         camping.user = self.request.user
         camping.save()
         return valid
+
+    def post(self, request, *args, **kwargs):
+        if "form" in request.POST:
+            form_class = self.get_form_class()
+            form_name = "form"
+        else:
+            form_class = self.second_form_class
+            form_name = "form2"
+        form = self.get_form(form_class)
+        if form.is_valid():
+            return self.form_valid(form)
 
 
 class CampingUpdateView(UpdateView):

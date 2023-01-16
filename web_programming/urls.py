@@ -3,6 +3,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
+from accounts.urls import router as user_router
+from url_shortener.urls import router as url_router
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -10,6 +12,8 @@ urlpatterns = [
     path("camping/", include("campings.urls")),
     path("short/", include("url_shortener.urls")),
     path("tag/", include("tags.urls")),
+    path("api/", include(user_router.urls)),
+    path("api/", include(url_router.urls)),
     path("", views.IndexView.as_view(), name="index"),
 ]
 

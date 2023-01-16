@@ -8,14 +8,26 @@ from web_programming.utils import url_count_changer
 class UrlCreateForm(forms.ModelForm):
     class Meta:
         model = ShortenedUrls
-        fields = ("nick_name", "target_url",)
+        fields = (
+            "nick_name",
+            "target_url",
+            "create_via",
+        )
         labels = {
             "nick_name": _("별칭"),
             "target_url": _("URL"),
+            "create_via": _("유입경로"),
         }
         widgets = {
-            "nick_name": forms.TextInput(attrs={"class": "form-control", "placeholder": "URL을 구분하기 위한 별칭"}),
-            "target_url": forms.TextInput(attrs={"class": "form-control", "placeholder": "포워딩될 URL"})
+            "nick_name": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "URL을 구분하기 위한 별칭"}
+            ),
+            "target_url": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "포워딩될 URL"}
+            ),
+            "create_via": forms.Select(
+                attrs={"class": "form-control", "placeholder": "유입경로", "type": "radio"}
+            ),
         }
 
     def save(self, request, commit=True):
@@ -39,8 +51,3 @@ class UrlCreateForm(forms.ModelForm):
             target_url=instance.target_url,
             nick_name=instance.nick_name,
         )
-
-
-
-
-

@@ -14,6 +14,9 @@ class Categories(models.Model):
 
 
 class ShortenedUrls(models.Model):
+    class Meta:
+        ordering = ("-updated_at",)
+
     class CreatedVia(models.TextChoices):
         WEBSITE = "web"
         TELEGRAM = "telegram"
@@ -24,12 +27,23 @@ class ShortenedUrls(models.Model):
         return rand_str
 
     nick_name = models.CharField(max_length=100)
-    category = models.ForeignKey(Categories, on_delete=models.DO_NOTHING, null=True, related_name="shortened_urls")
+    category = models.ForeignKey(
+        Categories,
+        on_delete=models.DO_NOTHING,
+        null=True,
+        related_name="shortened_urls",
+    )
     prefix = models.CharField(max_length=50)
-    creator = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="shortened_urls")
-    target_url = models.URLField(max_length=2000) # 입력 폼
-    shortened_url = models.CharField(max_length=6, default=rand_string) # 결과
-    create_via = models.CharField(max_length=8, choices=CreatedVia.choices, default=CreatedVia.WEBSITE)
+    creator = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="shortened_urls",
+    )
+    target_url = models.URLField(max_length=2000)  # 입력 폼
+    shortened_url = models.CharField(max_length=6, default=rand_string)  # 결과
+    create_via = models.CharField(
+        max_length=8, choices=CreatedVia.choices, default=CreatedVia.WEBSITE
+    )
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
 

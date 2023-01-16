@@ -397,3 +397,4 @@ poetry.toml
 # End of https://www.toptal.com/developers/gitignore/api/django,pycharm+all,python,macos,linux
 
 */migrations/0*.py
+media/

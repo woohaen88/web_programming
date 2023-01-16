@@ -27,6 +27,7 @@ class UrlCreateView(LoginRequiredMixin, CreateView):
         self.object = form.save(self.request)
         return HttpResponseRedirect(self.get_success_url())
 
+
 class UrlUpdateView(LoginRequiredMixin, UpdateView):
     template_name = "url_shortener/update.html"
     model = ShortenedUrls
@@ -42,6 +43,7 @@ class UrlUpdateView(LoginRequiredMixin, UpdateView):
         self.object = form.save(self.request)
         return HttpResponseRedirect(self.get_success_url())
 
+
 class UrlDeleteView(LoginRequiredMixin, DeleteView):
     template_name = "url_shortener/delete.html"
     model = ShortenedUrls
@@ -54,7 +56,7 @@ class UrlDeleteView(LoginRequiredMixin, DeleteView):
 
     def save(self, commit=True):
         instance = super().save(commit=False)
-        url_data = self.model.objects.filter(user__id = self.request.user.pk)
+        url_data = self.model.objects.filter(user__id=self.request.user.pk)
         if commit:
             try:
                 url_data.delete()
@@ -64,15 +66,9 @@ class UrlDeleteView(LoginRequiredMixin, DeleteView):
                 url_count_changer(self.request, False)
         return instance
 
-
-
-
     # def form_valid(self, form):
     #     self.object = form.save(self.request)
     #     return HttpResponseRedirect(self.get_success_url())
-
-
-
 
 
 class UrlListView(LoginRequiredMixin, ListView):
