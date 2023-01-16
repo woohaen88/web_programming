@@ -1,4 +1,4 @@
-from django.contrib.auth import get_user_model, login
+from django.contrib.auth import get_user_model, login, logout
 from django.contrib.auth.views import LoginView, LogoutView
 from django.shortcuts import redirect
 from django.urls import reverse_lazy, reverse
@@ -24,6 +24,8 @@ class AccountSignInView(FormView):
         email = form.cleaned_data.get("email")
         password = form.cleaned_data.get("password")
         user = get_user_model().objects.filter(email=email).first()
+        if self.request.user is not None:
+            logout(self.request)
         login(self.request, user)
         return valid
 

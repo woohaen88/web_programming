@@ -1,4 +1,23 @@
-{% extends 'layout.html' %}
+{% extends 'base.html' %}
 {% block content %}
-<h1>index</h1>
+    <div>
+    <a href="{% url 'accounts:signup' %}">
+        <button>회원가입</button>
+    </a>
+    <a href="{% url 'accounts:signin' %}">
+        <button>로그인</button>
+    </a>
+
+    <a href="{% url 'accounts:signout' %}">
+        <button>로그아웃</button>
+    </a>
+    </div>
+    <hr>
+    <a href="{% url 'url_shortener:index' %}">
+        <button>URL 앱</button>
+    </a>
+    <hr>
+    <p>현재 유져: {{ user.email }}</p>
+
+
 {% endblock %}

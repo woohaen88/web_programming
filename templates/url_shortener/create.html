@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Url Create</h1>
+
+    <form action="{% url 'url_shortener:create' %}" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit">생성</button>
+    </form>
+{% endblock %}
