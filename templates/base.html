@@ -11,6 +11,22 @@
 </head>
 
 <body>
+<div>
+    <a href="{% url 'index' %}">
+        <button>홈</button>
+    </a>
+    <a href="{% url 'accounts:signup' %}">
+        <button>회원가입</button>
+    </a>
+    <a href="{% url 'accounts:signin' %}">
+        <button>로그인</button>
+    </a>
+
+    <a href="{% url 'accounts:signout' %}">
+        <button>로그아웃</button>
+    </a>
+    </div>
+    <hr>
 {% block content %}
 
 {% endblock %}

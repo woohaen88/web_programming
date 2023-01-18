@@ -1,9 +1,11 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, FormView
 
-from campings.forms import CampingCreateForm, CampingUpdateForm
-from campings.models import Camping
+from campings.forms import CampingCreateForm, CampingUpdateForm, CampingItemCreateForm
+from campings.models import Camping, CampingItem
 from tags.models import Tag
 from tags.forms import TagCreateForm
 
@@ -96,3 +98,21 @@ class CampingUpdateView(UpdateView):
 #         form = CampingUpdateForm(instance=camping)
 #     context = {"form": form}
 #     return render(request, "campings/update.html", context)
+
+
+# camping Item view
+class CampingItemListView(ListView):
+    model = CampingItem
+    template_name = "campings/camping_item_list.html"
+    context_object_name = "camping_item_list"
+
+class CampingItemCreateView(LoginRequiredMixin, CreateView):
+    model = CampingItem
+    template_name = "campings/camping_item_create.html"
+    context_object_name = "camping_item_list"
+    form_class = CampingItemCreateForm
+    success_url = reverse_lazy("campings:camping_item_index")
+
+    def form_valid(self, form):
+        self.object = form.save(self.request)
+        return HttpResponseRedirect(self.get_success_url())
