@@ -1,5 +1,7 @@
 FROM python:3.10
 
+RUN echo "hello world"
+
 WORKDIR /home/
 
 RUN git clone https://github.com/woohaen88/web_programming.git
