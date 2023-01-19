@@ -1,6 +1,6 @@
 FROM python:3.10
 
-RUN echo "testing3"
+RUN echo "testing4"
 
 WORKDIR /home/
 
