@@ -20,6 +20,7 @@ from django.urls import reverse_lazy
 pymysql.install_as_MySQLdb()
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # Application definition
 
 INSTALLED_APPS = [

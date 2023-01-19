@@ -1,6 +1,6 @@
 FROM python:3.10
 
-RUN echo "testing"
+RUN echo "testing3"
 
 WORKDIR /home/
 
@@ -10,7 +10,8 @@ WORKDIR /home/web_programming/
 
 RUN pip install -r requirements.txt
 
-RUN echo "SECRET_KEY=django-insecure-sg!9x9@w28+hj!a@r6^(f49el(kzeu$9b#w2!hrez2ymlqx=hh" > .env
+# RUN #echo "SECRET_KEY=django-insecure-sg!9x9@w28+hj!a@r6^(f49el(kzeu$9b#w2!hrez2ymlqx=hh" > .env
+#ADD .env .env
 
 RUN python manage.py makemigrations &&\
     python manage.py migrate
@@ -19,4 +20,4 @@ RUN python manage.py collectstatic
 
 EXPOSE 8000
 
-CMD ["bash", "-c", "python manage.py migrate --settings=web_programming.settings.prod && gunicorn web_programming.wsgi --env DJANGO_SETTINGS_MODULE=web_programming.settings.prod --bind 0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py makemigrations --settings=web_programming.settings.prod && python manage.py migrate --settings=web_programming.settings.prod && gunicorn web_programming.wsgi --env DJANGO_SETTINGS_MODULE=web_programming.settings.prod --bind 0.0.0.0:8000"]
