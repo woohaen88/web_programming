@@ -1,6 +1,6 @@
 FROM python:3.10
 
-RUN echo "hello world"
+RUN echo "testing"
 
 WORKDIR /home/
 
@@ -19,4 +19,4 @@ RUN python manage.py collectstatic
 
 EXPOSE 8000
 
-CMD ["gunicorn", "web_programming.wsgi", "--bind", "0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py migrate --settings=web_programming.settings.prod && gunicorn web_programming.wsgi --env DJANGO_SETTINGS_MODULE=web_programming.settings.prod --bind 0.0.0.0:8000"]
