@@ -1,26 +1,27 @@
-import { getWindow } from 'ssr-window';
+import {getWindow} from 'ssr-window';
+
 let browser;
 
 function calcBrowser() {
-  const window = getWindow();
+    const window = getWindow();
 
-  function isSafari() {
-    const ua = window.navigator.userAgent.toLowerCase();
-    return ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0;
-  }
+    function isSafari() {
+        const ua = window.navigator.userAgent.toLowerCase();
+        return ua.indexOf('safari') >= 0 && ua.indexOf('chrome') < 0 && ua.indexOf('android') < 0;
+    }
 
-  return {
-    isSafari: isSafari(),
-    isWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent)
-  };
+    return {
+        isSafari: isSafari(),
+        isWebView: /(iPhone|iPod|iPad).*AppleWebKit(?!.*Safari)/i.test(window.navigator.userAgent)
+    };
 }
 
 function getBrowser() {
-  if (!browser) {
-    browser = calcBrowser();
-  }
+    if (!browser) {
+        browser = calcBrowser();
+    }
 
-  return browser;
+    return browser;
 }
 
-export { getBrowser };
+export {getBrowser};

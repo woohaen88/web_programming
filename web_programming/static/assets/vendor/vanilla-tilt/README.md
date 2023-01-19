@@ -19,8 +19,12 @@ A smooth 3D tilt javascript library forked from [Tilt.js (jQuery version)](https
 </body>
 ```
 
-If you want to use this library in IE, you need to include a CustomEvent polyfill: https://github.com/micku7zu/vanilla-tilt.js/issues/49#issuecomment-482711876 or maybe consider the [jQuery version](https://github.com/gijsroge/tilt.js).
+If you want to use this library in IE, you need to include a CustomEvent
+polyfill: https://github.com/micku7zu/vanilla-tilt.js/issues/49#issuecomment-482711876 or maybe consider
+the [jQuery version](https://github.com/gijsroge/tilt.js).
+
 ### Options
+
 ```js
 {
     reverse:                false,  // reverse the tilt direction
@@ -50,6 +54,7 @@ If you want to use this library in IE, you need to include a CustomEvent polyfil
 ```
 
 ### Events
+
 ```js
 const element = document.querySelector(".js-tilt");
 VanillaTilt.init(element);
@@ -57,6 +62,7 @@ element.addEventListener("tiltChange", callback);
 ```
 
 ### Methods
+
 ```js
 const element = document.querySelector(".js-tilt");
 VanillaTilt.init(element);
@@ -76,12 +82,16 @@ VanillaTilt.init(elements);
 ```
 
 ### Install
+
 You can copy and include any of the following file:
 
 * [dist/vanilla-tilt.js](https://raw.githubusercontent.com/micku7zu/vanilla-tilt.js/master/dist/vanilla-tilt.js) ~ 15kb
-* [dist/vanilla-tilt.min.js](https://raw.githubusercontent.com/micku7zu/vanilla-tilt.js/master/dist/vanilla-tilt.min.js) ~ 8.5kb
-* [dist/vanilla-tilt.babel.js](https://raw.githubusercontent.com/micku7zu/vanilla-tilt.js/master/dist/vanilla-tilt.babel.js) ~ 16.5kb
-* [dist/vanilla-tilt.babel.min.js](https://raw.githubusercontent.com/micku7zu/vanilla-tilt.js/master/dist/vanilla-tilt.babel.min.js) ~ 9.5kb
+* [dist/vanilla-tilt.min.js](https://raw.githubusercontent.com/micku7zu/vanilla-tilt.js/master/dist/vanilla-tilt.min.js) ~
+  8.5kb
+* [dist/vanilla-tilt.babel.js](https://raw.githubusercontent.com/micku7zu/vanilla-tilt.js/master/dist/vanilla-tilt.babel.js) ~
+  16.5kb
+* [dist/vanilla-tilt.babel.min.js](https://raw.githubusercontent.com/micku7zu/vanilla-tilt.js/master/dist/vanilla-tilt.babel.min.js) ~
+  9.5kb
 
 #### NPM
 
@@ -98,6 +108,7 @@ import VanillaTilt from 'vanilla-tilt';
 ```
 
 ### Known issues
+
 - [Getting weird rendering issues on Safari](https://github.com/micku7zu/vanilla-tilt.js/issues/22)
 
 ### Credits
@@ -108,7 +119,8 @@ Original library author: [Gijs Rogé](https://twitter.com/GijsRoge)
 
 #### Contributors
 
-- [Livio Brunner](https://github.com/BrunnerLivio) <<a href="mailto:contact@brunnerliv.io">contact@brunnerliv.io</a>> (Typings & Glare Effect)
+- [Livio Brunner](https://github.com/BrunnerLivio) <<a href="mailto:contact@brunnerliv.io">contact@brunnerliv.io</a>> (
+  Typings & Glare Effect)
 - [Oleg Postoev](https://github.com/Dok11)
 - [Matteo Rigon](https://github.com/matteo-rigon) (Device orientation support)
 - [Corey Austin](https://github.com/lazyhummingbird) (Initial gyroscope position)

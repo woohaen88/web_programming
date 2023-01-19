@@ -5,7 +5,9 @@
 
 // Base styles
 
-.nav-item { margin-bottom: 0; }
+.nav-item {
+  margin-bottom: 0;
+}
 
 .nav {
   --#{$prefix}nav-link-active-color: #{$nav-link-active-color};
@@ -14,9 +16,11 @@
 .nav-link {
   display: flex;
   align-items: center;
+
   &.active {
     color: var(--#{$prefix}nav-link-active-color);
   }
+
   &.active:not([data-bs-toggle='dropdown']) {
     pointer-events: none;
     cursor: default;
@@ -49,6 +53,7 @@
       background-color: var(--#{$prefix}nav-tabs-link-hover-bg);
       color: var(--#{$prefix}nav-tabs-link-hover-color);
     }
+
     &.disabled,
     &[disabled] {
       background-color: var(--#{$prefix}nav-tabs-link-disabled-bg);
@@ -72,17 +77,20 @@
 
   margin-bottom: $spacer * 1.5;
   border-bottom: var(--#{$prefix}nav-tabs-alt-border-width) solid var(--#{$prefix}nav-tabs-alt-border-color);
+
   .nav-item {
     margin-bottom: calc(var(--#{$prefix}nav-tabs-alt-border-width) * -1);
   }
+
   .nav-link {
     padding: var(--#{$prefix}nav-tabs-alt-link-padding-y) var(--#{$prefix}nav-tabs-alt-link-padding-x);
     border-bottom: $border-width solid transparent;
+
     &.active {
       border-bottom-color: var(--#{$prefix}nav-tabs-alt-link-active-border-color);
     }
   }
-} 
+}
 
 
 // Spacing
@@ -91,20 +99,26 @@
 .nav-pills {
   .nav-item {
     margin-right: ($spacer * .75);
-    &:last-child { margin-right: 0; }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
+
   &.justify-content-center .nav-item {
     margin: {
       right: ($spacer * .375);
       left: ($spacer * .375);
     }
   }
+
   &.justify-content-end .nav-item {
     margin: {
       right: 0;
       left: ($spacer * .75);
     }
   }
+
   &.flex-column {
     .nav-item {
       margin: {
@@ -112,7 +126,10 @@
         bottom: ($spacer * .75);
         left: 0;
       }
-      &:last-child { margin-bottom: 0; }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }
@@ -139,6 +156,7 @@
       left: calc(var(--#{$prefix}side-nav-padding-x) * -1);
     }
   }
+
   .nav-link {
     padding: var(--#{$prefix}side-nav-link-padding-y) var(--#{$prefix}side-nav-link-padding-x);
     transition: $side-nav-link-trnasition;
@@ -147,13 +165,16 @@
 
   &.side-nav-start {
     border-right: var(--#{$prefix}side-nav-border-width) solid var(--#{$prefix}side-nav-border-color);
+
     .nav-link {
       margin-right: calc(var(--#{$prefix}side-nav-border-width) * -1);
       border-right: var(--#{$prefix}side-nav-border-width) solid transparent;
     }
   }
+
   &.side-nav-end {
     border-left: var(--#{$prefix}side-nav-border-width) solid var(--#{$prefix}side-nav-border-color);
+
     .nav-link {
       margin-left: calc(var(--#{$prefix}side-nav-border-width) * -1);
       border-left: var(--#{$prefix}side-nav-border-width) solid transparent;
@@ -171,6 +192,7 @@
 
 .bg-faded-primary-hover {
   transition: background-color .2s ease-in-out;
+
   &:hover {
     background-color: map-get($theme-faded-colors, 'primary') !important;
   }

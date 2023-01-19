@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Camping, CampingItemCategory
 
 
@@ -6,6 +7,7 @@ from .models import Camping, CampingItemCategory
 class CampingAdmin(admin.ModelAdmin):
     pass
 
+
 @admin.register(CampingItemCategory)
 class CampingItemCategory(admin.ModelAdmin):
-    prepopulated_fields = {"slug" : ("name",)}
+    prepopulated_fields = {"slug": ("name",)}

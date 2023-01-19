@@ -1,5 +1,6 @@
-import { LightGallery } from './lightgallery';
-import { VideoSource } from './plugins/video/types';
+import {LightGallery} from './lightgallery';
+import {VideoSource} from './plugins/video/types';
+
 /**
  * List of lightGallery events
  * All events should be documented here
@@ -8,6 +9,7 @@ import { VideoSource } from './plugins/video/types';
 export declare const lGEvents: {
     [key: string]: string;
 };
+
 /**
  * Fired only once when lightGallery is initialized
  * @name lgInit
@@ -29,6 +31,7 @@ export interface InitDetail {
      */
     instance: LightGallery;
 }
+
 /**
  * Fired when the slide content has been inserted into it's slide container.
  * @name lgAfterAppendSlide
@@ -40,6 +43,7 @@ export interface AfterAppendSlideEventDetail {
      */
     index: number;
 }
+
 /**
  * Fired immediately before opening the gallery
  * @name lgBeforeOpen
@@ -47,6 +51,7 @@ export interface AfterAppendSlideEventDetail {
  */
 export interface BeforeOpenDetail {
 }
+
 /**
  * Fired immediately after opening the gallery
  * @name lgAfterOpen
@@ -54,6 +59,7 @@ export interface BeforeOpenDetail {
  */
 export interface AfterOpenDetail {
 }
+
 /**
  * Fired once the media inside the slide has been completely loaded .
  * @name lgSlideItemLoad
@@ -72,6 +78,7 @@ export interface SlideItemLoadDetail {
     delay: number;
     isFirstSlide: boolean;
 }
+
 /**
  * Fired immediately before each slide transition.
  * @name lgBeforeSlide
@@ -103,6 +110,7 @@ export interface BeforeSlideDetail {
      */
     fromThumb: boolean;
 }
+
 /**
  * Fired immediately after each slide transition.
  * @name lgAfterSlide
@@ -126,6 +134,7 @@ export interface AfterSlideDetail {
      */
     fromThumb: boolean;
 }
+
 /**
  * Fired when the video poster is clicked.
  * @name lgPosterClick
@@ -133,6 +142,7 @@ export interface AfterSlideDetail {
  */
 export interface PosterClickDetail {
 }
+
 /**
  * Fired when the drag event to move to different slide starts.
  * @name lgDragStart
@@ -140,6 +150,7 @@ export interface PosterClickDetail {
  */
 export interface DragStartDetail {
 }
+
 /**
  * Fired periodically during the drag operation.
  * @name lgDragMove
@@ -147,6 +158,7 @@ export interface DragStartDetail {
  */
 export interface DragMoveDetail {
 }
+
 /**
  * Fired when the user has finished the drag operation
  * @name lgDragEnd
@@ -154,6 +166,7 @@ export interface DragMoveDetail {
  */
 export interface DragEndDetail {
 }
+
 /**
  * Fired immediately before the start of the close process.
  * @name lgBeforeClose
@@ -161,6 +174,7 @@ export interface DragEndDetail {
  */
 export interface BeforeCloseDetail {
 }
+
 /**
  * Fired immediately once lightGallery is closed.
  * @name lgAfterClose
@@ -172,6 +186,7 @@ export interface AfterCloseDetail {
      */
     instance: LightGallery;
 }
+
 /**
  * Fired immediately before each "next" slide transition
  * @name lgBeforeNextSlide
@@ -187,6 +202,7 @@ export interface BeforeNextSlideDetail {
      */
     fromTouch: boolean;
 }
+
 /**
  * Fired immediately before each "prev" slide transition
  * @name lgBeforePrevSlide
@@ -202,6 +218,7 @@ export interface BeforePrevSlideDetail {
      */
     fromTouch: boolean;
 }
+
 /**
  * Fired when the sub-html content (ex : title/ description) has been appended into the slide.
  * @name lgAfterAppendSubHtml
@@ -213,6 +230,7 @@ export interface AfterAppendSubHtmlDetail {
      */
     index: number;
 }
+
 /**
  * Fired when the lightGallery container has been resized.
  * @name lgContainerResize
@@ -224,6 +242,7 @@ export interface ContainerResizeDetail {
      */
     index: number;
 }
+
 /**
  * Fired when lightGallery detects video slide
  * @name lgHasVideo
@@ -241,11 +260,11 @@ export interface HasVideoDetail {
     /**
      * HTML5 video source if available
      * <p>
-       HTML5 video source = source: {
+     HTML5 video source = source: {
             src: string;
             type: string;
         }[];
-        attributes: HTMLVideoElement;
+     attributes: HTMLVideoElement;
      * </p>
      */
     html5Video: VideoSource;
@@ -254,6 +273,7 @@ export interface HasVideoDetail {
      */
     hasPoster: boolean;
 }
+
 /**
  * Fired when the image is rotated in anticlockwise direction
  * @name lgRotateLeft
@@ -265,6 +285,7 @@ export interface RotateLeftDetail {
      */
     index: number;
 }
+
 /**
  * Fired when the image is rotated in clockwise direction
  * @name lgRotateRight
@@ -276,6 +297,7 @@ export interface RotateRightDetail {
      */
     index: number;
 }
+
 /**
  * Fired when the image is flipped horizontally
  * @name lgFlipHorizontal
@@ -287,6 +309,7 @@ export interface FlipHorizontalDetail {
      */
     index: number;
 }
+
 /**
  * Fired when the image is flipped vertically
  * @name lgFlipVertical

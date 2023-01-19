@@ -70,6 +70,7 @@ type SubRange = number | WrappedSubRange;
 interface Range {
     min: SubRange;
     max: SubRange;
+
     [key: `${number}%`]: SubRange;
 }
 
@@ -405,13 +406,13 @@ function getPageOffset(doc: Document): PageOffset {
     const x = supportPageOffset
         ? window.pageXOffset
         : isCSS1Compat
-        ? doc.documentElement.scrollLeft
-        : doc.body.scrollLeft;
+            ? doc.documentElement.scrollLeft
+            : doc.body.scrollLeft;
     const y = supportPageOffset
         ? window.pageYOffset
         : isCSS1Compat
-        ? doc.documentElement.scrollTop
-        : doc.body.scrollTop;
+            ? doc.documentElement.scrollTop
+            : doc.body.scrollTop;
 
     return {
         x: x,
@@ -427,21 +428,21 @@ function getActions(): { start: string; move: string; end: string } {
     // a prefix, which breaks compatibility with the IE10 implementation.
     return (window.navigator as any).pointerEnabled
         ? {
-              start: "pointerdown",
-              move: "pointermove",
-              end: "pointerup",
-          }
+            start: "pointerdown",
+            move: "pointermove",
+            end: "pointerup",
+        }
         : (window.navigator as any).msPointerEnabled
-        ? {
-              start: "MSPointerDown",
-              move: "MSPointerMove",
-              end: "MSPointerUp",
-          }
-        : {
-              start: "mousedown touchstart",
-              move: "mousemove touchmove",
-              end: "mouseup touchend",
-          };
+            ? {
+                start: "MSPointerDown",
+                move: "MSPointerMove",
+                end: "MSPointerUp",
+            }
+            : {
+                start: "mousedown touchstart",
+                move: "mousemove touchmove",
+                end: "mouseup touchend",
+            };
 }
 
 // https://github.com/WICG/EventListenerOptions/blob/gh-pages/explainer.md
@@ -459,7 +460,8 @@ function getSupportsPassive(): boolean {
 
         // @ts-ignore
         window.addEventListener("test", null, opts);
-    } catch (e) {}
+    } catch (e) {
+    }
     /* eslint-enable */
 
     return supportsPassive;
@@ -1261,30 +1263,30 @@ function testOptions(options: Options): ParsedOptions {
 
     // Tests are executed in the order they are presented here.
     const tests: { [key in keyof Options]: { r: boolean; t: (parsed: ParsedOptions, entry: unknown) => void } } = {
-        step: { r: false, t: testStep },
-        keyboardPageMultiplier: { r: false, t: testKeyboardPageMultiplier },
-        keyboardMultiplier: { r: false, t: testKeyboardMultiplier },
-        keyboardDefaultStep: { r: false, t: testKeyboardDefaultStep },
-        start: { r: true, t: testStart },
-        connect: { r: true, t: testConnect },
-        direction: { r: true, t: testDirection },
-        snap: { r: false, t: testSnap },
-        animate: { r: false, t: testAnimate },
-        animationDuration: { r: false, t: testAnimationDuration },
-        range: { r: true, t: testRange },
-        orientation: { r: false, t: testOrientation },
-        margin: { r: false, t: testMargin },
-        limit: { r: false, t: testLimit },
-        padding: { r: false, t: testPadding },
-        behaviour: { r: true, t: testBehaviour },
-        ariaFormat: { r: false, t: testAriaFormat },
-        format: { r: false, t: testFormat },
-        tooltips: { r: false, t: testTooltips },
-        keyboardSupport: { r: true, t: testKeyboardSupport },
-        documentElement: { r: false, t: testDocumentElement },
-        cssPrefix: { r: true, t: testCssPrefix },
-        cssClasses: { r: true, t: testCssClasses },
-        handleAttributes: { r: false, t: testHandleAttributes },
+        step: {r: false, t: testStep},
+        keyboardPageMultiplier: {r: false, t: testKeyboardPageMultiplier},
+        keyboardMultiplier: {r: false, t: testKeyboardMultiplier},
+        keyboardDefaultStep: {r: false, t: testKeyboardDefaultStep},
+        start: {r: true, t: testStart},
+        connect: {r: true, t: testConnect},
+        direction: {r: true, t: testDirection},
+        snap: {r: false, t: testSnap},
+        animate: {r: false, t: testAnimate},
+        animationDuration: {r: false, t: testAnimationDuration},
+        range: {r: true, t: testRange},
+        orientation: {r: false, t: testOrientation},
+        margin: {r: false, t: testMargin},
+        limit: {r: false, t: testLimit},
+        padding: {r: false, t: testPadding},
+        behaviour: {r: true, t: testBehaviour},
+        ariaFormat: {r: false, t: testAriaFormat},
+        format: {r: false, t: testFormat},
+        tooltips: {r: false, t: testTooltips},
+        keyboardSupport: {r: true, t: testKeyboardSupport},
+        documentElement: {r: false, t: testDocumentElement},
+        cssPrefix: {r: true, t: testCssPrefix},
+        cssClasses: {r: true, t: testCssClasses},
+        handleAttributes: {r: false, t: testHandleAttributes},
     };
 
     const defaults = {
@@ -1897,7 +1899,7 @@ function scope(target: TargetElement, options: ParsedOptions, originalOptions: O
 
         // Bind a closure on the target for every event type.
         events.split(" ").forEach(function (eventName: string): void {
-            element.addEventListener(eventName, method, supportsPassive ? { passive: true } : false);
+            element.addEventListener(eventName, method, supportsPassive ? {passive: true} : false);
             methods.push([eventName, method]);
         });
 
@@ -2217,7 +2219,7 @@ function scope(target: TargetElement, options: ParsedOptions, originalOptions: O
             fireEvent("change", handleNumber, true);
             fireEvent("set", handleNumber, true);
         } else {
-            eventStart(event, { handleNumbers: [handleNumber] });
+            eventStart(event, {handleNumbers: [handleNumber]});
         }
     }
 
@@ -3057,11 +3059,11 @@ function initialize(target: TargetElement, originalOptions: Options): API {
     return api;
 }
 
-export { TargetElement as target };
+export {TargetElement as target};
 
-export { initialize as create };
+export {initialize as create};
 
-export { cssClasses };
+export {cssClasses};
 
 export default {
     // Exposed for unit testing, don't use this in your application.

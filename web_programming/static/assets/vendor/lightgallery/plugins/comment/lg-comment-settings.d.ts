@@ -1,6 +1,7 @@
 export interface CommentStrings {
     toggleComments: string;
 }
+
 export interface CommentSettings {
     /**
      * Enable comment box
@@ -30,4 +31,5 @@ export interface CommentSettings {
      */
     commentPluginStrings: CommentStrings;
 }
+
 export declare const commentSettings: CommentSettings;

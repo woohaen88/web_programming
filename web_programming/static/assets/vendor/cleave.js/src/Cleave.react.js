@@ -45,7 +45,7 @@ var cleaveReactClass = CreateReactClass({
 
     updateRegisteredEvents: function (props) {
         var owner = this,
-            { onKeyDown, onChange, onFocus, onBlur, onInit } = owner.registeredEvents;
+            {onKeyDown, onChange, onFocus, onBlur, onInit} = owner.registeredEvents;
 
         if (props.onInit && props.onInit !== onInit) owner.registeredEvents.onInit = props.onInit;
         if (props.onChange && props.onChange !== onChange) owner.registeredEvents.onChange = props.onChange;
@@ -56,13 +56,13 @@ var cleaveReactClass = CreateReactClass({
 
     getInitialState: function () {
         var owner = this,
-            { value, options, onKeyDown, onChange, onFocus, onBlur, onInit } = owner.props;
+            {value, options, onKeyDown, onChange, onFocus, onBlur, onInit} = owner.props;
 
         owner.registeredEvents = {
-            onInit:    onInit || Util.noop,
-            onChange:  onChange || Util.noop,
-            onFocus:   onFocus || Util.noop,
-            onBlur:    onBlur || Util.noop,
+            onInit: onInit || Util.noop,
+            onChange: onChange || Util.noop,
+            onFocus: onFocus || Util.noop,
+            onBlur: onBlur || Util.noop,
             onKeyDown: onKeyDown || Util.noop
         };
 
@@ -418,7 +418,7 @@ var cleaveReactClass = CreateReactClass({
             pps = owner.properties;
 
         if (!owner.element) {
-            owner.setState({ value: pps.result });
+            owner.setState({value: pps.result});
             return;
         }
 
@@ -432,19 +432,19 @@ var cleaveReactClass = CreateReactClass({
 
         if (owner.isAndroid) {
             window.setTimeout(function () {
-                owner.setState({ value: newValue, cursorPosition: endPos });
+                owner.setState({value: newValue, cursorPosition: endPos});
             }, 1);
 
             return;
         }
 
-        owner.setState({ value: newValue, cursorPosition: endPos });
+        owner.setState({value: newValue, cursorPosition: endPos});
     },
 
     render: function () {
         var owner = this;
         // eslint-disable-next-line
-        var { value, options, onKeyDown, onFocus, onBlur, onChange, onInit, htmlRef, ...propsToTransfer } = owner.props;
+        var {value, options, onKeyDown, onFocus, onBlur, onChange, onInit, htmlRef, ...propsToTransfer} = owner.props;
 
         return (
             <input

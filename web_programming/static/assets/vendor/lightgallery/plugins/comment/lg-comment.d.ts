@@ -8,18 +8,26 @@
  * @ref - https://developers.facebook.com/docs/plugins/comments/#comments-plugin
  *
  */
-import { LgQuery } from '../../lgQuery';
-import { LightGallery } from '../../lightgallery';
-import { CommentSettings } from './lg-comment-settings';
+import {LgQuery} from '../../lgQuery';
+import {LightGallery} from '../../lightgallery';
+import {CommentSettings} from './lg-comment-settings';
+
 export default class CommentBox {
     core: LightGallery;
     settings: CommentSettings;
     private $LG;
+
     constructor(instance: LightGallery, $LG: LgQuery);
+
     init(): void;
+
     private setMarkup;
+
     toggleCommentBox(): void;
+
     addFbComments(): void;
+
     addDisqusComments(): void;
+
     destroy(): void;
 }

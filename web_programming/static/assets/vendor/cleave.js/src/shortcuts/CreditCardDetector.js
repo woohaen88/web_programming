@@ -2,20 +2,20 @@
 
 var CreditCardDetector = {
     blocks: {
-        uatp:          [4, 5, 6],
-        amex:          [4, 6, 5],
-        diners:        [4, 6, 4],
-        discover:      [4, 4, 4, 4],
-        mastercard:    [4, 4, 4, 4],
-        dankort:       [4, 4, 4, 4],
-        instapayment:  [4, 4, 4, 4],
-        jcb15:         [4, 6, 5],
-        jcb:           [4, 4, 4, 4],
-        maestro:       [4, 4, 4, 4],
-        visa:          [4, 4, 4, 4],
-        mir:           [4, 4, 4, 4],
-        unionPay:      [4, 4, 4, 4],
-        general:       [4, 4, 4, 4]
+        uatp: [4, 5, 6],
+        amex: [4, 6, 5],
+        diners: [4, 6, 4],
+        discover: [4, 4, 4, 4],
+        mastercard: [4, 4, 4, 4],
+        dankort: [4, 4, 4, 4],
+        instapayment: [4, 4, 4, 4],
+        jcb15: [4, 6, 5],
+        jcb: [4, 4, 4, 4],
+        maestro: [4, 4, 4, 4],
+        visa: [4, 4, 4, 4],
+        mir: [4, 4, 4, 4],
+        unionPay: [4, 4, 4, 4],
+        general: [4, 4, 4, 4]
     },
 
     re: {
@@ -60,11 +60,11 @@ var CreditCardDetector = {
     },
 
     getStrictBlocks: function (block) {
-      var total = block.reduce(function (prev, current) {
-        return prev + current;
-      }, 0);
+        var total = block.reduce(function (prev, current) {
+            return prev + current;
+        }, 0);
 
-      return block.concat(19 - total);
+        return block.concat(19 - total);
     },
 
     getInfo: function (value, strictMode) {

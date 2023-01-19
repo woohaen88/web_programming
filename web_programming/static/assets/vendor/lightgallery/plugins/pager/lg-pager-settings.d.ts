@@ -4,4 +4,5 @@ export interface PagerSettings {
      */
     pager: boolean;
 }
+
 export declare const pagerSettings: PagerSettings;

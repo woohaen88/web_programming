@@ -15,7 +15,9 @@
   }
 
   &:hover,
-  &:disabled, &.disabled { box-shadow: none !important; }
+  &:disabled, &.disabled {
+    box-shadow: none !important;
+  }
 }
 
 
@@ -158,6 +160,7 @@
 
 .btn-group .btn {
   --#{$prefix}btn-padding-x: #{$input-btn-padding-x * .75};
+
   &.dropdown-toggle-split {
     --#{$prefix}btn-padding-x: #{$input-btn-padding-x * .5};
     padding: {
@@ -166,9 +169,11 @@
     }
   }
 }
+
 .btn-group-lg .btn,
 .btn-group .btn-lg {
   --#{$prefix}btn-padding-x: #{$input-btn-padding-x-lg * .75};
+
   &.dropdown-toggle-split {
     --#{$prefix}btn-padding-x: #{$input-btn-padding-x-lg * .5};
     padding: {
@@ -177,9 +182,11 @@
     }
   }
 }
+
 .btn-group-sm .btn,
 .btn-group .btn-sm {
   --#{$prefix}btn-padding-x: #{$input-btn-padding-x-sm * .75};
+
   &.dropdown-toggle-split {
     --#{$prefix}btn-padding-x: #{$input-btn-padding-x-sm * .5};
     padding: {
@@ -223,6 +230,7 @@
   text-decoration: none;
   opacity: 0;
   z-index: $zindex-fixed;
+
   > .btn-scroll-top-icon {
     font: {
       size: var(--#{$prefix}btn-scroll-top-icon-size);
@@ -243,6 +251,7 @@
   &:hover {
     background-color: var(--#{$prefix}btn-scroll-top-hover-bg);
     color: var(--#{$prefix}btn-scroll-top-hover-color);
+
     .btn-scroll-top-tooltip {
       visibility: visible;
       opacity: 1;
@@ -258,6 +267,8 @@
     width: calc(var(--#{$prefix}btn-scroll-top-size) * .8);
     height: calc(var(--#{$prefix}btn-scroll-top-size) * .8);
     right: $spacer;
-    &.show { bottom: $spacer; }
+    &.show {
+      bottom: $spacer;
+    }
   }
 }

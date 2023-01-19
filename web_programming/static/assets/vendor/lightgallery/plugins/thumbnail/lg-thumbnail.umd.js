@@ -7,9 +7,10 @@
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgThumbnail = factory());
-}(this, (function () { 'use strict';
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgThumbnail = factory());
+}(this, (function () {
+    'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -26,7 +27,7 @@
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    var __assign = function() {
+    var __assign = function () {
         __assign = Object.assign || function __assign(t) {
             for (var s, i = 1, n = arguments.length; i < n; i++) {
                 s = arguments[i];
@@ -102,13 +103,14 @@
             this.$LG = $LG;
             return this;
         }
+
         Thumbnail.prototype.init = function () {
             // extend module default settings with lightGallery core settings
             this.settings = __assign(__assign({}, thumbnailsSettings), this.core.settings);
             this.thumbOuterWidth = 0;
             this.thumbTotalWidth =
                 this.core.galleryItems.length *
-                    (this.settings.thumbWidth + this.settings.thumbMargin);
+                (this.settings.thumbWidth + this.settings.thumbMargin);
             // Thumbnail animation value
             this.translateX = 0;
             this.setAnimateThumbStyles();
@@ -125,8 +127,7 @@
                         this.enableThumbSwipe();
                     }
                     this.thumbClickable = false;
-                }
-                else {
+                } else {
                     this.thumbClickable = true;
                 }
                 this.toggleThumbBar();
@@ -180,8 +181,7 @@
             this.core.outer.addClass('lg-has-thumb');
             if (this.settings.appendThumbnailsTo === '.lg-components') {
                 this.core.$lgComponents.append(html);
-            }
-            else {
+            } else {
                 this.core.outer.append(html);
             }
             this.$thumbOuter = this.core.outer.find('.lg-thumb-outer').first();
@@ -214,22 +214,22 @@
                 .find('.lg-thumb')
                 .first()
                 .on('mousedown.lg.thumb', function (e) {
-                if (_this.thumbTotalWidth > _this.thumbOuterWidth) {
-                    // execute only on .lg-object
-                    e.preventDefault();
-                    thumbDragUtils.cords.startX = e.pageX;
-                    thumbDragUtils.startTime = new Date();
-                    _this.thumbClickable = false;
-                    isDragging = true;
-                    // ** Fix for webkit cursor issue https://code.google.com/p/chromium/issues/detail?id=26723
-                    _this.core.outer.get().scrollLeft += 1;
-                    _this.core.outer.get().scrollLeft -= 1;
-                    // *
-                    _this.$thumbOuter
-                        .removeClass('lg-grab')
-                        .addClass('lg-grabbing');
-                }
-            });
+                    if (_this.thumbTotalWidth > _this.thumbOuterWidth) {
+                        // execute only on .lg-object
+                        e.preventDefault();
+                        thumbDragUtils.cords.startX = e.pageX;
+                        thumbDragUtils.startTime = new Date();
+                        _this.thumbClickable = false;
+                        isDragging = true;
+                        // ** Fix for webkit cursor issue https://code.google.com/p/chromium/issues/detail?id=26723
+                        _this.core.outer.get().scrollLeft += 1;
+                        _this.core.outer.get().scrollLeft -= 1;
+                        // *
+                        _this.$thumbOuter
+                            .removeClass('lg-grab')
+                            .addClass('lg-grabbing');
+                    }
+                });
             this.$LG(window).on("mousemove.lg.thumb.global" + this.core.lgId, function (e) {
                 if (!_this.core.lgOpened)
                     return;
@@ -243,8 +243,7 @@
                     return;
                 if (thumbDragUtils.isMoved) {
                     thumbDragUtils = _this.onThumbTouchEnd(thumbDragUtils);
-                }
-                else {
+                } else {
                     _this.thumbClickable = true;
                 }
                 if (isDragging) {
@@ -284,8 +283,7 @@
             this.$lgThumb.on('touchend.lg', function () {
                 if (thumbDragUtils.isMoved) {
                     thumbDragUtils = _this.onThumbTouchEnd(thumbDragUtils);
-                }
-                else {
+                } else {
                     _this.thumbClickable = true;
                 }
             });
@@ -298,7 +296,7 @@
             setTimeout(function () {
                 _this.thumbTotalWidth =
                     _this.core.galleryItems.length *
-                        (_this.settings.thumbWidth + _this.settings.thumbMargin);
+                    (_this.settings.thumbWidth + _this.settings.thumbMargin);
                 _this.$lgThumb.css('width', _this.thumbTotalWidth + 'px');
                 _this.$lgThumb.empty();
                 _this.setThumbItemHtml(_this.core.galleryItems);
@@ -338,8 +336,8 @@
                 }
                 this.translateX =
                     (this.settings.thumbWidth + this.settings.thumbMargin) * index -
-                        1 -
-                        position;
+                    1 -
+                    position;
                 if (this.translateX > this.thumbTotalWidth - this.thumbOuterWidth) {
                     this.translateX = this.thumbTotalWidth - this.thumbOuterWidth;
                 }
@@ -379,13 +377,12 @@
                 }
                 speedX =
                     speedX +
-                        speedX * (Math.abs(distanceXnew) / this.thumbOuterWidth);
+                    speedX * (Math.abs(distanceXnew) / this.thumbOuterWidth);
                 this.$lgThumb.css('transition-duration', Math.min(speedX - 1, 2) + 'settings');
                 distanceXnew = distanceXnew * speedX;
                 this.translateX = this.getPossibleTransformX(this.translateX - distanceXnew);
                 this.setTranslate(this.translateX);
-            }
-            else {
+            } else {
                 this.translateX = thumbDragUtils.newTranslateX;
             }
             if (Math.abs(thumbDragUtils.cords.endX - thumbDragUtils.cords.startX) <
@@ -401,16 +398,14 @@
                 if (this.settings.loadYouTubeThumbnail) {
                     thumbImg =
                         '//img.youtube.com/vi/' +
-                            slideVideoInfo.youtube[1] +
-                            '/' +
-                            this.settings.youTubeThumbSize +
-                            '.jpg';
-                }
-                else {
+                        slideVideoInfo.youtube[1] +
+                        '/' +
+                        this.settings.youTubeThumbSize +
+                        '.jpg';
+                } else {
                     thumbImg = thumb;
                 }
-            }
-            else {
+            } else {
                 thumbImg = thumb;
             }
             return "<div data-lg-item-id=\"" + index + "\" class=\"lg-thumb-item " + (index === this.core.index ? ' active' : '') + "\" \n        style=\"width:" + this.settings.thumbWidth + "px; height: " + this.settings.thumbHeight + ";\n            margin-right: " + this.settings.thumbMargin + "px;\">\n            <img data-lg-item-id=\"" + index + "\" src=\"" + thumbImg + "\" />\n        </div>";
@@ -454,8 +449,8 @@
                     .find('.lg-toggle-thumb')
                     .first()
                     .on('click.lg', function () {
-                    _this.core.outer.toggleClass('lg-components-open');
-                });
+                        _this.core.outer.toggleClass('lg-components-open');
+                    });
             }
         };
         Thumbnail.prototype.thumbKeyPress = function () {
@@ -466,8 +461,7 @@
                 if (e.keyCode === 38) {
                     e.preventDefault();
                     _this.core.outer.addClass('lg-components-open');
-                }
-                else if (e.keyCode === 40) {
+                } else if (e.keyCode === 40) {
                     e.preventDefault();
                     _this.core.outer.removeClass('lg-components-open');
                 }

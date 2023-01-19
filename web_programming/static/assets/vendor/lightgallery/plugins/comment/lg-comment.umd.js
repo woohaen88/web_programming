@@ -7,9 +7,10 @@
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgComment = factory());
-}(this, (function () { 'use strict';
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgComment = factory());
+}(this, (function () {
+    'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -26,7 +27,7 @@
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    var __assign = function() {
+    var __assign = function () {
         __assign = Object.assign || function __assign(t) {
             for (var s, i = 1, n = arguments.length; i < n; i++) {
                 s = arguments[i];
@@ -104,6 +105,7 @@
             this.settings = __assign(__assign({}, commentSettings), this.core.settings);
             return this;
         }
+
         CommentBox.prototype.init = function () {
             if (!this.settings.commentBox) {
                 return;
@@ -112,8 +114,7 @@
             this.toggleCommentBox();
             if (this.settings.fbComments) {
                 this.addFbComments();
-            }
-            else if (this.settings.disqusComments) {
+            } else if (this.settings.disqusComments) {
                 this.addDisqusComments();
             }
         };
@@ -129,20 +130,20 @@
                 .find('.lg-comment-toggle')
                 .first()
                 .on('click.lg.comment', function () {
-                _this_1.core.outer.toggleClass('lg-comment-active');
-            });
+                    _this_1.core.outer.toggleClass('lg-comment-active');
+                });
             this.core.outer
                 .find('.lg-comment-overlay')
                 .first()
                 .on('click.lg.comment', function () {
-                _this_1.core.outer.removeClass('lg-comment-active');
-            });
+                    _this_1.core.outer.removeClass('lg-comment-active');
+                });
             this.core.outer
                 .find('.lg-comment-close')
                 .first()
                 .on('click.lg.comment', function () {
-                _this_1.core.outer.removeClass('lg-comment-active');
-            });
+                    _this_1.core.outer.removeClass('lg-comment-active');
+                });
         };
         CommentBox.prototype.addFbComments = function () {
             var _this_1 = this;
@@ -155,8 +156,7 @@
             this.core.LGel.on(lGEvents.afterSlide + ".comment", function () {
                 try {
                     FB.XFBML.parse();
-                }
-                catch (err) {
+                } catch (err) {
                     _this.$LG(window).on('fbAsyncInit', function () {
                         FB.XFBML.parse();
                     });
@@ -193,8 +193,7 @@
                                     _this.settings.disqusConfig.language;
                             },
                         });
-                    }
-                    catch (err) {
+                    } catch (err) {
                         console.error('Make sure you have included disqus JavaScript code in your document. Ex - https://lg-disqus.disqus.com/admin/install/platforms/universalcode/');
                     }
                 }, _this.core.lGalleryOn ? 0 : 1000);

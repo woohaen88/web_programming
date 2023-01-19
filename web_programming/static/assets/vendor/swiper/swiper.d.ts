@@ -1,6 +1,6 @@
 import Swiper from './types/swiper-class';
-import { SwiperOptions } from './types/swiper-options';
-import { SwiperModule } from './types/shared';
+import {SwiperOptions} from './types/swiper-options';
+import {SwiperModule} from './types/shared';
 
 declare const A11y: SwiperModule;
 declare const Autoplay: SwiperModule;
@@ -29,30 +29,30 @@ declare const Manipulation: SwiperModule;
 
 export default Swiper;
 export {
-  Swiper,
-  SwiperOptions,
-  A11y,
-  Autoplay,
-  Controller,
-  EffectCoverflow,
-  EffectCube,
-  EffectFade,
-  EffectFlip,
-  EffectCreative,
-  EffectCards,
-  HashNavigation,
-  History,
-  Keyboard,
-  Lazy,
-  Mousewheel,
-  Navigation,
-  Pagination,
-  Parallax,
-  Scrollbar,
-  Thumbs,
-  Virtual,
-  Zoom,
-  FreeMode,
-  Grid,
-  Manipulation,
+    Swiper,
+    SwiperOptions,
+    A11y,
+    Autoplay,
+    Controller,
+    EffectCoverflow,
+    EffectCube,
+    EffectFade,
+    EffectFlip,
+    EffectCreative,
+    EffectCards,
+    HashNavigation,
+    History,
+    Keyboard,
+    Lazy,
+    Mousewheel,
+    Navigation,
+    Pagination,
+    Parallax,
+    Scrollbar,
+    Thumbs,
+    Virtual,
+    Zoom,
+    FreeMode,
+    Grid,
+    Manipulation,
 };

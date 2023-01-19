@@ -20,7 +20,7 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
-var __assign = function() {
+var __assign = function () {
     __assign = Object.assign || function __assign(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -102,6 +102,7 @@ var MediumZoom = /** @class */ (function () {
         this.settings = __assign(__assign(__assign({}, mediumZoomSettings), this.core.settings), defaultSettings);
         return this;
     }
+
     MediumZoom.prototype.toggleItemClass = function () {
         for (var index = 0; index < this.core.items.length; index++) {
             var $element = this.$LG(this.core.items[index]);

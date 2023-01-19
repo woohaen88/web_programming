@@ -24,47 +24,61 @@
     .d-dark-mode-none {
       display: none !important;
     }
+
     .d-dark-mode-block {
       display: block !important;
     }
+
     .d-dark-mode-inline {
       display: inline !important;
     }
+
     .d-dark-mode-inline-block {
       display: inline-block !important;
     }
+
     .d-dark-mode-inline-flex {
       display: inline-flex !important;
     }
+
     .d-dark-mode-flex {
       display: flex !important;
     }
+
     .text-border {
       color: var(--#{$prefix}border-color) !important;
     }
+
     .text-dark:not(.badge) {
       color: $white !important;
     }
+
     .text-nav:not(.badge.bg-white) {
       color: $nav-link-dark-mode-color !important;
     }
+
     .text-body {
       color: $body-dark-mode-color !important;
     }
+
     .border-dark {
       border-color: var(--#{$prefix}border-color) !important;
     }
+
     .bg-light:not(.badge),
     .card.card-hover.bg-light {
       background-color: $dark !important;
     }
+
     .bg-secondary,
     .card.bg-light {
       background-color: var(--#{$prefix}secondary-bg) !important;
     }
+
     .bg-secondary.badge {
       color: var(--#{$prefix}body-color);
     }
+
     .shadow-dark-mode-none {
       box-shadow: none !important;
     }
@@ -75,12 +89,15 @@
       --#{$prefix}heading-color: #{$headings-color};
       --#{$prefix}nav-link-color: #{$nav-link-color};
       --#{$prefix}border-color: #{$border-color};
+
       p, ul, ol, span, dd {
         color: var(--#{$prefix}body-color);
       }
+
       .text-muted {
         color: $gray-600 !important;
       }
+
       .text-dark {
         color: $dark !important;
       }
@@ -92,9 +109,11 @@
     .img-thumbnail {
       background-color: $thumbnail-dark-mode-bg;
     }
+
     .dark-mode-img {
       display: block;
     }
+
     .light-mode-img {
       display: none;
     }
@@ -106,6 +125,7 @@
       --#{$prefix}table-striped-bg: rgba(#{to-rgb($white)}, #{$table-striped-bg-factor});
       --#{$prefix}table-hover-bg: rgba(#{to-rgb($white)}, #{$table-hover-bg-factor});
       --#{$prefix}table-hover-color: #{$table-hover-color};
+
       > :not(:last-child) > :last-child > * {
         border-bottom-color: rgba($white, .3);
       }
@@ -122,6 +142,7 @@
       --#{$prefix}btn-hover-bg: #{$light};
       --#{$prefix}btn-active-bg: #{$light};
     }
+
     .btn-secondary:not(.bg-white) {
       --#{$prefix}btn-color: rgba(#{to-rgb($light)}, .85);
       --#{$prefix}btn-hover-color: #{$light};
@@ -133,12 +154,14 @@
       --#{$prefix}btn-hover-bg: rgba(#{to-rgb($light)}, .12);
       --#{$prefix}btn-active-bg: rgba(#{to-rgb($light)}, .12);
     }
+
     .btn-secondary,
     .btn-outline-secondary,
     .btn-light,
     .btn-outline-light {
       --#{$prefix}btn-disabled-color: rgba(#{to-rgb($white)}, .5);
     }
+
     .btn-dark {
       --#{$prefix}btn-color: #{$gray-800} !important;
       --#{$prefix}btn-hover-color: #{$gray-800} !important;
@@ -159,7 +182,7 @@
       --#{$prefix}btn-video-shadow: #{$btn-video-dark-mode-box-shadow};
       --#{$prefix}btn-video-hover-shadow: #{$btn-video-dark-mode-hover-box-shadow};
     }
-    
+
 
     // Scroll to top button
 
@@ -177,61 +200,75 @@
     .col-form-label {
       color: $form-label-dark-mode-color;
     }
+
     .form-text {
       color: $form-text-dark-mode-color;
     }
+
     .form-control,
     .form-select {
       border-color: $input-dark-mode-border-color;
       background-color: $input-dark-mode-bg;
       color: $input-dark-mode-color;
+
       &:focus {
         border-color: $input-dark-mode-focus-border-color;
         box-shadow: none;
       }
+
       &:disabled,
       &[readonly] {
         border-color: $input-dark-mode-disabled-border-color;
         background-color: $input-dark-mode-disabled-bg;
-      }      
+      }
     }
+
     .form-control {
       &::placeholder {
         color: $input-dark-mode-placeholder-color;
       }
+
       &::file-selector-button {
         @include gradient-bg($form-file-dark-mode-button-bg);
         color: $form-file-dark-mode-button-color;
       }
+
       &:hover:not(:disabled):not([readonly])::file-selector-button {
         @include gradient-bg($form-file-dark-mode-button-bg);
         color: $form-file-dark-mode-button-color;
       }
+
       &::-webkit-file-upload-button {
         @include gradient-bg($form-file-dark-mode-button-bg);
         color: $form-file-dark-mode-button-color;
       }
+
       &:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
         @include gradient-bg($form-file-dark-mode-button-bg);
         color: $form-file-dark-mode-button-color;
       }
+
       &:focus:not(:disabled):not([readonly])::file-selector-button {
         @include gradient-bg($form-file-button-hover-bg);
         color: $form-file-button-color;
       }
+
       &:focus:not(:disabled):not([readonly])::-webkit-file-upload-button {
         @include gradient-bg($form-file-button-hover-bg);
         color: $form-file-button-color;
       }
     }
+
     .form-select {
       background-image: escape-svg($form-select-dark-mode-indicator);
     }
+
     .form-floating .form-control,
     .form-floating .form-select {
       &::placeholder {
         color: transparent;
       }
+
       &:focus ~ label {
         color: $form-label-dark-mode-focus-color;
       }
@@ -241,38 +278,47 @@
       &::-webkit-slider-runnable-track {
         background-color: $form-range-dark-mode-track-bg;
       }
+
       &::-moz-range-track {
         background-color: $form-range-dark-mode-track-bg;
       }
     }
-  
+
     .form-check-label {
       color: $body-dark-mode-color;
     }
+
     .form-check-input:not(:checked):not(.is-invalid):not(:invalid) {
       border-color: $form-check-input-dark-mode-border-color;
     }
+
     .form-check-input:not(:checked) {
       background-color: $form-check-input-dark-mode-bg;
     }
+
     .form-switch {
       .form-check-input {
         background-color: $form-switch-dark-mode-bg;
+
         &:checked {
           background-color: $form-switch-dark-mode-checked-bg;
         }
       }
+
       &.mode-switch,
       &.price-switch {
         .form-check-label:first-of-type {
           color: $white;
         }
+
         .form-check-input {
           background-color: $form-switch-checked-bg;
+
           &:checked {
             & ~ .form-check-label:first-of-type {
               color: rgba($white, .6);
             }
+
             & ~ .form-check-label:last-of-type {
               color: $white;
             }
@@ -282,11 +328,12 @@
 
       &.form-switch-success .form-check-input:checked {
         background-color: $success;
-      }    
+      }
     }
 
     .form-control ~ .password-toggle-btn .password-toggle-indicator {
       color: rgba($white, .4);
+
       &:hover {
         color: rgba($white, .85);
       }
@@ -309,9 +356,11 @@
         &:first-of-type:not(:last-child) {
           border-right-color: transparent;
         }
+
         &:last-of-type:not(:first-child) {
           border-left-color: transparent;
         }
+
         &:first-child + .input-group-text {
           border-left-color: $input-dark-mode-border-color;
         }
@@ -346,7 +395,7 @@
       --#{$prefix}nav-tabs-link-hover-color: #{$nav-tabs-dark-mode-link-hover-color};
       --#{$prefix}nav-tabs-link-active-color: #{$nav-tabs-dark-mode-link-active-color};
       --#{$prefix}nav-tabs-link-disabled-color: #{$nav-tabs-dark-mode-link-disabled-color};
-    
+
     }
 
     .nav-tabs-alt {
@@ -370,6 +419,7 @@
       --#{$prefix}navbar-disabled-color: #{$navbar-dark-disabled-color};
       --#{$prefix}navbar-active-color: #{$navbar-dark-active-color};
     }
+
     .navbar-stuck {
       box-shadow: none;
     }
@@ -387,38 +437,45 @@
     .placeholder {
       opacity: $placeholder-dark-mode-opacity-max;
     }
+
     @keyframes placeholder-glow {
       50% {
         opacity: $placeholder-dark-mode-opacity-min;
       }
     }
+
     .placeholder-wave {
       mask-image: linear-gradient(130deg, $black 55%, rgba(0, 0, 0, (1 - $placeholder-dark-mode-opacity-min)) 75%, $black 95%);
     }
 
- 
+
     // Cards
 
     .card {
       --#{$prefix}card-border-color: #{$card-dark-mode-border-color};
       --#{$prefix}card-bg: #{$card-dark-mode-bg};
       --#{$prefix}card-color: #{$card-dark-mode-color};
+
       &.shadow-sm, &.shadow,
       &.shadow-lg, &.border-0 {
         background-color: var(--#{$prefix}secondary-bg);
       }
     }
+
     .card-hover {
       &:hover {
         border-color: rgba($white, .3);
         background-color: var(--#{$prefix}secondary-bg);
       }
+
       &.border-0:not(.bg-transparent):not(.bg-light) {
         border: var(--#{$prefix}border-width) solid transparent !important;
+
         &:hover {
           border-color: var(--#{$prefix}card-border-color) !important;
         }
       }
+
       &.bg-light:hover {
         background-color: var(--#{$prefix}secondary-bg) !important;
       }
@@ -438,9 +495,11 @@
       --#{$prefix}accordion-btn-icon-box-bg: #{$accordion-dark-mode-icon-box-bg};
       --#{$prefix}accordion-btn-icon-box-active-bg: #{$accordion-dark-mode-icon-box-active-bg};
     }
+
     .accordion-item.border-0 {
       background-color: var(--#{$prefix}secondary-bg);
     }
+
     .accordion-button.shadow-none {
       background-color: transparent !important;
     }
@@ -476,11 +535,13 @@
         --#{$prefix}alert-border-color: rgba(#{to-rgb($value)}, .25);
       }
     }
+
     .alert-secondary,
     .alert-light,
     .alert-dark {
-      --#{$prefix}alert-border-color: var( --#{$prefix}border-color);
+      --#{$prefix}alert-border-color: var(--#{$prefix}border-color);
     }
+
     .alert-secondary,
     .alert-light {
       --#{$prefix}alert-bg: var(--#{$prefix}secondary-bg);
@@ -494,15 +555,17 @@
     .progress {
       --#{$prefix}progress-bg: #{$progress-dark-mode-bg};
     }
+
     .progress-bar.bg-dark {
       --#{$prefix}progress-bar-bg: #{$light};
       --#{$prefix}progress-bar-color: #{$gray-900};
       background-color: var(--#{$prefix}progress-bar-bg) !important;
+
       &.progress-bar-striped {
         background-image: linear-gradient(45deg, rgba($dark, .15) 25%, transparent 25%, transparent 50%, rgba($dark, .15) 50%, rgba($dark, .15) 75%, transparent 75%, transparent);
       }
     }
-    
+
 
     // List group
 
@@ -552,10 +615,11 @@
 
 
     // Offcanvas
-    
+
     .offcanvas, .offcanvas-sm, .offcanvas-md,
     .offcanvas-lg, .offcanvas-xl, .offcanvas-xxl {
       --#{$prefix}offcanvas-bg: #{$offcanvas-dark-mode-bg-color};
+
       &.bg-secondary {
         background-color: #14171f !important;
       }
@@ -574,16 +638,18 @@
       --#{$prefix}pre-comment-color: rgba(#{to-rgb($white)}, .5);
       --#{$prefix}pre-attr-name-color: #4da2f7;
       --#{$prefix}pre-attr-value-color: #f33185;
-      --#{$prefix}pre-class-name-color: #4ddcda;    
+      --#{$prefix}pre-class-name-color: #4ddcda;
 
       box-shadow: none;
     }
+
     code[class*="language-"],
     pre[class*="language-"],
     pre > code,
     pre {
       --#{$prefix}pre-color: #{$pre-dark-mode-color};
     }
+
     kbd {
       background-color: $kbd-dark-mode-bg;
       color: $kbd-dark-mode-color;
@@ -598,22 +664,25 @@
       --#{$prefix}carousel-nav-btn-box-shadow: none;
       --#{$prefix}carousel-nav-btn-disabled-color: rgba(#{to-rgb($carousel-dark-mode-nav-btn-color)}, .5);
     }
+
     .swiper-pagination {
       --#{$prefix}carousel-pagination-bullet-bg: #{$carousel-dark-mode-bullet-bg};
       --#{$prefix}carousel-pagination-bullet-active-bg: #{$carousel-dark-mode-bullet-active-bg};
       --#{$prefix}carousel-pagination-progressbar-bg: #{$carousel-dark-mode-progressbar-bg};
     }
+
     .swiper-scrollbar {
       --#{$prefix}carousel-scrollbar-bg: #{$carousel-dark-mode-scrollbar-bg};
       --#{$prefix}carousel-scrollbar-drag-bg: #{$carousel-dark-mode-scrollbar-drag-bg};
     }
+
     .offcanvas, .offcanvas-sm, .offcanvas-md,
     .offcanvas-lg, .offcanvas-xl, .offcanvas-xl {
       .swiper-scrollbar-drag {
         opacity: .55;
       }
     }
-    
+
 
     // Steps
 

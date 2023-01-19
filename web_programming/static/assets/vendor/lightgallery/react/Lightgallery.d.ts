@@ -1,6 +1,28 @@
 import * as React from 'react';
-import { LightGallerySettings } from '../lg-settings';
-import { AfterSlideDetail, InitDetail, ContainerResizeDetail, AfterAppendSubHtmlDetail, BeforeOpenDetail, AfterOpenDetail, SlideItemLoadDetail, BeforeSlideDetail, PosterClickDetail, DragStartDetail, DragMoveDetail, DragEndDetail, BeforeNextSlideDetail, BeforePrevSlideDetail, BeforeCloseDetail, AfterCloseDetail, FlipHorizontalDetail, FlipVerticalDetail, RotateLeftDetail, RotateRightDetail } from '../lg-events';
+import {LightGallerySettings} from '../lg-settings';
+import {
+    AfterAppendSubHtmlDetail,
+    AfterCloseDetail,
+    AfterOpenDetail,
+    AfterSlideDetail,
+    BeforeCloseDetail,
+    BeforeNextSlideDetail,
+    BeforeOpenDetail,
+    BeforePrevSlideDetail,
+    BeforeSlideDetail,
+    ContainerResizeDetail,
+    DragEndDetail,
+    DragMoveDetail,
+    DragStartDetail,
+    FlipHorizontalDetail,
+    FlipVerticalDetail,
+    InitDetail,
+    PosterClickDetail,
+    RotateLeftDetail,
+    RotateRightDetail,
+    SlideItemLoadDetail
+} from '../lg-events';
+
 interface LgEvents {
     onAfterAppendSlide?: (detail: AfterSlideDetail) => void;
     onInit?: (detail: InitDetail) => void;
@@ -25,9 +47,11 @@ interface LgEvents {
     onFlipHorizontal?: (detail: FlipHorizontalDetail) => void;
     onFlipVertical?: (detail: FlipVerticalDetail) => void;
 }
+
 export interface LightGalleryProps extends LgEvents, LightGallerySettings {
     children?: any;
     elementClassNames?: string;
 }
+
 declare const LG: React.FC<LightGalleryProps>;
 export default LG;

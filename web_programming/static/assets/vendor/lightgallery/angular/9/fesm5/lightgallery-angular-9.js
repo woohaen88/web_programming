@@ -1,19 +1,46 @@
-import { ɵɵdefineInjectable, ɵsetClassMetadata, Injectable, ɵɵdirectiveInject, ElementRef, ɵɵdefineComponent, ɵɵprojectionDef, ɵɵprojection, Component, Input, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule } from '@angular/core';
+import {
+    Component,
+    ElementRef,
+    Injectable,
+    Input,
+    NgModule,
+    ɵsetClassMetadata,
+    ɵɵdefineComponent,
+    ɵɵdefineInjectable,
+    ɵɵdefineInjector,
+    ɵɵdefineNgModule,
+    ɵɵdirectiveInject,
+    ɵɵprojection,
+    ɵɵprojectionDef,
+    ɵɵsetNgModuleScope
+} from '@angular/core';
 import lightGallery from 'lightgallery';
 
 var LightgalleryAngualr9Service = /** @class */ (function () {
     function LightgalleryAngualr9Service() {
     }
-    LightgalleryAngualr9Service.ɵfac = function LightgalleryAngualr9Service_Factory(t) { return new (t || LightgalleryAngualr9Service)(); };
-    LightgalleryAngualr9Service.ɵprov = ɵɵdefineInjectable({ token: LightgalleryAngualr9Service, factory: LightgalleryAngualr9Service.ɵfac, providedIn: 'root' });
+
+    LightgalleryAngualr9Service.ɵfac = function LightgalleryAngualr9Service_Factory(t) {
+        return new (t || LightgalleryAngualr9Service)();
+    };
+    LightgalleryAngualr9Service.ɵprov = ɵɵdefineInjectable({
+        token: LightgalleryAngualr9Service,
+        factory: LightgalleryAngualr9Service.ɵfac,
+        providedIn: 'root'
+    });
     return LightgalleryAngualr9Service;
 }());
-/*@__PURE__*/ (function () { ɵsetClassMetadata(LightgalleryAngualr9Service, [{
+/*@__PURE__*/
+(function () {
+    ɵsetClassMetadata(LightgalleryAngualr9Service, [{
         type: Injectable,
         args: [{
-                providedIn: 'root',
-            }]
-    }], function () { return []; }, null); })();
+            providedIn: 'root',
+        }]
+    }], function () {
+        return [];
+    }, null);
+})();
 
 var _c0 = ["*"];
 var LgMethods = {
@@ -47,6 +74,7 @@ var LightgalleryComponent = /** @class */ (function () {
         this.lgInitialized = false;
         this._elementRef = _elementRef;
     }
+
     LightgalleryComponent.prototype.ngAfterViewChecked = function () {
         if (!this.lgInitialized) {
             this.registerEvents();
@@ -63,7 +91,7 @@ var LightgalleryComponent = /** @class */ (function () {
         if (this.onAfterAppendSlide) {
             this._elementRef.nativeElement.addEventListener(LgMethods.onAfterAppendSlide, (function (event) {
                 _this.onAfterAppendSlide &&
-                    _this.onAfterAppendSlide(event.detail);
+                _this.onAfterAppendSlide(event.detail);
             }));
         }
         if (this.onInit) {
@@ -79,13 +107,13 @@ var LightgalleryComponent = /** @class */ (function () {
         if (this.onContainerResize) {
             this._elementRef.nativeElement.addEventListener(LgMethods.onContainerResize, (function (event) {
                 _this.onContainerResize &&
-                    _this.onContainerResize(event.detail);
+                _this.onContainerResize(event.detail);
             }));
         }
         if (this.onAfterAppendSubHtml) {
             this._elementRef.nativeElement.addEventListener(LgMethods.onAfterAppendSubHtml, (function (event) {
                 _this.onAfterAppendSubHtml &&
-                    _this.onAfterAppendSubHtml(event.detail);
+                _this.onAfterAppendSubHtml(event.detail);
             }));
         }
         if (this.onBeforeOpen) {
@@ -136,13 +164,13 @@ var LightgalleryComponent = /** @class */ (function () {
         if (this.onBeforeNextSlide) {
             this._elementRef.nativeElement.addEventListener(LgMethods.onBeforeNextSlide, (function (event) {
                 _this.onBeforeNextSlide &&
-                    _this.onBeforeNextSlide(event.detail);
+                _this.onBeforeNextSlide(event.detail);
             }));
         }
         if (this.onBeforePrevSlide) {
             this._elementRef.nativeElement.addEventListener(LgMethods.onBeforePrevSlide, (function (event) {
                 _this.onBeforePrevSlide &&
-                    _this.onBeforePrevSlide(event.detail);
+                _this.onBeforePrevSlide(event.detail);
             }));
         }
         if (this.onBeforeClose) {
@@ -168,7 +196,7 @@ var LightgalleryComponent = /** @class */ (function () {
         if (this.onFlipHorizontal) {
             this._elementRef.nativeElement.addEventListener(LgMethods.onFlipHorizontal, (function (event) {
                 _this.onFlipHorizontal &&
-                    _this.onFlipHorizontal(event.detail);
+                _this.onFlipHorizontal(event.detail);
             }));
         }
         if (this.onFlipVertical) {
@@ -177,21 +205,63 @@ var LightgalleryComponent = /** @class */ (function () {
             }));
         }
     };
-    LightgalleryComponent.ɵfac = function LightgalleryComponent_Factory(t) { return new (t || LightgalleryComponent)(ɵɵdirectiveInject(ElementRef)); };
-    LightgalleryComponent.ɵcmp = ɵɵdefineComponent({ type: LightgalleryComponent, selectors: [["lightgallery"]], inputs: { settings: "settings", onAfterAppendSlide: "onAfterAppendSlide", onInit: "onInit", onHasVideo: "onHasVideo", onContainerResize: "onContainerResize", onAfterAppendSubHtml: "onAfterAppendSubHtml", onBeforeOpen: "onBeforeOpen", onAfterOpen: "onAfterOpen", onSlideItemLoad: "onSlideItemLoad", onBeforeSlide: "onBeforeSlide", onAfterSlide: "onAfterSlide", onPosterClick: "onPosterClick", onDragStart: "onDragStart", onDragMove: "onDragMove", onDragEnd: "onDragEnd", onBeforeNextSlide: "onBeforeNextSlide", onBeforePrevSlide: "onBeforePrevSlide", onBeforeClose: "onBeforeClose", onAfterClose: "onAfterClose", onRotateLeft: "onRotateLeft", onRotateRight: "onRotateRight", onFlipHorizontal: "onFlipHorizontal", onFlipVertical: "onFlipVertical" }, ngContentSelectors: _c0, decls: 1, vars: 0, template: function LightgalleryComponent_Template(rf, ctx) { if (rf & 1) {
-            ɵɵprojectionDef();
-            ɵɵprojection(0);
-        } }, encapsulation: 2 });
+    LightgalleryComponent.ɵfac = function LightgalleryComponent_Factory(t) {
+        return new (t || LightgalleryComponent)(ɵɵdirectiveInject(ElementRef));
+    };
+    LightgalleryComponent.ɵcmp = ɵɵdefineComponent({
+        type: LightgalleryComponent,
+        selectors: [["lightgallery"]],
+        inputs: {
+            settings: "settings",
+            onAfterAppendSlide: "onAfterAppendSlide",
+            onInit: "onInit",
+            onHasVideo: "onHasVideo",
+            onContainerResize: "onContainerResize",
+            onAfterAppendSubHtml: "onAfterAppendSubHtml",
+            onBeforeOpen: "onBeforeOpen",
+            onAfterOpen: "onAfterOpen",
+            onSlideItemLoad: "onSlideItemLoad",
+            onBeforeSlide: "onBeforeSlide",
+            onAfterSlide: "onAfterSlide",
+            onPosterClick: "onPosterClick",
+            onDragStart: "onDragStart",
+            onDragMove: "onDragMove",
+            onDragEnd: "onDragEnd",
+            onBeforeNextSlide: "onBeforeNextSlide",
+            onBeforePrevSlide: "onBeforePrevSlide",
+            onBeforeClose: "onBeforeClose",
+            onAfterClose: "onAfterClose",
+            onRotateLeft: "onRotateLeft",
+            onRotateRight: "onRotateRight",
+            onFlipHorizontal: "onFlipHorizontal",
+            onFlipVertical: "onFlipVertical"
+        },
+        ngContentSelectors: _c0,
+        decls: 1,
+        vars: 0,
+        template: function LightgalleryComponent_Template(rf, ctx) {
+            if (rf & 1) {
+                ɵɵprojectionDef();
+                ɵɵprojection(0);
+            }
+        },
+        encapsulation: 2
+    });
     return LightgalleryComponent;
 }());
-/*@__PURE__*/ (function () { ɵsetClassMetadata(LightgalleryComponent, [{
+/*@__PURE__*/
+(function () {
+    ɵsetClassMetadata(LightgalleryComponent, [{
         type: Component,
         args: [{
-                selector: 'lightgallery',
-                template: '<ng-content></ng-content>',
-                styles: [],
-            }]
-    }], function () { return [{ type: ElementRef }]; }, { settings: [{
+            selector: 'lightgallery',
+            template: '<ng-content></ng-content>',
+            styles: [],
+        }]
+    }], function () {
+        return [{type: ElementRef}];
+    }, {
+        settings: [{
             type: Input
         }], onAfterAppendSlide: [{
             type: Input
@@ -237,24 +307,39 @@ var LightgalleryComponent = /** @class */ (function () {
             type: Input
         }], onFlipVertical: [{
             type: Input
-        }] }); })();
+        }]
+    });
+})();
 
 var LightgalleryModule = /** @class */ (function () {
     function LightgalleryModule() {
     }
-    LightgalleryModule.ɵmod = ɵɵdefineNgModule({ type: LightgalleryModule });
-    LightgalleryModule.ɵinj = ɵɵdefineInjector({ factory: function LightgalleryModule_Factory(t) { return new (t || LightgalleryModule)(); }, imports: [[]] });
+
+    LightgalleryModule.ɵmod = ɵɵdefineNgModule({type: LightgalleryModule});
+    LightgalleryModule.ɵinj = ɵɵdefineInjector({
+        factory: function LightgalleryModule_Factory(t) {
+            return new (t || LightgalleryModule)();
+        }, imports: [[]]
+    });
     return LightgalleryModule;
 }());
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(LightgalleryModule, { declarations: [LightgalleryComponent], exports: [LightgalleryComponent] }); })();
-/*@__PURE__*/ (function () { ɵsetClassMetadata(LightgalleryModule, [{
+(function () {
+    (typeof ngJitMode === "undefined" || ngJitMode) && ɵɵsetNgModuleScope(LightgalleryModule, {
+        declarations: [LightgalleryComponent],
+        exports: [LightgalleryComponent]
+    });
+})();
+/*@__PURE__*/
+(function () {
+    ɵsetClassMetadata(LightgalleryModule, [{
         type: NgModule,
         args: [{
-                declarations: [LightgalleryComponent],
-                imports: [],
-                exports: [LightgalleryComponent],
-            }]
-    }], null, null); })();
+            declarations: [LightgalleryComponent],
+            imports: [],
+            exports: [LightgalleryComponent],
+        }]
+    }], null, null);
+})();
 
 /*
  * Public API Surface of lightgallery-angular9
@@ -264,5 +349,5 @@ var LightgalleryModule = /** @class */ (function () {
  * Generated bundle index. Do not edit.
  */
 
-export { LightgalleryAngualr9Service, LightgalleryComponent, LightgalleryModule };
+export {LightgalleryAngualr9Service, LightgalleryComponent, LightgalleryModule};
 //# sourceMappingURL=lightgallery-angular-9.js.map

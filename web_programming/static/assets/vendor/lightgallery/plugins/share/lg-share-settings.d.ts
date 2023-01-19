@@ -1,7 +1,9 @@
-import { ShareOption } from './types';
+import {ShareOption} from './types';
+
 export interface ShareStrings {
     share: string;
 }
+
 export interface ShareSettings {
     /**
      * Enable/Disable share options
@@ -44,6 +46,7 @@ export interface ShareSettings {
      */
     sharePluginStrings: ShareStrings;
 }
+
 export declare const shareSettings: {
     share: boolean;
     facebook: boolean;

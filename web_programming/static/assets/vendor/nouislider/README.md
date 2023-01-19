@@ -8,7 +8,8 @@ noUiSlider is a lightweight JavaScript range slider.
 - **No dependencies**
 - Fully **responsive**
 - **Multi-touch support** on Android, iOS and Windows devices
-- Tons of [examples](https://refreshless.com/nouislider/examples) and answered [Stack Overflow questions](https://stackoverflow.com/questions/tagged/nouislider)
+- Tons of [examples](https://refreshless.com/nouislider/examples) and
+  answered [Stack Overflow questions](https://stackoverflow.com/questions/tagged/nouislider)
 
 License
 -------
@@ -30,7 +31,9 @@ See [Contributing](CONTRIBUTING.md).
 Sponsorship
 -----------
 
-noUiSlider is a stable project that still receives a lot of feature requests. A lot of these are interesting, but require a good amount of effort to implement, test and document. Sponsorship of this project will allow me to spend some more of my time on these feature requests.
+noUiSlider is a stable project that still receives a lot of feature requests. A lot of these are interesting, but
+require a good amount of effort to implement, test and document. Sponsorship of this project will allow me to spend some
+more of my time on these feature requests.
 
 Please consider sponsoring the project by clicking the "❤ Sponsor" button above. Thanks!
 

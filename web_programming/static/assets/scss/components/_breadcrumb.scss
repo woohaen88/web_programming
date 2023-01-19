@@ -14,6 +14,7 @@
 .breadcrumb-item {
   display: flex;
   align-items: center;
+
   + .breadcrumb-item::before {
     margin-top: .15em;
     font: {
@@ -23,12 +24,14 @@
     }
     line-height: 1;
   }
+
   > a {
     display: flex;
     align-items: center;
     color: var(--#{$prefix}breadcrumb-color);
     text-decoration: none;
   }
+
   &:hover > a {
     color: var(--#{$prefix}breadcrumb-hover-color);
   }

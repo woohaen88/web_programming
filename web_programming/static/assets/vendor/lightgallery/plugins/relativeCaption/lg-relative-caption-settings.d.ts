@@ -4,4 +4,5 @@ export interface RelativeCaptionSettings {
      */
     relativeCaption: boolean;
 }
+
 export declare const relativeCaptionSettings: RelativeCaptionSettings;

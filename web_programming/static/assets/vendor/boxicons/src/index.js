@@ -1,6 +1,6 @@
-import { BoxIconElement } from './box-icon-element';
+import {BoxIconElement} from './box-icon-element';
 
-export { BoxIconElement };
+export {BoxIconElement};
 export default BoxIconElement;
 
 BoxIconElement.define();

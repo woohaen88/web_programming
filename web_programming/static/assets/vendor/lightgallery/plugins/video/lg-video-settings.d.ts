@@ -1,4 +1,5 @@
-import { PlayerParams } from './lg-video-utils';
+import {PlayerParams} from './lg-video-utils';
+
 export interface VideoSettings {
     /**
      * Enable/DIsable first video autoplay.
@@ -68,4 +69,5 @@ export interface VideoSettings {
      */
     videojsOptions: any;
 }
+
 export declare const videoSettings: VideoSettings;

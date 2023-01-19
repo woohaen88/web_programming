@@ -4,8 +4,10 @@ This library was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Code scaffolding
 
-Run `ng generate component component-name --project lightgallery-angular11` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project lightgallery-angular11`.
-> Note: Don't forget to add `--project lightgallery-angular11` or else it will be added to the default project in your `angular.json` file. 
+Run `ng generate component component-name --project lightgallery-angular11` to generate a new component. You can also
+use `ng generate directive|pipe|service|class|guard|interface|enum|module --project lightgallery-angular11`.
+> Note: Don't forget to add `--project lightgallery-angular11` or else it will be added to the default project in
+> your `angular.json` file.
 
 ## Build
 
@@ -13,7 +15,8 @@ Run `ng build lightgallery-angular11` to build the project. The build artifacts 
 
 ## Publishing
 
-After building your library with `ng build lightgallery-angular11`, go to the dist folder `cd dist/lightgallery-angular11` and run `npm publish`.
+After building your library with `ng build lightgallery-angular11`, go to the dist
+folder `cd dist/lightgallery-angular11` and run `npm publish`.
 
 ## Running unit tests
 
@@ -21,4 +24,5 @@ Run `ng test lightgallery-angular11` to execute the unit tests via [Karma](https
 
 ## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+To get more help on the Angular CLI use `ng help` or go check out
+the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

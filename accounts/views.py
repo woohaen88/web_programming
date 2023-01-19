@@ -1,6 +1,5 @@
 from django.contrib.auth import get_user_model, login, logout
-from django.contrib.auth.views import LoginView, LogoutView
-from django.shortcuts import redirect
+from django.contrib.auth.views import LogoutView
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView, FormView
 

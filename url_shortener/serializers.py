@@ -1,6 +1,7 @@
 from rest_framework import serializers
-from url_shortener.models import ShortenedUrls
+
 from accounts.serializers import UserSerializer
+from url_shortener.models import ShortenedUrls
 
 
 class UrlListSerializer(serializers.ModelSerializer):

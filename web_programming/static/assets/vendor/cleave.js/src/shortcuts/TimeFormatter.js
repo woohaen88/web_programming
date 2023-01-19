@@ -65,23 +65,23 @@ TimeFormatter.prototype = {
 
                 switch (owner.timePattern[index]) {
 
-                case 'h':
-                    if (parseInt(sub0, 10) > timeFormatOptions.maxHourFirstDigit) {
-                        sub = '0' + sub0;
-                    } else if (parseInt(sub, 10) > timeFormatOptions.maxHours) {
-                        sub = timeFormatOptions.maxHours + '';
-                    }
+                    case 'h':
+                        if (parseInt(sub0, 10) > timeFormatOptions.maxHourFirstDigit) {
+                            sub = '0' + sub0;
+                        } else if (parseInt(sub, 10) > timeFormatOptions.maxHours) {
+                            sub = timeFormatOptions.maxHours + '';
+                        }
 
-                    break;
+                        break;
 
-                case 'm':
-                case 's':
-                    if (parseInt(sub0, 10) > timeFormatOptions.maxMinutesFirstDigit) {
-                        sub = '0' + sub0;
-                    } else if (parseInt(sub, 10) > timeFormatOptions.maxMinutes) {
-                        sub = timeFormatOptions.maxMinutes + '';
-                    }
-                    break;
+                    case 'm':
+                    case 's':
+                        if (parseInt(sub0, 10) > timeFormatOptions.maxMinutesFirstDigit) {
+                            sub = '0' + sub0;
+                        } else if (parseInt(sub, 10) > timeFormatOptions.maxMinutes) {
+                            sub = timeFormatOptions.maxMinutes + '';
+                        }
+                        break;
                 }
 
                 result += sub;
@@ -103,15 +103,15 @@ TimeFormatter.prototype = {
         if (value.length === 6) {
             timePattern.forEach(function (type, index) {
                 switch (type) {
-                case 's':
-                    secondIndex = index * 2;
-                    break;
-                case 'm':
-                    minuteIndex = index * 2;
-                    break;
-                case 'h':
-                    hourIndex = index * 2;
-                    break;
+                    case 's':
+                        secondIndex = index * 2;
+                        break;
+                    case 'm':
+                        minuteIndex = index * 2;
+                        break;
+                    case 'h':
+                        hourIndex = index * 2;
+                        break;
                 }
             });
 
@@ -129,12 +129,12 @@ TimeFormatter.prototype = {
         if (value.length === 4 && owner.timePattern.indexOf('s') < 0) {
             timePattern.forEach(function (type, index) {
                 switch (type) {
-                case 'm':
-                    minuteIndex = index * 2;
-                    break;
-                case 'h':
-                    hourIndex = index * 2;
-                    break;
+                    case 'm':
+                        minuteIndex = index * 2;
+                        break;
+                    case 'h':
+                        hourIndex = index * 2;
+                        break;
                 }
             });
 
@@ -152,12 +152,12 @@ TimeFormatter.prototype = {
 
         return time.length === 0 ? value : timePattern.reduce(function (previous, current) {
             switch (current) {
-            case 's':
-                return previous + owner.addLeadingZero(time[2]);
-            case 'm':
-                return previous + owner.addLeadingZero(time[1]);
-            case 'h':
-                return previous + owner.addLeadingZero(time[0]);
+                case 's':
+                    return previous + owner.addLeadingZero(time[2]);
+                case 'm':
+                    return previous + owner.addLeadingZero(time[1]);
+                case 'h':
+                    return previous + owner.addLeadingZero(time[0]);
             }
         }, '');
     },

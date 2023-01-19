@@ -25,9 +25,11 @@
     weight: normal;
     style: normal;
   }
+
   &::before {
     content: '\ebbd';
   }
+
   &.ap-pause::before {
     content: '\ebae';
   }
@@ -70,18 +72,21 @@
   width: 100%;
   height: 1.125rem;
 }
+
 .ap-seek-slider::-webkit-slider-runnable-track {
   width: 100%;
   height: .25rem;
   background: linear-gradient(to right, $gray-400 var(--buffered-width), rgba($gray-300, .9) var(--buffered-width));
   cursor: pointer;
 }
+
 .ap-seek-slider::before {
   top: .4375rem;
   width: var(--seek-before-width);
   height: .25rem;
   background-color: var(--#{prefix}audio-player-theme);
 }
+
 .ap-seek-slider::-webkit-slider-thumb {
   position: relative;
   -webkit-appearance: none;
@@ -93,21 +98,26 @@
   cursor: pointer;
   margin: -.375rem 0 0 0;
 }
+
 .ap-seek-slider:active::-webkit-slider-thumb {
   transform: scale(1.2);
 }
+
 .ap-seek-slider::-moz-range-track {
   width: 100%;
   height: .25rem;
   background: linear-gradient(to right, $gray-400 var(--buffered-width), rgba($gray-300, .9) var(--buffered-width));
   cursor: pointer;
 }
+
 .ap-seek-slider::-moz-range-progress {
   background-color: var(--#{prefix}audio-player-theme);
 }
+
 .ap-seek-slider::-moz-focus-outer {
   border: 0;
 }
+
 .ap-seek-slider::-moz-range-thumb {
   box-sizing: content-box;
   border: 0;
@@ -117,6 +127,7 @@
   background-color: var(--#{prefix}audio-player-theme);
   cursor: pointer;
 }
+
 .ap-seek-slider:active::-moz-range-thumb {
   transform: scale(1.2);
 }
@@ -129,18 +140,21 @@
   height: .5625rem;
   transform: rotate(-90deg);
 }
+
 .ap-volume-slider::-webkit-slider-runnable-track {
   width: 100%;
   height: .1875rem;
   background-color: var(--#{prefix}audio-player-theme);
   cursor: pointer;
 }
+
 .ap-volume-slider::before {
   top: .1875rem;
   width: var(--volume-before-width);
   height: .1875rem;
   background-color: $white;
 }
+
 .ap-volume-slider::-webkit-slider-thumb {
   position: relative;
   -webkit-appearance: none;
@@ -152,21 +166,26 @@
   cursor: pointer;
   margin: -.1875rem 0 0 0;
 }
+
 .ap-volume-slider:active::-webkit-slider-thumb {
   transform: scale(1.2);
 }
+
 .ap-volume-slider::-moz-range-track {
   width: 100%;
   height: .1875rem;
   background-color: var(--#{prefix}audio-player-theme);
   cursor: pointer;
 }
+
 .ap-volume-slider::-moz-range-progress {
   background-color: $white;
 }
+
 .ap-volume-slider::-moz-focus-outer {
   border: 0;
 }
+
 .ap-volume-slider::-moz-range-thumb {
   box-sizing: content-box;
   border: 0;
@@ -176,6 +195,7 @@
   background-color: $white;
   cursor: pointer;
 }
+
 .ap-volume-slider:active::-moz-range-thumb {
   transform: scale(1.2);
 }

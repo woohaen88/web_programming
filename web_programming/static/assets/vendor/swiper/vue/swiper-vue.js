@@ -10,7 +10,8 @@
  * Released on: July 26, 2022
  */
 
-import { Swiper } from './swiper.js';
-import { SwiperSlide } from './swiper-slide.js';
-export { useSwiperSlide, useSwiper } from './context.js';
-export { Swiper, SwiperSlide };
+import {Swiper} from './swiper.js';
+import {SwiperSlide} from './swiper-slide.js';
+
+export {useSwiperSlide, useSwiper} from './context.js';
+export {Swiper, SwiperSlide};

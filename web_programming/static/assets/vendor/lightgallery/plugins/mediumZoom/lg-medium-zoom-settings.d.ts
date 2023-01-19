@@ -13,4 +13,5 @@ export interface MediumZoomSettings {
      */
     backgroundColor: string;
 }
+
 export declare const mediumZoomSettings: MediumZoomSettings;

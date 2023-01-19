@@ -8,4 +8,5 @@ export interface VimeoThumbnailSettings {
      */
     showThumbnailWithPlayButton: boolean;
 }
+
 export declare const vimeoSettings: VimeoThumbnailSettings;

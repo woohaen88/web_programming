@@ -40,6 +40,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 .form-control[readonly],
 .form-control:disabled {
   box-shadow: none !important;
+
   &::placeholder {
     color: $input-disabled-placeholder-color;
   }
@@ -51,6 +52,7 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 label {
   font-size: $form-label-font-size;
 }
+
 .form-floating > label {
   font-weight: $form-label-font-weight;
 }
@@ -74,11 +76,15 @@ label {
     border: unset;
     background-color: $form-switch-bg;
     filter: none;
+
     &:checked {
       background-color: $form-switch-checked-bg;
       @include box-shadow($form-switch-checked-box-shadow);
     }
-    &:disabled { box-shadow: none; }
+
+    &:disabled {
+      box-shadow: none;
+    }
   }
 
   &.mode-switch,
@@ -86,37 +92,44 @@ label {
     display: flex;
     padding-left: 0;
     margin-bottom: 0;
+
     .form-check-label {
       transition: color .15s ease-in-out;
       font: {
         size: $font-size-base;
         weight: $font-weight-medium;
       }
+
       &:first-of-type {
         order: 1;
         margin-right: $spacer * .75;
         color: $gray-900;
       }
+
       &:last-of-type {
         order: 3;
         margin-left: $spacer * .75;
       }
     }
+
     .form-check-input {
       order: 2;
       margin-left: 0;
       background-color: $form-switch-checked-bg;
       @include box-shadow($form-switch-checked-box-shadow);
+
       &:checked {
         & ~ .form-check-label:first-of-type {
           color: $body-color;
         }
+
         & ~ .form-check-label:last-of-type {
           color: $gray-900;
         }
       }
     }
   }
+
   &.mode-switch .form-check-input:checked {
     background-image: escape-svg(url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 21 26'><path d='M4 22.1679C7.5318 20.6248 9.99998 17.1006 9.99998 13C9.99998 8.89937 7.5318 5.37521 4 3.8321C5.22493 3.2969 6.5778 3 8.00002 3C13.5229 3 18 7.47715 18 13C18 18.5228 13.5229 23 8.00002 23C6.5778 23 5.22493 22.7031 4 22.1679Z' fill='#{$form-switch-checked-color}'/></svg>"));
   }
@@ -132,6 +145,7 @@ label {
 
 .password-toggle {
   position: relative;
+
   .form-control {
     padding-right: $font-size-base + ($spacer * 2);
   }
@@ -156,8 +170,14 @@ label {
       size: 1.25em;
       style: normal;
     }
-    &::before { content: '\ec0d'; }
-    &:hover { color: $gray-800; }
+
+    &::before {
+      content: '\ec0d';
+    }
+
+    &:hover {
+      color: $gray-800;
+    }
   }
 
   .password-toggle-check {
@@ -182,6 +202,7 @@ label {
   background-color: $form-feedback-tooltip-valid-bg;
   color: $form-feedback-tooltip-valid-color;
 }
+
 .invalid-tooltip {
   position: static;
   background-color: $form-feedback-tooltip-invalid-bg;
@@ -199,6 +220,7 @@ label {
 .is-valid:not(:required):not(.btn) {
   border-color: $input-border-color !important;
   background-image: none;
+
   &:focus {
     border-color: $input-focus-border-color !important;
     @include box-shadow($input-focus-box-shadow);
@@ -210,7 +232,10 @@ label {
 .was-validated .password-toggle .form-control:valid,
 .was-validated .password-toggle .form-control.is-valid {
   padding-right: 4rem;
-  & + .password-toggle-btn { right: 2.1rem; }
+
+  & + .password-toggle-btn {
+    right: 2.1rem;
+  }
 }
 
 .was-validated .input-group .form-control:invalid,
@@ -227,11 +252,13 @@ label {
   border-color: $form-check-input-checked-border-color;
   @include box-shadow(none);
 }
+
 .was-validated .form-check-input:invalid:checked,
 .form-check-input.is-invalid:checked {
   background-color: transparent;
   border-color: $form-check-input-border;
 }
+
 .was-validated .form-check-input:valid ~ .form-check-label,
 .was-validated .form-check-input.is-valid ~ .form-check-label {
   color: inherit;
@@ -290,18 +317,31 @@ label {
     border-radius: var(--#{$prefix}range-slider-handle-border-radius);
     background-color: var(--#{$prefix}range-slider-handle-bg);
     box-shadow: var(--#{$prefix}range-slider-handle-shadow);
-    &::before, &::after { display: none; }
-    &:focus { outline: none; }
+
+    &::before, &::after {
+      display: none;
+    }
+
+    &:focus {
+      outline: none;
+    }
   }
 
-  .noUi-marker-normal { display: none; }
+  .noUi-marker-normal {
+    display: none;
+  }
+
   .noUi-marker-horizontal {
     &.noUi-marker {
       width: var(--#{$prefix}range-slider-pips-border-width);
       background-color: var(--#{$prefix}range-slider-pips-border-color);
     }
-    &.noUi-marker-large { height: .75rem; }
+
+    &.noUi-marker-large {
+      height: .75rem;
+    }
   }
+
   .noUi-value {
     padding-top: .125rem;
     color: var(--#{$prefix}range-slider-pips-color);
@@ -318,6 +358,7 @@ label {
     @include border-radius(var(--#{$prefix}range-slider-tooltip-border-radius));
   }
 }
+
 html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
   right: calc(var(--#{$prefix}range-slider-handle-size) * -.5);
 }
@@ -329,15 +370,18 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
   display: table;
   @include border-radius($border-radius-sm);
   font-size: $font-size-base * .8125;
+
   &.status-success,
   &.status-error {
     margin-top: .5rem;
     padding: .25rem .5rem;
   }
+
   &.status-success {
     background-color: rgba($success, .1);
     color: darken($success, 10%);
   }
+
   &.status-error {
     background-color: rgba($danger, .1);
     color: $danger;
@@ -360,18 +404,23 @@ html:not([dir=rtl]) .range-slider-ui.noUi-horizontal .noUi-handle {
   &.amex {
     background-position: 0 -52px !important;
   }
+
   &.diners {
     background-position: 0 -78px !important;
   }
+
   &.discover {
     background-position: 0 -104px !important;
   }
+
   &.jcb {
     background-position: 0 -130px !important;
   }
+
   &.mastercard {
     background-position: 0 -156px !important;
   }
+
   &.visa {
     background-position: 0 -182px !important;
   }

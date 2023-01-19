@@ -2,11 +2,13 @@ export interface ActualSizeIcons {
     zoomIn: 'lg-zoom-in' | 'lg-actual-size';
     zoomOut: 'lg-zoom-out' | 'lg-actual-size';
 }
+
 export interface ZoomStrings {
     zoomIn: string;
     zoomOut: string;
     viewActualSize: string;
 }
+
 export interface ZoomSettings {
     /**
      * Value of zoom should be incremented/decremented
@@ -43,4 +45,5 @@ export interface ZoomSettings {
      */
     zoomPluginStrings: ZoomStrings;
 }
+
 export declare const zoomSettings: ZoomSettings;

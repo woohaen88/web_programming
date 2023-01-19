@@ -1,7 +1,29 @@
-import { Vue } from 'vue-class-component';
-import { LightGallery as LGPlugin } from '../lightgallery';
-import { LightGallerySettings } from '../lg-settings';
-import { AfterAppendSubHtmlDetail, AfterCloseDetail, RotateLeftDetail, RotateRightDetail, FlipHorizontalDetail, FlipVerticalDetail, AfterOpenDetail, AfterSlideDetail, BeforeCloseDetail, BeforeNextSlideDetail, BeforeOpenDetail, BeforePrevSlideDetail, BeforeSlideDetail, ContainerResizeDetail, DragEndDetail, DragMoveDetail, DragStartDetail, InitDetail, PosterClickDetail, SlideItemLoadDetail } from '../lg-events';
+import {Vue} from 'vue-class-component';
+import {LightGallery as LGPlugin} from '../lightgallery';
+import {LightGallerySettings} from '../lg-settings';
+import {
+    AfterAppendSubHtmlDetail,
+    AfterCloseDetail,
+    AfterOpenDetail,
+    AfterSlideDetail,
+    BeforeCloseDetail,
+    BeforeNextSlideDetail,
+    BeforeOpenDetail,
+    BeforePrevSlideDetail,
+    BeforeSlideDetail,
+    ContainerResizeDetail,
+    DragEndDetail,
+    DragMoveDetail,
+    DragStartDetail,
+    FlipHorizontalDetail,
+    FlipVerticalDetail,
+    InitDetail,
+    PosterClickDetail,
+    RotateLeftDetail,
+    RotateRightDetail,
+    SlideItemLoadDetail
+} from '../lg-events';
+
 export default class Lightgallery extends Vue {
     $refs: {
         container: HTMLElement;
@@ -30,8 +52,11 @@ export default class Lightgallery extends Vue {
     onFlipHorizontal?: (detail: FlipHorizontalDetail) => void;
     onFlipVertical?: (detail: FlipVerticalDetail) => void;
     LG: LGPlugin;
+
     mounted(): void;
+
     unmounted(): void;
+
     private getMethodName;
     private registerEvents;
 }

@@ -19,6 +19,7 @@
 
 
 }
+
 .gallery-item {
   display: block;
   position: relative;
@@ -86,7 +87,7 @@
     transition: all .3s ease-in-out;
     opacity: 0;
   }
-  
+
   // Hover state
   &:hover, &.is-hovered {
     &::before, &::after,
@@ -106,12 +107,13 @@
       transform: none;
       border-radius: 50%;
       background-color: var(--#{$prefix}gallery-video-indicator-bg);
-      color:var(--#{$prefix}gallery-video-indicator-color);
+      color: var(--#{$prefix}gallery-video-indicator-color);
       font-size: var(--#{$prefix}gallery-video-indicator-font-size);
       opacity: 1;
       @include box-shadow(var(--#{$prefix}gallery-video-indicator-box-shadow));
       content: '\ebbd';
     }
+
     &:hover::after {
       background-color: var(--#{$prefix}gallery-video-indicator-hover-bg);
       color: var(--#{$prefix}gallery-video-indicator-hover-color);
@@ -119,14 +121,25 @@
     }
   }
 }
-.lg-backdrop { z-index: $zindex-modal-backdrop + 5; }
+
+.lg-backdrop {
+  z-index: $zindex-modal-backdrop + 5;
+}
+
 .lg-outer {
   z-index: $zindex-modal + 5;
+
   .lg-thumb-item:hover,
   .lg-thumb-item.active {
     border-color: var(--#{$prefix}primary);
   }
 }
-.lg-on { overflow: hidden; }
+
+.lg-on {
+  overflow: hidden;
+}
+
 .lg-item:focus, .lg:focus, .lg-outer:focus,
-.lg-inner:focus { outline: none; }
+.lg-inner:focus {
+  outline: none;
+}

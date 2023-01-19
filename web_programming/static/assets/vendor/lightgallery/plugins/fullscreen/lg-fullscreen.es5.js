@@ -20,7 +20,7 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
-var __assign = function() {
+var __assign = function () {
     __assign = Object.assign || function __assign(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -47,6 +47,7 @@ var FullScreen = /** @class */ (function () {
         this.settings = __assign(__assign({}, fullscreenSettings), this.core.settings);
         return this;
     }
+
     FullScreen.prototype.init = function () {
         var fullScreen = '';
         if (this.settings.fullScreen) {
@@ -56,8 +57,7 @@ var FullScreen = /** @class */ (function () {
                 !document.mozFullScreenEnabled &&
                 !document.msFullscreenEnabled) {
                 return;
-            }
-            else {
+            } else {
                 fullScreen = "<button type=\"button\" aria-label=\"" + this.settings.fullscreenPluginStrings['toggleFullscreen'] + "\" class=\"lg-fullscreen lg-icon\"></button>";
                 this.core.$toolbar.append(fullScreen);
                 this.fullScreen();
@@ -74,28 +74,22 @@ var FullScreen = /** @class */ (function () {
         var el = document.documentElement;
         if (el.requestFullscreen) {
             el.requestFullscreen();
-        }
-        else if (el.msRequestFullscreen) {
+        } else if (el.msRequestFullscreen) {
             el.msRequestFullscreen();
-        }
-        else if (el.mozRequestFullScreen) {
+        } else if (el.mozRequestFullScreen) {
             el.mozRequestFullScreen();
-        }
-        else if (el.webkitRequestFullscreen) {
+        } else if (el.webkitRequestFullscreen) {
             el.webkitRequestFullscreen();
         }
     };
     FullScreen.prototype.exitFullscreen = function () {
         if (document.exitFullscreen) {
             document.exitFullscreen();
-        }
-        else if (document.msExitFullscreen) {
+        } else if (document.msExitFullscreen) {
             document.msExitFullscreen();
-        }
-        else if (document.mozCancelFullScreen) {
+        } else if (document.mozCancelFullScreen) {
             document.mozCancelFullScreen();
-        }
-        else if (document.webkitExitFullscreen) {
+        } else if (document.webkitExitFullscreen) {
             document.webkitExitFullscreen();
         }
     };
@@ -111,13 +105,12 @@ var FullScreen = /** @class */ (function () {
             .find('.lg-fullscreen')
             .first()
             .on('click.lg', function () {
-            if (_this.isFullScreen()) {
-                _this.exitFullscreen();
-            }
-            else {
-                _this.requestFullscreen();
-            }
-        });
+                if (_this.isFullScreen()) {
+                    _this.exitFullscreen();
+                } else {
+                    _this.requestFullscreen();
+                }
+            });
     };
     FullScreen.prototype.closeGallery = function () {
         // exit from fullscreen if activated

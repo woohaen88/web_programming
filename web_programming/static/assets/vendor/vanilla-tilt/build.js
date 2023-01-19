@@ -14,35 +14,35 @@ const external = !!pkg.dependencies ? Object.keys(pkg.dependencies) : [];
  */
 
 rollup({
-  entry: 'src/vanilla-tilt.js',
-  plugins: [
-    nodeResolve({
-      module_es2015: true,
-      jsnext: true,
-      main: true,
-    })
-  ],
-  external: external
+    entry: 'src/vanilla-tilt.js',
+    plugins: [
+        nodeResolve({
+            module_es2015: true,
+            jsnext: true,
+            main: true,
+        })
+    ],
+    external: external
 }).then(bundle => bundle.write({
-  dest: pkg.module_es2015,
-  format: 'es'
+    dest: pkg.module_es2015,
+    format: 'es'
 })).catch(err => console.log(err.stack));
 
 rollup({
-  entry: 'src/vanilla-tilt.js',
-  plugins: [
-    nodeResolve({
-      module_es2015: true,
-      jsnext: true,
-      main: true,
-    }),
-    babel(babelrc()),
-    commonjs()
-  ],
-  external: external
+    entry: 'src/vanilla-tilt.js',
+    plugins: [
+        nodeResolve({
+            module_es2015: true,
+            jsnext: true,
+            main: true,
+        }),
+        babel(babelrc()),
+        commonjs()
+    ],
+    external: external
 }).then(bundle => bundle.write({
-  dest: pkg.main,
-  format: 'cjs'
+    dest: pkg.main,
+    format: 'cjs'
 })).catch(err => console.log(err.stack));
 
 
@@ -50,52 +50,52 @@ rollup({
  create dist for using as script in html
  */
 rollup({
-  entry: 'src/vanilla-tilt.js',
-  plugins: [
-    nodeResolve({
-      module_es2015: true,
-      jsnext: true,
-      main: true,
-    })
-  ],
-  external: external
+    entry: 'src/vanilla-tilt.js',
+    plugins: [
+        nodeResolve({
+            module_es2015: true,
+            jsnext: true,
+            main: true,
+        })
+    ],
+    external: external
 }).then((bundle) => {
-  bundle.write({
-    moduleName: 'VanillaTilt',
-    format: 'iife',
-    dest: pkg.distrib,
-  }).then(() => {
-    const code = minify(fs.readFileSync(pkg.distrib).toString()).code;
+    bundle.write({
+        moduleName: 'VanillaTilt',
+        format: 'iife',
+        dest: pkg.distrib,
+    }).then(() => {
+        const code = minify(fs.readFileSync(pkg.distrib).toString()).code;
 
-    fs.writeFileSync(pkg.distrib.replace('.js', '.min.js'), code);
-    return bundle;
-  })
+        fs.writeFileSync(pkg.distrib.replace('.js', '.min.js'), code);
+        return bundle;
+    })
 }).catch(err => console.log(err.stack));
 
 rollup({
-  entry: 'src/vanilla-tilt.js',
-  plugins: [
-    nodeResolve({
-      module_es2015: true,
-      jsnext: true,
-      main: true
-    }),
-    babel(babelrc()),
-    commonjs()
-  ],
-  external: external
+    entry: 'src/vanilla-tilt.js',
+    plugins: [
+        nodeResolve({
+            module_es2015: true,
+            jsnext: true,
+            main: true
+        }),
+        babel(babelrc()),
+        commonjs()
+    ],
+    external: external
 }).then((bundle) => {
-  const dest = pkg.distrib.replace('.js', '.babel.js');
-  bundle.write({
-    moduleName: 'VanillaTilt',
-    format: 'iife',
-    dest: dest,
-  })
-    .then(() => {
-      const code = minify(fs.readFileSync(dest).toString()).code;
-
-      fs.writeFileSync(dest.replace('.js', '.min.js'), code);
-      return bundle;
+    const dest = pkg.distrib.replace('.js', '.babel.js');
+    bundle.write({
+        moduleName: 'VanillaTilt',
+        format: 'iife',
+        dest: dest,
     })
+        .then(() => {
+            const code = minify(fs.readFileSync(dest).toString()).code;
+
+            fs.writeFileSync(dest.replace('.js', '.min.js'), code);
+            return bundle;
+        })
 
 }).catch(err => console.log(err.stack));

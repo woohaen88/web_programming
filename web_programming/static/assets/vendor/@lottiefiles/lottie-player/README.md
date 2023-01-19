@@ -1,6 +1,7 @@
 ## lottie-player Web Component
 
-This is a Web Component for easily embedding and playing Lottie animations and the Lottie-based Telegram Sticker (tgs) animations in websites.
+This is a Web Component for easily embedding and playing Lottie animations and the Lottie-based Telegram Sticker (tgs)
+animations in websites.
 
 [![npm](https://img.shields.io/npm/v/@lottiefiles/lottie-player.svg)](https://www.npmjs.com/package/@lottiefiles/lottie-player)
 [![webcomponents.org](https://img.shields.io/badge/webcomponents.org-published-blue.svg)](https://www.webcomponents.org/element/@lottiefiles/lottie-player)
@@ -161,7 +162,8 @@ Use as follows
 ></lottie-player>
 ```
 
-For typescript projects an added step is required. The component must be declared as a JSX intrinsic element. Create a file 'declarations.d.ts' in the root of your project and add the code below to the file.
+For typescript projects an added step is required. The component must be declared as a JSX intrinsic element. Create a
+file 'declarations.d.ts' in the root of your project and add the code below to the file.
 
 ```js
 declare namespace JSX {
@@ -173,7 +175,8 @@ declare namespace JSX {
 
 ### NuxtJS
 
-The process for NuxtJS is slightly different. Create a lottie-player.js file in project root inside a folder named 'plugins'. Add the code below to the file
+The process for NuxtJS is slightly different. Create a lottie-player.js file in project root inside a folder named '
+plugins'. Add the code below to the file
 
 ```js
 import * as LottiePlayer from "@lottiefiles/lottie-player";
@@ -199,11 +202,13 @@ You would then be able to use the player as follows inside any component
 ></lottie-player>
 ```
 
-This is because the player script needs to be rendered on the browser/client side and we must configure nuxtjs to load the script on the client side only.
+This is because the player script needs to be rendered on the browser/client side and we must configure nuxtjs to load
+the script on the client side only.
 
 ### NextJS
 
-The process to import in NextJS is similar to NuxtJS in the sense that on SSR mode, the library must be declared as a client side module. To do this, import the library within a react useEffect hook.
+The process to import in NextJS is similar to NuxtJS in the sense that on SSR mode, the library must be declared as a
+client side module. To do this, import the library within a react useEffect hook.
 
 ```javascript
 import React, { useRef } from "react";
@@ -242,12 +247,15 @@ declare namespace JSX {
 }
 ```
 
-Full documentation on player properties, methods, events and styling for the Lottie-player are available [here](https://docs.lottiefiles.com/lottie-player).
+Full documentation on player properties, methods, events and styling for the Lottie-player are
+available [here](https://docs.lottiefiles.com/lottie-player).
 
 ## Community & Support
 
-- [Github issues.](https://github.com/LottieFiles/lottie-player/issues) For bugs and errors you encounter using this player.
-- [Discord.](https://lottiefiles.com/discord) For hanging out with the community and sharing your awesome Lottie animations!
+- [Github issues.](https://github.com/LottieFiles/lottie-player/issues) For bugs and errors you encounter using this
+  player.
+- [Discord.](https://lottiefiles.com/discord) For hanging out with the community and sharing your awesome Lottie
+  animations!
 
 ## Our other Lottie related libraries
 

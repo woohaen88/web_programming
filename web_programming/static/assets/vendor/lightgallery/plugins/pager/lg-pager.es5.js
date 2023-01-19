@@ -20,7 +20,7 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
-var __assign = function() {
+var __assign = function () {
     __assign = Object.assign || function __assign(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -78,6 +78,7 @@ var Pager = /** @class */ (function () {
         this.settings = __assign(__assign({}, pagerSettings), this.core.settings);
         return this;
     }
+
     Pager.prototype.getPagerHtml = function (items) {
         var pagerList = '';
         for (var i = 0; i < items.length; i++) {

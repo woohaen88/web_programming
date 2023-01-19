@@ -4,5 +4,5 @@
  * @return {number} `value` or zero if `value` isn't numeric.
  */
 export default function getNumber(value) {
-  return parseFloat(value) || 0;
+    return parseFloat(value) || 0;
 }

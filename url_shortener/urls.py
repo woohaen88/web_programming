@@ -1,8 +1,8 @@
 from django.urls import path
-from url_shortener import views
-
 from rest_framework import routers
+
 from url_shortener import apis
+from url_shortener import views
 
 router = routers.SimpleRouter()
 router.register(r"url", apis.UrlViewSet)

@@ -1,33 +1,33 @@
 /**
  * Theme Mode Switch
  * Switch betwen light/dark mode. The chosen mode is saved to browser's local storage
-*/
+ */
 
 const themeModeSwitch = (() => {
 
-  let modeSwitch = document.querySelector('[data-bs-toggle="mode"]');
-  
-  if(modeSwitch === null) return;
+    let modeSwitch = document.querySelector('[data-bs-toggle="mode"]');
 
-  let checkbox = modeSwitch.querySelector('.form-check-input');
+    if (modeSwitch === null) return;
 
-  if (mode === 'dark') {
-    root.classList.add('dark-mode');
-    checkbox.checked = true;
-  } else {
-    root.classList.remove('dark-mode');
-    checkbox.checked = false;
-  }
+    let checkbox = modeSwitch.querySelector('.form-check-input');
 
-  modeSwitch.addEventListener('click', (e) => {
-    if (checkbox.checked) {
-      root.classList.add('dark-mode');
-      window.localStorage.setItem('mode', 'dark');
+    if (mode === 'dark') {
+        root.classList.add('dark-mode');
+        checkbox.checked = true;
     } else {
-      root.classList.remove('dark-mode');
-      window.localStorage.setItem('mode', 'light');
+        root.classList.remove('dark-mode');
+        checkbox.checked = false;
     }
-  });
+
+    modeSwitch.addEventListener('click', (e) => {
+        if (checkbox.checked) {
+            root.classList.add('dark-mode');
+            window.localStorage.setItem('mode', 'dark');
+        } else {
+            root.classList.remove('dark-mode');
+            window.localStorage.setItem('mode', 'light');
+        }
+    });
 
 })();
 

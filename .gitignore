@@ -398,3 +398,4 @@ poetry.toml
 
 */migrations/0*.py
 media/
+static/

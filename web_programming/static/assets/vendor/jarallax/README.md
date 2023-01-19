@@ -2,7 +2,8 @@
 
 ![jarallax.min.js](https://img.badgesize.io/nk-o/jarallax/master/dist/jarallax.min.js?compression=gzip&label=core%20gzip%20size) ![jarallax-video.min.js](https://img.badgesize.io/nk-o/jarallax/master/dist/jarallax-video.min.js?compression=gzip&label=video%20ext%20gzip%20size)
 
-Parallax scrolling for modern browsers. Supported &lt;img&gt; tags, background images, YouTube, Vimeo and Self-Hosted Videos.
+Parallax scrolling for modern browsers. Supported &lt;img&gt; tags, background images, YouTube, Vimeo and Self-Hosted
+Videos.
 
 ## [Online Demo](https://jarallax.nkdev.info/)
 
@@ -49,7 +50,8 @@ Use one of the following examples to import jarallax.
 
 ### ESM
 
-We provide a version of Jarallax built as ESM (jarallax.esm.js and jarallax.esm.min.js) which allows you to use Jarallax as a module in your browser, if your [targeted browsers support it](https://caniuse.com/es6-module).
+We provide a version of Jarallax built as ESM (jarallax.esm.js and jarallax.esm.min.js) which allows you to use Jarallax
+as a module in your browser, if your [targeted browsers support it](https://caniuse.com/es6-module).
 
 ```html
 <script type="module">
@@ -73,7 +75,8 @@ We provide a version of Jarallax built as ESM (jarallax.esm.js and jarallax.esm.
 
 ### UMD
 
-Jarallax may be also used in a traditional way by including script in HTML and using library by accessing `window.jarallax`.
+Jarallax may be also used in a traditional way by including script in HTML and using library by
+accessing `window.jarallax`.
 
 ```html
 <script src="jarallax.min.js"></script>
@@ -175,7 +178,8 @@ jarallax(document.querySelectorAll('.jarallax'), {
 </div>
 ```
 
-Note: You can use all available options as data attributes. For example: `data-speed`, `data-img-src`, `data-img-size`, etc...
+Note: You can use all available options as data attributes. For example: `data-speed`, `data-img-src`, `data-img-size`,
+etc...
 
 ### C. jQuery way
 
@@ -231,30 +235,32 @@ jarallax(document.querySelectorAll('.jarallax'), {
 </div>
 ```
 
-Note: self-hosted videos require 1 video type only, not necessarily using all mp4, webm, and ogv. This is only needed for maximum compatibility with all browsers.
+Note: self-hosted videos require 1 video type only, not necessarily using all mp4, webm, and ogv. This is only needed
+for maximum compatibility with all browsers.
 
 ## Options
 
 Options can be passed in data attributes or in object when you initialize jarallax from script.
 
-Name | Type | Default | Description
-:--- | :--- | :------ | :----------
-type | string | `scroll` | scroll, scale, opacity, scroll-opacity, scale-opacity.
-speed | float | `0.5` | Parallax effect speed. Provide numbers from -1.0 to 2.0.
-imgSrc | path | `null` | Image url. By default used image from background.
-imgElement | dom / selector | `.jarallax-img` | Image tag that will be used as background.
-imgSize | string | `cover` | Image size. If you use `<img>` tag for background, you should add `object-fit` values, else use `background-size` values.
-imgPosition | string | `50% 50%` | Image position. If you use `<img>` tag for background, you should add `object-position` values, else use `background-position` values.
-imgRepeat | string | `no-repeat` | Image repeat. Supported only `background-position` values.
-keepImg | boolean | `false` | Keep `<img>` tag in it's default place after Jarallax inited.
-elementInViewport | dom | `null` | Use custom DOM / jQuery element to check if parallax block in viewport. More info here - [Issue 13](https://github.com/nk-o/jarallax/issues/13).
-zIndex | number | `-100` | z-index of parallax container.
-disableParallax | RegExp / function | - | Disable parallax on specific user agents (using regular expression) or with function return value. The image will be set on the background.
-disableVideo | RegExp / function | - | Disable video load on specific user agents (using regular expression) or with function return value. The image will be set on the background.
+ Name              | Type              | Default         | Description                                                                                                                                      
+:------------------|:------------------|:----------------|:-------------------------------------------------------------------------------------------------------------------------------------------------
+ type              | string            | `scroll`        | scroll, scale, opacity, scroll-opacity, scale-opacity.                                                                                           
+ speed             | float             | `0.5`           | Parallax effect speed. Provide numbers from -1.0 to 2.0.                                                                                         
+ imgSrc            | path              | `null`          | Image url. By default used image from background.                                                                                                
+ imgElement        | dom / selector    | `.jarallax-img` | Image tag that will be used as background.                                                                                                       
+ imgSize           | string            | `cover`         | Image size. If you use `<img>` tag for background, you should add `object-fit` values, else use `background-size` values.                        
+ imgPosition       | string            | `50% 50%`       | Image position. If you use `<img>` tag for background, you should add `object-position` values, else use `background-position` values.           
+ imgRepeat         | string            | `no-repeat`     | Image repeat. Supported only `background-position` values.                                                                                       
+ keepImg           | boolean           | `false`         | Keep `<img>` tag in it's default place after Jarallax inited.                                                                                    
+ elementInViewport | dom               | `null`          | Use custom DOM / jQuery element to check if parallax block in viewport. More info here - [Issue 13](https://github.com/nk-o/jarallax/issues/13). 
+ zIndex            | number            | `-100`          | z-index of parallax container.                                                                                                                   
+ disableParallax   | RegExp / function | -               | Disable parallax on specific user agents (using regular expression) or with function return value. The image will be set on the background.      
+ disableVideo      | RegExp / function | -               | Disable video load on specific user agents (using regular expression) or with function return value. The image will be set on the background.    
 
 ### Disable on mobile devices
 
-You can disable parallax effect and/or video background on mobile devices using option `disableParallax` and/or `disableVideo`.
+You can disable parallax effect and/or video background on mobile devices using option `disableParallax`
+and/or `disableVideo`.
 
 Example:
 
@@ -282,34 +288,34 @@ jarallax(document.querySelectorAll('.jarallax'), {
 
 Required `jarallax/jarallax-video.js` file.
 
-Name | Type | Default | Description
-:--- | :--- | :------ | :----------
-videoSrc | string | `null` | You can use Youtube, Vimeo or Self-Hosted videos. Also you can use data attribute `data-jarallax-video`.
-videoStartTime | float | `0` | Start time in seconds when video will be started (this value will be applied also after loop).
-videoEndTime | float | `0` | End time in seconds when video will be ended.
-videoLoop | boolean | `true` | Loop video to play infinitely.
-videoPlayOnlyVisible | boolean | `true` | Play video only when it is visible on the screen.
-videoLazyLoading | boolean | `true` | Preload videos only when it is visible on the screen.
+ Name                 | Type    | Default | Description                                                                                              
+:---------------------|:--------|:--------|:---------------------------------------------------------------------------------------------------------
+ videoSrc             | string  | `null`  | You can use Youtube, Vimeo or Self-Hosted videos. Also you can use data attribute `data-jarallax-video`. 
+ videoStartTime       | float   | `0`     | Start time in seconds when video will be started (this value will be applied also after loop).           
+ videoEndTime         | float   | `0`     | End time in seconds when video will be ended.                                                            
+ videoLoop            | boolean | `true`  | Loop video to play infinitely.                                                                           
+ videoPlayOnlyVisible | boolean | `true`  | Play video only when it is visible on the screen.                                                        
+ videoLazyLoading     | boolean | `true`  | Preload videos only when it is visible on the screen.                                                    
 
 ## Events
 
 Events used the same way as Options.
 
-Name | Description
-:--- | :----------
-onScroll | Called when parallax working. Use first argument with calculations. More info [see below](#onscroll-event).
-onInit | Called after init end.
-onDestroy | Called after destroy.
-onCoverImage | Called after cover image.
+ Name         | Description                                                                                                 
+:-------------|:------------------------------------------------------------------------------------------------------------
+ onScroll     | Called when parallax working. Use first argument with calculations. More info [see below](#onscroll-event). 
+ onInit       | Called after init end.                                                                                      
+ onDestroy    | Called after destroy.                                                                                       
+ onCoverImage | Called after cover image.                                                                                   
 
 ### Additional events for video extension
 
 Required `jarallax/jarallax-video.js` file.
 
-Name | Description
-:--- | :----------
-onVideoInsert | Called right after video is inserted in the parallax block. Video can be accessed by `this.$video`
-onVideoWorkerInit | Called after VideoWorker script initialized. Available parameter with videoWorkerObject.
+ Name              | Description                                                                                        
+:------------------|:---------------------------------------------------------------------------------------------------
+ onVideoInsert     | Called right after video is inserted in the parallax block. Video can be accessed by `this.$video` 
+ onVideoWorkerInit | Called after VideoWorker script initialized. Available parameter with videoWorkerObject.           
 
 ### onScroll event
 
@@ -349,12 +355,12 @@ Calculations example:
 
 ## Methods
 
-Name | Result | Description
-:--- | :----- | :----------
-destroy | - | Destroy Jarallax and set block as it was before plugin init.
-isVisible | boolean | Check if parallax block is in viewport.
-onResize | - | Fit image and clip parallax container. Called on window resize and load.
-onScroll | - | Calculate parallax image position. Called on window scroll.
+ Name      | Result  | Description                                                              
+:----------|:--------|:-------------------------------------------------------------------------
+ destroy   | -       | Destroy Jarallax and set block as it was before plugin init.             
+ isVisible | boolean | Check if parallax block is in viewport.                                  
+ onResize  | -       | Fit image and clip parallax container. Called on window resize and load. 
+ onScroll  | -       | Calculate parallax image position. Called on window scroll.              
 
 ### Call methods example
 

@@ -1,13 +1,14 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, FormView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from campings.forms import CampingCreateForm, CampingUpdateForm, CampingItemCreateForm
-from campings.models import Camping, CampingItem
-from tags.models import Tag
+from campings.models import Camping, CampingItem, MultipleImage
 from tags.forms import TagCreateForm
+from tags.models import Tag
+
+
 
 
 class CampingListView(ListView):
@@ -16,9 +17,12 @@ class CampingListView(ListView):
     context_object_name = "camping_list"
 
 
+
+
 class CampingDetailView(DetailView):
     model = Camping
     template_name = "campings/detail.html"
+    context_object_name = "camping"
 
     def get_object(self, queryset=None):
         obj = self.model.objects.filter(pk=self.kwargs.get("camping_pk")).first()
@@ -34,22 +38,27 @@ class CampingCreateView(CreateView):
     second_form_class = TagCreateForm
 
     def form_valid(self, form):
-        valid = super().form_valid(form)
-        camping = form.save(commit=False)
-        camping.user = self.request.user
-        camping.save()
-        return valid
+        # self.object = form.save(self.request)
+        self.object = form.save(self.request)
+        images = self.request.FILES.getlist("image")
+        for image in images:
+            MultipleImage.objects.create(
+                images=image,
+                camping_id=self.object.pk,
+            )
 
-    def post(self, request, *args, **kwargs):
-        if "form" in request.POST:
-            form_class = self.get_form_class()
-            form_name = "form"
-        else:
-            form_class = self.second_form_class
-            form_name = "form2"
-        form = self.get_form(form_class)
-        if form.is_valid():
-            return self.form_valid(form)
+        return HttpResponseRedirect(self.get_success_url())
+
+    # def post(self, request, *args, **kwargs):
+    #     if "form" in request.POST:
+    #         form_class = self.get_form_class()
+    #         form_name = "form"
+    #     else:
+    #         form_class = self.second_form_class
+    #         form_name = "form2"
+    #     form = self.get_form(form_class)
+    #     if form.is_valid():
+    #         return self.form_valid(form)
 
 
 class CampingUpdateView(UpdateView):
@@ -105,6 +114,7 @@ class CampingItemListView(ListView):
     model = CampingItem
     template_name = "campings/camping_item_list.html"
     context_object_name = "camping_item_list"
+
 
 class CampingItemCreateView(LoginRequiredMixin, CreateView):
     model = CampingItem

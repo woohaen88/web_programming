@@ -7,9 +7,10 @@
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgVideo = factory());
-}(this, (function () { 'use strict';
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgVideo = factory());
+}(this, (function () {
+    'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -26,7 +27,7 @@
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    var __assign = function() {
+    var __assign = function () {
         __assign = Object.assign || function __assign(t) {
             for (var s, i = 1, n = arguments.length; i < n; i++) {
                 s = arguments[i];
@@ -86,8 +87,8 @@
     var param = function (obj) {
         return Object.keys(obj)
             .map(function (k) {
-            return encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]);
-        })
+                return encodeURIComponent(k) + '=' + encodeURIComponent(obj[k]);
+            })
             .join('&');
     };
     var getVimeoURLParams = function (defaultParams, videoInfo) {
@@ -144,6 +145,7 @@
             this.settings = __assign(__assign({}, videoSettings), this.core.settings);
             return this;
         }
+
         Video.prototype.init = function () {
             var _this = this;
             /**
@@ -249,8 +251,7 @@
             var currentGalleryItem = this.core.galleryItems[index];
             if (currentGalleryItem.poster) {
                 this.loadVideoOnPosterClick($slide, true);
-            }
-            else {
+            } else {
                 this.playVideo(index);
             }
         };
@@ -288,19 +289,16 @@
                         ? '&' + param(this.settings.youTubePlayerParams)
                         : '');
                 video = "<iframe allow=\"autoplay\" id=" + videoId + " class=\"lg-video-object lg-youtube " + addClass + "\" " + videoTitle + " src=\"//www.youtube.com/embed/" + (videoInfo.youtube[1] + playerParams) + "\" " + commonIframeProps + "></iframe>";
-            }
-            else if (videoInfo.vimeo) {
+            } else if (videoInfo.vimeo) {
                 var videoId = 'lg-vimeo' + index;
                 var playerParams = getVimeoURLParams(this.settings.vimeoPlayerParams, videoInfo);
                 video = "<iframe allow=\"autoplay\" id=" + videoId + " class=\"lg-video-object lg-vimeo " + addClass + "\" " + videoTitle + " src=\"//player.vimeo.com/video/" + (videoInfo.vimeo[1] + playerParams) + "\" " + commonIframeProps + "></iframe>";
-            }
-            else if (videoInfo.wistia) {
+            } else if (videoInfo.wistia) {
                 var wistiaId = 'lg-wistia' + index;
                 var playerParams = param(this.settings.wistiaPlayerParams);
                 playerParams = playerParams ? '?' + playerParams : '';
                 video = "<iframe allow=\"autoplay\" id=\"" + wistiaId + "\" src=\"//fast.wistia.net/embed/iframe/" + (videoInfo.wistia[4] + playerParams) + "\" " + videoTitle + " class=\"wistia_embed lg-video-object lg-wistia " + addClass + "\" name=\"wistia_embed\" " + commonIframeProps + "></iframe>";
-            }
-            else if (videoInfo.html5) {
+            } else if (videoInfo.html5) {
                 var html5VideoMarkup = '';
                 for (var i = 0; i < html5Video.source.length; i++) {
                     html5VideoMarkup += "<source src=\"" + html5Video.source[i].src + "\" type=\"" + html5Video.source[i].type + "\">";
@@ -348,8 +346,7 @@
             if (this.settings.videojs && ((_a = this.core.galleryItems[videoParams.index].__slideVideoInfo) === null || _a === void 0 ? void 0 : _a.html5)) {
                 try {
                     return videojs($videoElement.get(), this.settings.videojsOptions);
-                }
-                catch (e) {
+                } catch (e) {
                     console.error('lightGallery:- Make sure you have included videojs');
                 }
             }
@@ -366,19 +363,16 @@
                     $videoElement.on('ended', function () {
                         _this.core.goToNextSlide();
                     });
-                }
-                else if (videoInfo.vimeo) {
+                } else if (videoInfo.vimeo) {
                     try {
                         // https://github.com/vimeo/player.js/#ended
                         new Vimeo.Player($videoElement.get()).on('ended', function () {
                             _this.core.goToNextSlide();
                         });
-                    }
-                    catch (e) {
+                    } catch (e) {
                         console.error('lightGallery:- Make sure you have included //github.com/vimeo/player.js');
                     }
-                }
-                else if (videoInfo.wistia) {
+                } else if (videoInfo.wistia) {
                     try {
                         window._wq = window._wq || [];
                         // @todo Event is gettign triggered multiple times
@@ -390,8 +384,7 @@
                                 });
                             },
                         });
-                    }
-                    catch (e) {
+                    } catch (e) {
                         console.error('lightGallery:- Make sure you have included //fast.wistia.com/assets/external/E-v1.js');
                     }
                 }
@@ -408,33 +401,26 @@
             if (videoInfo.youtube) {
                 try {
                     $videoElement.get().contentWindow.postMessage("{\"event\":\"command\",\"func\":\"" + action + "Video\",\"args\":\"\"}", '*');
-                }
-                catch (e) {
+                } catch (e) {
                     console.error("lightGallery:- " + e);
                 }
-            }
-            else if (videoInfo.vimeo) {
+            } else if (videoInfo.vimeo) {
                 try {
                     new Vimeo.Player($videoElement.get())[action]();
-                }
-                catch (e) {
+                } catch (e) {
                     console.error('lightGallery:- Make sure you have included //github.com/vimeo/player.js');
                 }
-            }
-            else if (videoInfo.html5) {
+            } else if (videoInfo.html5) {
                 if (this.settings.videojs) {
                     try {
                         videojs($videoElement.get())[action]();
-                    }
-                    catch (e) {
+                    } catch (e) {
                         console.error('lightGallery:- Make sure you have included videojs');
                     }
-                }
-                else {
+                } else {
                     $videoElement.get()[action]();
                 }
-            }
-            else if (videoInfo.wistia) {
+            } else if (videoInfo.wistia) {
                 try {
                     window._wq = window._wq || [];
                     // @todo Find a way to destroy wistia player instance
@@ -444,8 +430,7 @@
                             video[action]();
                         },
                     });
-                }
-                catch (e) {
+                } catch (e) {
                     console.error('lightGallery:- Make sure you have included //fast.wistia.com/assets/external/E-v1.js');
                 }
             }
@@ -476,24 +461,22 @@
                     $el.find('.lg-video-cont').first().append($tempImg);
                     $el.addClass('lg-video-loading');
                     videoJsPlayer_1 &&
-                        videoJsPlayer_1.ready(function () {
-                            videoJsPlayer_1.on('loadedmetadata', function () {
-                                _this.onVideoLoadAfterPosterClick($el, _this.core.index);
-                            });
+                    videoJsPlayer_1.ready(function () {
+                        videoJsPlayer_1.on('loadedmetadata', function () {
+                            _this.onVideoLoadAfterPosterClick($el, _this.core.index);
                         });
+                    });
                     $el.find('.lg-video-object')
                         .first()
                         .on('load.lg error.lg loadedmetadata.lg', function () {
-                        setTimeout(function () {
-                            _this.onVideoLoadAfterPosterClick($el, _this.core.index);
-                        }, 50);
-                    });
-                }
-                else {
+                            setTimeout(function () {
+                                _this.onVideoLoadAfterPosterClick($el, _this.core.index);
+                            }, 50);
+                        });
+                } else {
                     this.playVideo(this.core.index);
                 }
-            }
-            else if (forcePlay) {
+            } else if (forcePlay) {
                 this.playVideo(this.core.index);
             }
         };

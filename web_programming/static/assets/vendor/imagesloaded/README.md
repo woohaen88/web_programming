@@ -46,7 +46,8 @@ $('#container').imagesLoaded( {
 );
 ```
 
-`.imagesLoaded()` returns a [jQuery Deferred object](https://api.jquery.com/category/deferred-object/). This allows you to use `.always()`, `.done()`, `.fail()` and `.progress()`.
+`.imagesLoaded()` returns a [jQuery Deferred object](https://api.jquery.com/category/deferred-object/). This allows you
+to use `.always()`, `.done()`, `.fail()` and `.progress()`.
 
 ``` js
 $('#container').imagesLoaded()
@@ -126,9 +127,11 @@ imagesLoaded( '#container', { background: true }, function() {
 });
 ```
 
-[See jQuery demo](https://codepen.io/desandro/pen/pjVMPB) or [vanilla JS demo](https://codepen.io/desandro/pen/avKooW) on CodePen.
+[See jQuery demo](https://codepen.io/desandro/pen/pjVMPB) or [vanilla JS demo](https://codepen.io/desandro/pen/avKooW)
+on CodePen.
 
-Set to a selector string like `{ background: '.item' }` to detect when the background images of child elements have loaded.
+Set to a selector string like `{ background: '.item' }` to detect when the background images of child elements have
+loaded.
 
 ``` js
 // jQuery
@@ -142,7 +145,8 @@ imagesLoaded( '#container', { background: '.item' }, function() {
 });
 ```
 
-[See jQuery demo](https://codepen.io/desandro/pen/avKoZL) or [vanilla JS demo](https://codepen.io/desandro/pen/vNrBGz) on CodePen.
+[See jQuery demo](https://codepen.io/desandro/pen/avKoZL) or [vanilla JS demo](https://codepen.io/desandro/pen/vNrBGz)
+on CodePen.
 
 ## Events
 
@@ -302,7 +306,6 @@ imagesLoaded.makeJQueryPlugin( $ );
 $('#container').imagesLoaded( function() {...});
 ```
 
-
 ## Browser support
 
 + Chrome 49+
@@ -310,7 +313,8 @@ $('#container').imagesLoaded( function() {...});
 + Edge 14+
 + iOS Safari 8+
 
-Use [imagesLoaded v4](https://github.com/desandro/imagesloaded/tree/v4.1.4) for Internet Explorer and other older browser support.
+Use [imagesLoaded v4](https://github.com/desandro/imagesloaded/tree/v4.1.4) for Internet Explorer and other older
+browser support.
 
 ## Development
 

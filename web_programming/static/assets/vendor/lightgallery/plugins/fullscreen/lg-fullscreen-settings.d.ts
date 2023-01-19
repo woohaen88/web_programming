@@ -1,6 +1,7 @@
 export interface FullscreenStrings {
     toggleFullscreen: string;
 }
+
 export interface FullscreenSettings {
     /**
      * Enable/Disable fullscreen option
@@ -11,4 +12,5 @@ export interface FullscreenSettings {
      */
     fullscreenPluginStrings: FullscreenStrings;
 }
+
 export declare const fullscreenSettings: FullscreenSettings;

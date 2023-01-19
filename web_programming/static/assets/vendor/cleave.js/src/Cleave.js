@@ -14,12 +14,12 @@ var Cleave = function (element, opts) {
         owner.element = document.querySelector(element);
         hasMultipleElements = document.querySelectorAll(element).length > 1;
     } else {
-      if (typeof element.length !== 'undefined' && element.length > 0) {
-        owner.element = element[0];
-        hasMultipleElements = element.length > 1;
-      } else {
-        owner.element = element;
-      }
+        if (typeof element.length !== 'undefined' && element.length > 0) {
+            owner.element = element[0];
+            hasMultipleElements = element.length > 1;
+        } else {
+            owner.element = element;
+        }
     }
 
     if (!owner.element) {
@@ -27,12 +27,12 @@ var Cleave = function (element, opts) {
     }
 
     if (hasMultipleElements) {
-      try {
-        // eslint-disable-next-line
-        console.warn('[cleave.js] Multiple input fields matched, cleave.js will only take the first one.');
-      } catch (e) {
-        // Old IE
-      }
+        try {
+            // eslint-disable-next-line
+            console.warn('[cleave.js] Multiple input fields matched, cleave.js will only take the first one.');
+        } catch (e) {
+            // Old IE
+        }
     }
 
     opts.initValue = owner.element.value;
@@ -121,7 +121,7 @@ Cleave.prototype = {
         );
     },
 
-    initTimeFormatter: function() {
+    initTimeFormatter: function () {
         var owner = this, pps = owner.properties;
 
         if (!pps.time) {

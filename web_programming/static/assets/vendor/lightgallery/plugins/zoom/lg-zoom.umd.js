@@ -7,9 +7,10 @@
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgZoom = factory());
-}(this, (function () { 'use strict';
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgZoom = factory());
+}(this, (function () {
+    'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -26,7 +27,7 @@
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    var __assign = function() {
+    var __assign = function () {
         __assign = Object.assign || function __assign(t) {
             for (var s, i = 1, n = arguments.length; i < n; i++) {
                 s = arguments[i];
@@ -96,6 +97,7 @@
             this.settings = __assign(__assign({}, zoomSettings), this.core.settings);
             return this;
         }
+
         // Append Zoom controls. Actual size, Zoom-in, Zoom-out
         Zoom.prototype.buildTemplates = function () {
             var zoomIcons = this.settings.showZoomInOutIcons
@@ -122,8 +124,7 @@
                 event.detail.delay) {
                 // will execute only once
                 _speed = 0;
-            }
-            else {
+            } else {
                 // Remove lg-from-hash to enable starting animation.
                 this.$LG('body').first().removeClass('lg-from-hash');
             }
@@ -167,12 +168,10 @@
             if (scale) {
                 height = $image.offsetHeight * scale;
                 width = $image.offsetWidth * scale;
-            }
-            else if (scaleDiff) {
+            } else if (scaleDiff) {
                 height = rect.height + scaleDiff * rect.height;
                 width = rect.width + scaleDiff * rect.width;
-            }
-            else {
+            } else {
                 height = rect.height;
                 width = rect.width;
             }
@@ -222,14 +221,13 @@
                 var scaleVal = (scale - scaleDiff) / Math.abs(scaleDiff);
                 _x =
                     (scaleDiff < 0 ? -_x : _x) +
-                        this.left * (scaleVal + (scaleDiff < 0 ? -1 : 1));
+                    this.left * (scaleVal + (scaleDiff < 0 ? -1 : 1));
                 _y =
                     (scaleDiff < 0 ? -_y : _y) +
-                        this.top * (scaleVal + (scaleDiff < 0 ? -1 : 1));
+                    this.top * (scaleVal + (scaleDiff < 0 ? -1 : 1));
                 x = _x / scaleVal;
                 y = _y / scaleVal;
-            }
-            else {
+            } else {
                 var scaleVal = (scale - scaleDiff) * scaleDiff;
                 x = _x * scaleVal;
                 y = _y * scaleVal;
@@ -238,17 +236,14 @@
                 if (allowX) {
                     if (this.isBeyondPossibleLeft(x, possibleSwipeCords.minX)) {
                         x = possibleSwipeCords.minX;
-                    }
-                    else if (this.isBeyondPossibleRight(x, possibleSwipeCords.maxX)) {
+                    } else if (this.isBeyondPossibleRight(x, possibleSwipeCords.maxX)) {
                         x = possibleSwipeCords.maxX;
                     }
-                }
-                else {
+                } else {
                     if (scale > 1) {
                         if (x < possibleSwipeCords.minX) {
                             x = possibleSwipeCords.minX;
-                        }
-                        else if (x > possibleSwipeCords.maxX) {
+                        } else if (x > possibleSwipeCords.maxX) {
                             x = possibleSwipeCords.maxX;
                         }
                     }
@@ -257,19 +252,16 @@
                 if (allowY) {
                     if (this.isBeyondPossibleTop(y, possibleSwipeCords.minY)) {
                         y = possibleSwipeCords.minY;
-                    }
-                    else if (this.isBeyondPossibleBottom(y, possibleSwipeCords.maxY)) {
+                    } else if (this.isBeyondPossibleBottom(y, possibleSwipeCords.maxY)) {
                         y = possibleSwipeCords.maxY;
                     }
-                }
-                else {
+                } else {
                     // If the translate value based on index of beyond the viewport, utilize the available space to prevent image being cut out
                     if (scale > 1) {
                         //If image goes beyond viewport top, use the minim possible translate value
                         if (y < possibleSwipeCords.minY) {
                             y = possibleSwipeCords.minY;
-                        }
-                        else if (y > possibleSwipeCords.maxY) {
+                        } else if (y > possibleSwipeCords.maxY) {
                             y = possibleSwipeCords.maxY;
                         }
                     }
@@ -320,11 +312,9 @@
                 _this.core.outer.addClass('lg-actual-size');
                 if (dragAllowedAxises.allowX && dragAllowedAxises.allowY) {
                     $image.addClass('reset-transition');
-                }
-                else if (dragAllowedAxises.allowX && !dragAllowedAxises.allowY) {
+                } else if (dragAllowedAxises.allowX && !dragAllowedAxises.allowY) {
                     $image.addClass('reset-transition-x');
-                }
-                else if (!dragAllowedAxises.allowX && dragAllowedAxises.allowY) {
+                } else if (!dragAllowedAxises.allowX && dragAllowedAxises.allowY) {
                     $image.addClass('reset-transition-y');
                 }
             }, 550);
@@ -369,8 +359,7 @@
                 var prevScale = _this.scale;
                 if (_this.core.outer.hasClass('lg-zoomed')) {
                     _this.scale = 1;
-                }
-                else {
+                } else {
                     _this.scale = _this.getScale(scale);
                 }
                 _this.setPageCords(event);
@@ -394,8 +383,7 @@
             if (naturalWidth >= width) {
                 _scale = naturalWidth / width;
                 scale = _scale || 2;
-            }
-            else {
+            } else {
                 scale = 1;
             }
             return scale;
@@ -414,8 +402,7 @@
             if (event) {
                 cords.x = event.pageX || event.touches[0].pageX;
                 cords.y = event.pageY || event.touches[0].pageY;
-            }
-            else {
+            } else {
                 var containerRect = this.core.$content
                     .get()
                     .getBoundingClientRect();
@@ -442,8 +429,7 @@
             if (scale > 1) {
                 this.core.outer.addClass('lg-zoomed');
                 this.manageActualPixelClassNames();
-            }
-            else {
+            } else {
                 this.resetZoom();
             }
             return scale > 1;
@@ -452,8 +438,7 @@
             var actualSizeScale = this.getCurrentImageActualSizeScale();
             if (scale < 1) {
                 scale = 1;
-            }
-            else if (scale > actualSizeScale) {
+            } else if (scale > actualSizeScale) {
                 scale = actualSizeScale;
             }
             return scale;
@@ -479,8 +464,7 @@
                         tapped = setTimeout(function () {
                             tapped = null;
                         }, 300);
-                    }
-                    else {
+                    } else {
                         clearTimeout(tapped);
                         tapped = null;
                         event.preventDefault();
@@ -501,7 +485,7 @@
                 _this.top = 0;
                 _this.left = 0;
                 _this.setZoomEssentials();
-                _this.setZoomSwipeStyles(_LGel, { x: 0, y: 0 });
+                _this.setZoomSwipeStyles(_LGel, {x: 0, y: 0});
                 _this.positionChanged = true;
             });
             // Update zoom on resize and orientationchange
@@ -593,7 +577,7 @@
             return Math.sqrt((e.touches[0].pageX - e.touches[1].pageX) *
                 (e.touches[0].pageX - e.touches[1].pageX) +
                 (e.touches[0].pageY - e.touches[1].pageY) *
-                    (e.touches[0].pageY - e.touches[1].pageY));
+                (e.touches[0].pageY - e.touches[1].pageY));
         };
         Zoom.prototype.pinchZoom = function () {
             var _this = this;
@@ -649,8 +633,7 @@
                     startDist = 0;
                     if (_this.scale <= 1) {
                         _this.resetZoom();
-                    }
-                    else {
+                    } else {
                         var actualSizeScale = _this.getCurrentImageActualSizeScale();
                         if (_this.scale >= actualSizeScale) {
                             var scaleDiff = actualSizeScale - _this.scale;
@@ -691,29 +674,25 @@
                 if (allowY) {
                     if (this.isBeyondPossibleTop(distance.y, possibleSwipeCords.minY)) {
                         distance.y = possibleSwipeCords.minY;
-                    }
-                    else if (this.isBeyondPossibleBottom(distance.y, possibleSwipeCords.maxY)) {
+                    } else if (this.isBeyondPossibleBottom(distance.y, possibleSwipeCords.maxY)) {
                         distance.y = possibleSwipeCords.maxY;
                     }
                 }
                 if (allowX) {
                     if (this.isBeyondPossibleLeft(distance.x, possibleSwipeCords.minX)) {
                         distance.x = possibleSwipeCords.minX;
-                    }
-                    else if (this.isBeyondPossibleRight(distance.x, possibleSwipeCords.maxX)) {
+                    } else if (this.isBeyondPossibleRight(distance.x, possibleSwipeCords.maxX)) {
                         distance.x = possibleSwipeCords.maxX;
                     }
                 }
                 if (allowY) {
                     this.top = distance.y;
-                }
-                else {
+                } else {
                     distance.y = this.top;
                 }
                 if (allowX) {
                     this.left = distance.x;
-                }
-                else {
+                } else {
                     distance.x = this.left;
                 }
                 this.setZoomSwipeStyles(_LGel, distance);
@@ -727,13 +706,11 @@
                 if (this.isBeyondPossibleTop(distance.y, possibleSwipeCords.minY)) {
                     var diffMinY = possibleSwipeCords.minY - distance.y;
                     distance.y = possibleSwipeCords.minY - diffMinY / 6;
-                }
-                else if (this.isBeyondPossibleBottom(distance.y, possibleSwipeCords.maxY)) {
+                } else if (this.isBeyondPossibleBottom(distance.y, possibleSwipeCords.maxY)) {
                     var diffMaxY = distance.y - possibleSwipeCords.maxY;
                     distance.y = possibleSwipeCords.maxY + diffMaxY / 6;
                 }
-            }
-            else {
+            } else {
                 distance.y = this.top;
             }
             if (allowX) {
@@ -741,13 +718,11 @@
                 if (this.isBeyondPossibleLeft(distance.x, possibleSwipeCords.minX)) {
                     var diffMinX = possibleSwipeCords.minX - distance.x;
                     distance.x = possibleSwipeCords.minX - diffMinX / 6;
-                }
-                else if (this.isBeyondPossibleRight(distance.x, possibleSwipeCords.maxX)) {
+                } else if (this.isBeyondPossibleRight(distance.x, possibleSwipeCords.maxX)) {
                     var difMaxX = distance.x - possibleSwipeCords.maxX;
                     distance.x = possibleSwipeCords.maxX + difMaxX / 6;
                 }
-            }
-            else {
+            } else {
                 distance.x = this.left;
             }
             return distance;
@@ -817,7 +792,7 @@
                 }
                 $item = _this.core.getSlideItem(_this.core.index);
                 if ((_this.$LG(e.target).hasClass('lg-item') ||
-                    $item.get().contains(e.target)) &&
+                        $item.get().contains(e.target)) &&
                     e.touches.length === 1 &&
                     _this.core.outer.hasClass('lg-zoomed')) {
                     e.preventDefault();

@@ -7,9 +7,10 @@
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgAutoplay = factory());
-}(this, (function () { 'use strict';
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgAutoplay = factory());
+}(this, (function () {
+    'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -26,7 +27,7 @@
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    var __assign = function() {
+    var __assign = function () {
         __assign = Object.assign || function __assign(t) {
             for (var s, i = 1, n = arguments.length; i < n; i++) {
                 s = arguments[i];
@@ -95,6 +96,7 @@
             this.settings = __assign(__assign({}, autoplaySettings), this.core.settings);
             return this;
         }
+
         Autoplay.prototype.init = function () {
             var _this = this;
             if (!this.settings.autoplay) {
@@ -139,8 +141,7 @@
                 if (!_this.fromAuto && _this.interval) {
                     _this.stopAutoPlay();
                     _this.pausedOnSlideChange = true;
-                }
-                else {
+                } else {
                     _this.pausedOnSlideChange = false;
                 }
                 _this.fromAuto = false;
@@ -187,15 +188,14 @@
                 .find('.lg-autoplay-button')
                 .first()
                 .on('click.lg.autoplay', function () {
-                if (_this.core.outer.hasClass('lg-show-autoplay')) {
-                    _this.stopAutoPlay();
-                }
-                else {
-                    if (!_this.interval) {
-                        _this.startAutoPlay();
+                    if (_this.core.outer.hasClass('lg-show-autoplay')) {
+                        _this.stopAutoPlay();
+                    } else {
+                        if (!_this.interval) {
+                            _this.startAutoPlay();
+                        }
                     }
-                }
-            });
+                });
         };
         // Autostart gallery
         Autoplay.prototype.startAutoPlay = function () {
@@ -203,9 +203,9 @@
             this.core.outer
                 .find('.lg-progress')
                 .css('transition', 'width ' +
-                (this.core.settings.speed +
-                    this.settings.slideShowInterval) +
-                'ms ease 0s');
+                    (this.core.settings.speed +
+                        this.settings.slideShowInterval) +
+                    'ms ease 0s');
             this.core.outer.addClass('lg-show-autoplay');
             this.core.outer.find('.lg-progress-bar').addClass('lg-start');
             this.core.LGel.trigger(lGEvents.autoplayStart, {
@@ -214,8 +214,7 @@
             this.interval = setInterval(function () {
                 if (_this.core.index + 1 < _this.core.galleryItems.length) {
                     _this.core.index++;
-                }
-                else {
+                } else {
                     _this.core.index = 0;
                 }
                 _this.core.LGel.trigger(lGEvents.autoplay, {

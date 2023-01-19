@@ -20,7 +20,7 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
-var __assign = function() {
+var __assign = function () {
     __assign = Object.assign || function __assign(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -48,7 +48,7 @@ var shareSettings = {
     pinterest: true,
     pinterestDropdownText: 'Pinterest',
     additionalShareOptions: [],
-    sharePluginStrings: { share: 'Share' },
+    sharePluginStrings: {share: 'Share'},
 };
 
 function getFacebookShareLink(galleryItem) {
@@ -120,6 +120,7 @@ var Share = /** @class */ (function () {
         this.settings = __assign(__assign({}, shareSettings), this.core.settings);
         return this;
     }
+
     Share.prototype.init = function () {
         if (!this.settings.share) {
             return;
@@ -147,8 +148,7 @@ var Share = /** @class */ (function () {
             _this.core.outer.toggleClass('lg-dropdown-active');
             if (_this.core.outer.hasClass('lg-dropdown-active')) {
                 _this.core.outer.attr('aria-expanded', true);
-            }
-            else {
+            } else {
                 _this.core.outer.attr('aria-expanded', false);
             }
         });
@@ -156,9 +156,9 @@ var Share = /** @class */ (function () {
             .find('.lg-dropdown-overlay')
             .first()
             .on('click.lg', function () {
-            _this.core.outer.removeClass('lg-dropdown-active');
-            _this.core.outer.attr('aria-expanded', false);
-        });
+                _this.core.outer.removeClass('lg-dropdown-active');
+                _this.core.outer.attr('aria-expanded', false);
+            });
     };
     Share.prototype.onAfterSlide = function (event) {
         var _this = this;

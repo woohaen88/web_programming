@@ -30,13 +30,13 @@ var Util = {
     },
 
     getNextCursorPosition: function (prevPos, oldValue, newValue, delimiter, delimiters) {
-      // If cursor was at the end of value, just place it back.
-      // Because new value could contain additional chars.
-      if (oldValue.length === prevPos) {
-          return newValue.length;
-      }
+        // If cursor was at the end of value, just place it back.
+        // Because new value could contain additional chars.
+        if (oldValue.length === prevPos) {
+            return newValue.length;
+        }
 
-      return prevPos + this.getPositionOffset(prevPos, oldValue, newValue, delimiter ,delimiters);
+        return prevPos + this.getPositionOffset(prevPos, oldValue, newValue, delimiter, delimiters);
     },
 
     getPositionOffset: function (prevPos, oldValue, newValue, delimiter, delimiters) {
@@ -88,12 +88,12 @@ var Util = {
     getPrefixStrippedValue: function (value, prefix, prefixLength, prevResult, delimiter, delimiters, noImmediatePrefix, tailPrefix, signBeforePrefix) {
         // No prefix
         if (prefixLength === 0) {
-          return value;
+            return value;
         }
 
         // Value is prefix
         if (value === prefix && value !== '') {
-          return '';
+            return '';
         }
 
         if (signBeforePrefix && (value.slice(0, 1) == '-')) {
@@ -204,15 +204,15 @@ var Util = {
     },
 
     // Check if input field is fully selected
-    checkFullSelection: function(value) {
-      try {
-        var selection = window.getSelection() || document.getSelection() || {};
-        return selection.toString().length === value.length;
-      } catch (ex) {
-        // Ignore
-      }
+    checkFullSelection: function (value) {
+        try {
+            var selection = window.getSelection() || document.getSelection() || {};
+            return selection.toString().length === value.length;
+        } catch (ex) {
+            // Ignore
+        }
 
-      return false;
+        return false;
     },
 
     setSelection: function (element, position, doc) {
@@ -222,7 +222,7 @@ var Util = {
 
         // cursor is already in the end
         if (element && element.value.length <= position) {
-          return;
+            return;
         }
 
         if (element.createTextRange) {
@@ -240,7 +240,7 @@ var Util = {
         }
     },
 
-    getActiveElement: function(parent) {
+    getActiveElement: function (parent) {
         var activeElement = parent.activeElement;
         if (activeElement && activeElement.shadowRoot) {
             return this.getActiveElement(activeElement.shadowRoot);

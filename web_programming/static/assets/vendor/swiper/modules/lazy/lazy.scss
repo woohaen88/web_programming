@@ -6,6 +6,7 @@
   */
   }
 }
+
 .swiper-lazy-preloader {
   width: 42px;
   height: 42px;
@@ -21,6 +22,7 @@
   border-radius: 50%;
   border-top-color: transparent;
 }
+
 .swiper:not(.swiper-watch-progress),
 .swiper-watch-progress .swiper-slide-visible {
   .swiper-lazy-preloader {
@@ -31,9 +33,11 @@
 .swiper-lazy-preloader-white {
   --swiper-preloader-color: #fff;
 }
+
 .swiper-lazy-preloader-black {
   --swiper-preloader-color: #000;
 }
+
 @keyframes swiper-preloader-spin {
   0% {
     transform: rotate(0deg);

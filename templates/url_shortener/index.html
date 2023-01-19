@@ -1,20 +1,28 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Index {% if user.is_authenticated %}
-    <a href="{% url 'accounts:signout' %}"><button>로그아웃</button></a>
-{% endif %} </h1>
+    <h1>Index {% if user.is_authenticated %}
+        <a href="{% url 'accounts:signout' %}">
+            <button>로그아웃</button>
+        </a>
+    {% endif %} </h1>
 
     <!-- URL 생성 버튼 -->
-    <a href="{% url 'url_shortener:create' %}"><button>URL 생성</button></a>
+    <a href="{% url 'url_shortener:create' %}">
+        <button>URL 생성</button>
+    </a>
     <hr>
 
     {% for shortendurl in shortendurl_list %}
 
         <p>nick_name :: <a href="{{ shortendurl.target_url }}">{{ shortendurl.nick_name }}</a>
             {% if user.is_authenticated and request.user.pk == shortendurl.creator.pk %}
-                <a href="{{ shortendurl.get_update_url }}"><button>수정</button></a>
-                <a href="{{ shortendurl.get_delete_url }}"><button>삭제</button></a>
+                <a href="{{ shortendurl.get_update_url }}">
+                    <button>수정</button>
+                </a>
+                <a href="{{ shortendurl.get_delete_url }}">
+                    <button>삭제</button>
+                </a>
             {% endif %}
         </p>
         <p>nick_name :: {{ shortendurl.shortened_url }} </p>

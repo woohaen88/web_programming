@@ -1,7 +1,7 @@
 from django import forms
-from url_shortener.models import ShortenedUrls
 from django.utils.translation import gettext_lazy as _
 
+from url_shortener.models import ShortenedUrls
 from web_programming.utils import url_count_changer
 
 

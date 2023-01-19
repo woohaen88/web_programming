@@ -7,9 +7,10 @@
 
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgShare = factory());
-}(this, (function () { 'use strict';
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.lgShare = factory());
+}(this, (function () {
+    'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation.
@@ -26,7 +27,7 @@
     PERFORMANCE OF THIS SOFTWARE.
     ***************************************************************************** */
 
-    var __assign = function() {
+    var __assign = function () {
         __assign = Object.assign || function __assign(t) {
             for (var s, i = 1, n = arguments.length; i < n; i++) {
                 s = arguments[i];
@@ -54,7 +55,7 @@
         pinterest: true,
         pinterestDropdownText: 'Pinterest',
         additionalShareOptions: [],
-        sharePluginStrings: { share: 'Share' },
+        sharePluginStrings: {share: 'Share'},
     };
 
     function getFacebookShareLink(galleryItem) {
@@ -126,6 +127,7 @@
             this.settings = __assign(__assign({}, shareSettings), this.core.settings);
             return this;
         }
+
         Share.prototype.init = function () {
             if (!this.settings.share) {
                 return;
@@ -153,8 +155,7 @@
                 _this.core.outer.toggleClass('lg-dropdown-active');
                 if (_this.core.outer.hasClass('lg-dropdown-active')) {
                     _this.core.outer.attr('aria-expanded', true);
-                }
-                else {
+                } else {
                     _this.core.outer.attr('aria-expanded', false);
                 }
             });
@@ -162,9 +163,9 @@
                 .find('.lg-dropdown-overlay')
                 .first()
                 .on('click.lg', function () {
-                _this.core.outer.removeClass('lg-dropdown-active');
-                _this.core.outer.attr('aria-expanded', false);
-            });
+                    _this.core.outer.removeClass('lg-dropdown-active');
+                    _this.core.outer.attr('aria-expanded', false);
+                });
         };
         Share.prototype.onAfterSlide = function (event) {
             var _this = this;

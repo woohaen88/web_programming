@@ -189,9 +189,11 @@
   margin-bottom: 0;
   border-bottom: var(--#{$prefix}list-group-border-width) solid var(--#{$prefix}list-group-border-color);
   @include border-radius(0);
+
   &:last-child {
     border-bottom: 0;
   }
+
   &.active {
     border-color: var(--#{$prefix}list-group-active-border-color);
   }

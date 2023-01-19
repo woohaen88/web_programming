@@ -5,5 +5,5 @@
  * @return {string} The hyphenated string.
  */
 export default function hyphenate(str) {
-  return str.replace(/([A-Z])/g, (str, m1) => `-${m1.toLowerCase()}`);
+    return str.replace(/([A-Z])/g, (str, m1) => `-${m1.toLowerCase()}`);
 }

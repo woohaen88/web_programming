@@ -1,10 +1,11 @@
-from django.contrib import admin
-from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from . import views
+from django.contrib import admin
+from django.urls import path, include
+
 from accounts.urls import router as user_router
 from url_shortener.urls import router as url_router
+from . import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),

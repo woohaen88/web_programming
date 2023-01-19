@@ -1,6 +1,7 @@
 interface ThumbnailStrings {
     toggleThumbnails: string;
 }
+
 export interface ThumbnailsSettings {
     /**
      * Enable thumbnails for the gallery
@@ -66,5 +67,6 @@ export interface ThumbnailsSettings {
      */
     thumbnailPluginStrings: ThumbnailStrings;
 }
+
 export declare const thumbnailsSettings: ThumbnailsSettings;
 export {};

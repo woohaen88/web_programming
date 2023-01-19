@@ -1,7 +1,8 @@
-import { LightGalleryAllSettings, LightGallerySettings } from './lg-settings';
-import { GalleryItem, ImageSize } from './lg-utils';
-import { lgQuery } from './lgQuery';
-import { Coords, MediaContainerPosition, SlideDirection } from './types';
+import {LightGalleryAllSettings, LightGallerySettings} from './lg-settings';
+import {GalleryItem, ImageSize} from './lg-utils';
+import {lgQuery} from './lgQuery';
+import {Coords, MediaContainerPosition, SlideDirection} from './types';
+
 export declare class LightGallery {
     settings: LightGalleryAllSettings;
     galleryItems: GalleryItem[];
@@ -35,11 +36,16 @@ export declare class LightGallery {
         top: number;
         bottom: number;
     };
+
     constructor(element: HTMLElement, options?: LightGallerySettings);
+
     private generateSettings;
     private normalizeSettings;
+
     init(): void;
+
     openGalleryOnItemClick(): void;
+
     /**
      * Module constructor
      * Modules are build incrementally.
@@ -47,15 +53,25 @@ export declare class LightGallery {
      * use moduleBuildTimeout to make sure this
      */
     buildModules(): void;
+
     validateLicense(): void;
+
     getSlideItem(index: number): lgQuery;
+
     getSlideItemId(index: number): string;
+
     getIdName(id: string): string;
+
     getElementById(id: string): lgQuery;
+
     manageSingleSlideClassName(): void;
+
     buildStructure(): void;
+
     refreshOnResize(): void;
+
     resizeVideoSlide(index: number, imageSize?: ImageSize): void;
+
     /**
      * Update slides dynamically.
      * Add, edit or delete slides dynamically when lightGallery is opened.
@@ -99,10 +115,15 @@ export declare class LightGallery {
      * @see <a href="/demos/update-slides/">Demo</a>
      */
     updateSlides(items: GalleryItem[], index: number): void;
+
     getItems(): GalleryItem[];
+
     shouldHideScrollbar(): boolean;
+
     hideScrollbar(): void;
+
     resetScrollBar(): void;
+
     /**
      * Open lightGallery.
      * Open gallery with specific slide by passing index of the slide as parameter.
@@ -132,6 +153,7 @@ export declare class LightGallery {
      *
      */
     openGallery(index?: number, element?: HTMLElement): void;
+
     /**
      * Note - Changing the position of the media on every slide transition creates a flickering effect.
      * Therefore, The height of the caption is calculated dynamically, only once based on the first slide caption.
@@ -139,30 +161,42 @@ export declare class LightGallery {
      * you can provide an appropriate height for the captions via allowMediaOverlap option
      */
     getMediaContainerPosition(): MediaContainerPosition;
+
     private setMediaContainerPosition;
+
     hideBars(): void;
+
     initPictureFill($img: lgQuery): void;
+
     /**
      *  @desc Create image counter
      *  Ex: 1/10
      */
     counter(): void;
+
     /**
      *  @desc add sub-html into the slide
      *  @param {Number} index - index of the slide
      */
     addHtml(index: number): void;
+
     /**
      *  @desc Preload slides
      *  @param {Number} index - index of the slide
      * @todo preload not working for the first slide, Also, should work for the first and last slide as well
      */
     preload(index: number): void;
+
     getDummyImgStyles(imageSize?: ImageSize): string;
+
     getVideoContStyle(imageSize?: ImageSize): string;
+
     getDummyImageContent($currentSlide: lgQuery, index: number, alt: string): string;
+
     setImgMarkup(src: string, $currentSlide: lgQuery, index: number): void;
+
     onSlideObjectLoad($slide: lgQuery, isHTML5VideoWithoutPoster: boolean, onLoad: () => void, onError: () => void): void;
+
     /**
      *
      * @param $el Current slide item
@@ -172,9 +206,13 @@ export declare class LightGallery {
      * @param isFirstSlide
      */
     onLgObjectLoad(currentSlide: lgQuery, index: number, delay: number, speed: number, isFirstSlide: boolean, isHTML5VideoWithoutPoster: boolean): void;
+
     triggerSlideItemLoad($currentSlide: lgQuery, index: number, delay: number, speed: number, isFirstSlide: boolean): void;
+
     isFirstSlideWithZoomAnimation(): boolean;
+
     addSlideVideoInfo(items: GalleryItem[]): void;
+
     /**
      *  Load slide content into slide.
      *  This is used to load content into slides that is not visible too
@@ -182,6 +220,7 @@ export declare class LightGallery {
      *  @param {Boolean} rec - if true call loadcontent() function again.
      */
     loadContent(index: number, rec: boolean): void;
+
     /**
      * @desc Remove dummy image content and load next slides
      * Called only for the first time if zoomFromOrigin animation is enabled
@@ -190,14 +229,20 @@ export declare class LightGallery {
      * @param speed
      */
     loadContentOnFirstSlideLoad(index: number, $currentSlide: lgQuery, speed: number): void;
+
     getItemsToBeInsertedToDom(index: number, prevIndex: number, numberOfItems?: number): string[];
+
     organizeSlideItems(index: number, prevIndex: number): string[];
+
     /**
      * Get previous index of the slide
      */
     getPreviousSlideIndex(): number;
+
     setDownloadValue(index: number): void;
+
     makeSlideAnimation(direction: 'next' | 'prev', currentSlideItem: lgQuery, previousSlideItem: lgQuery): void;
+
     /**
      * Goto a specific slide.
      * @param {Number} index - index of the slide
@@ -212,15 +257,25 @@ export declare class LightGallery {
      *
      */
     slide(index: number, fromTouch?: boolean, fromThumb?: boolean, direction?: SlideDirection | false): void;
+
     updateCurrentCounter(index: number): void;
+
     updateCounterTotal(): void;
+
     getSlideType(item: GalleryItem): 'video' | 'iframe' | 'image';
+
     touchMove(startCoords: Coords, endCoords: Coords, e?: TouchEvent): void;
+
     touchEnd(endCoords: Coords, startCoords: Coords, event: TouchEvent): void;
+
     enableSwipe(): void;
+
     enableDrag(): void;
+
     triggerPosterClick(): void;
+
     manageSwipeClass(): void;
+
     /**
      * Go to next slide
      * @param {Boolean} fromTouch - true if slide function called via touch event
@@ -231,6 +286,7 @@ export declare class LightGallery {
      * @see <a href="/demos/methods/">Demo</a>
      */
     goToNextSlide(fromTouch?: boolean): void;
+
     /**
      * Go to previous slides
      * @param {Boolean} fromTouch - true if slide function called via touch event
@@ -242,21 +298,33 @@ export declare class LightGallery {
      *
      */
     goToPrevSlide(fromTouch?: boolean): void;
+
     keyPress(): void;
+
     arrow(): void;
+
     arrowDisable(index: number): void;
+
     setTranslate($el: lgQuery, xValue: number, yValue: number, scaleX?: number, scaleY?: number): void;
+
     mousewheel(): void;
+
     isSlideElement(target: lgQuery): boolean;
+
     isPosterElement(target: lgQuery): boolean;
+
     /**
      * Maximize minimize inline gallery.
      * @category lGPublicMethods
      */
     toggleMaximize(): void;
+
     invalidateItems(): void;
+
     trapFocus(): void;
+
     manageCloseGallery(): void;
+
     /**
      * Close lightGallery if it is opened.
      *
@@ -269,8 +337,11 @@ export declare class LightGallery {
      *
      */
     closeGallery(force?: boolean): number;
+
     initModules(): void;
+
     destroyModules(destroy?: true): void;
+
     /**
      * Refresh lightGallery with new set of children.
      *
@@ -286,8 +357,11 @@ export declare class LightGallery {
      *
      */
     refresh(galleryItems?: GalleryItem[]): void;
+
     updateControls(): void;
+
     private destroyGallery;
+
     /**
      * Destroy lightGallery.
      * Destroy lightGallery and its plugin instances completely

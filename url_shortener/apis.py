@@ -1,7 +1,8 @@
+from rest_framework import permissions
 from rest_framework import viewsets
+
 from url_shortener.models import ShortenedUrls
 from url_shortener.serializers import UrlListSerializer
-from rest_framework import permissions
 
 
 class UrlViewSet(viewsets.ModelViewSet):

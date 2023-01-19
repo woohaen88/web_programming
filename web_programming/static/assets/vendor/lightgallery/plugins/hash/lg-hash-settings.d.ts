@@ -13,4 +13,5 @@ export interface HashSettings {
      */
     customSlideName: boolean;
 }
+
 export declare const hashSettings: HashSettings;

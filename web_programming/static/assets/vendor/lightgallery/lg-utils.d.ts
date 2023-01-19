@@ -1,16 +1,19 @@
-import { lgQuery } from './lgQuery';
-import { VideoSource } from './plugins/video/types';
-import { VideoInfo } from './types';
+import {lgQuery} from './lgQuery';
+import {VideoSource} from './plugins/video/types';
+import {VideoInfo} from './types';
+
 export interface ImageSize {
     width: number;
     height: number;
 }
+
 export interface ImageSources {
     media?: string;
     srcset: string;
     sizes?: string;
     type?: string;
 }
+
 export interface GalleryItem {
     /**
      * url of the media
@@ -178,9 +181,12 @@ export interface GalleryItem {
      */
     disqusUrl?: string;
     __slideVideoInfo?: VideoInfo;
+
     [key: string]: any;
 }
+
 export declare function convertToData(attr: string): string;
+
 declare const utils: {
     /**
      * get possible width and height from the lgSize attribute. Used for ZoomFromOrigin option

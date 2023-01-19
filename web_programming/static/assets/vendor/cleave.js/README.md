@@ -24,9 +24,11 @@ Cleave.js has a simple purpose: to help you format input text content automatica
 
 ## Why?
 
-The idea is to provide an easy way to increase input field readability by formatting your typed data. By using this library, you won't need to write any mind-blowing regular expressions or mask patterns to format input text.
+The idea is to provide an easy way to increase input field readability by formatting your typed data. By using this
+library, you won't need to write any mind-blowing regular expressions or mask patterns to format input text.
 
-However, this isn't meant to replace any validation or mask library, you should still sanitize and validate your data in backend.
+However, this isn't meant to replace any validation or mask library, you should still sanitize and validate your data in
+backend.
 
 ## Installation
 
@@ -38,9 +40,11 @@ npm install --save cleave.js
 
 #### CDN
 
-cleave.js is available on [jsDelivr](https://www.jsdelivr.com/package/npm/cleave.js) and on [cdnjs.com](https://cdnjs.com/libraries/cleave.js)
+cleave.js is available on [jsDelivr](https://www.jsdelivr.com/package/npm/cleave.js) and
+on [cdnjs.com](https://cdnjs.com/libraries/cleave.js)
 
 #### old school
+
 Grab file from [dist](https://github.com/nosir/cleave.js/tree/master/dist) directory
 
 ## Usage
@@ -52,7 +56,8 @@ Simply include
 <script src="cleave-phone.{country}.js"></script>
 ```
 
-> `cleave-phone.{country}.js` addon is only required when phone shortcut mode is enabled. See more in documentation: [phone lib addon](https://github.com/nosir/cleave.js/blob/master/doc/phone-lib-addon.md) section
+> `cleave-phone.{country}.js` addon is only required when phone shortcut mode is enabled. See more in
+> documentation: [phone lib addon](https://github.com/nosir/cleave.js/blob/master/doc/phone-lib-addon.md) section
 
 Then have a text field
 
@@ -69,11 +74,14 @@ var cleave = new Cleave('.input-phone', {
 });
 ```
 
-> `.input-element` here is a unique DOM element. If you want to apply Cleave for multiple elements, you need to give different CSS selectors and apply to each of them, effectively, you might want to create individual instance by a loop, e.g. [loop  solution](https://github.com/nosir/cleave.js/issues/138#issuecomment-268024840)
+> `.input-element` here is a unique DOM element. If you want to apply Cleave for multiple elements, you need to give
+> different CSS selectors and apply to each of them, effectively, you might want to create individual instance by a loop,
+> e.g. [loop  solution](https://github.com/nosir/cleave.js/issues/138#issuecomment-268024840)
 
 More examples: [the demo page](http://nosir.github.io/cleave.js/)
 
 #### CommonJS
+
 ```js
 var Cleave = require('cleave.js');
 require('cleave.js/dist/addons/cleave-phone.{country}');
@@ -90,6 +98,7 @@ require(['cleave.js/dist/cleave.min', 'cleave.js/dist/addons/cleave-phone.{count
 ```
 
 #### ES Module
+
 ```js
 // Rollup, WebPack
 import Cleave from 'cleave.js';
@@ -102,7 +111,8 @@ var cleave = new Cleave(...)
 
 #### TypeScript
 
-Types are contributed by the community and are available via `npm install --save-dev @types/cleave.js`. Once installed, you can import Cleave like the following:
+Types are contributed by the community and are available via `npm install --save-dev @types/cleave.js`. Once installed,
+you can import Cleave like the following:
 
 ```ts
 import Cleave = require('cleave.js');
@@ -171,7 +181,8 @@ Advanced usage:
 - [How to get ref of the input field](https://github.com/nosir/cleave.js/blob/master/doc/reactjs-component-usage.md#how-to-get-ref-of-the-input-field)
 - [How to use it with redux form](https://github.com/nosir/cleave.js/blob/master/doc/reactjs-component-usage.md#how-to-use-it-with-redux-form)
 
-Usage for `Webpack`, `Browserify` and more in documentation: [ReactJS component usage](https://github.com/nosir/cleave.js/blob/master/doc/reactjs-component-usage.md)
+Usage for `Webpack`, `Browserify` and more in
+documentation: [ReactJS component usage](https://github.com/nosir/cleave.js/blob/master/doc/reactjs-component-usage.md)
 
 ## AngularJS directive usage
 
@@ -214,13 +225,16 @@ Then easily you can apply `cleave` directive to `input` field:
 </div>
 ```
 
-More usage in documentation: [Angular directive usage](https://github.com/nosir/cleave.js/blob/master/doc/angularjs-directive-usage.md)
+More usage in
+documentation: [Angular directive usage](https://github.com/nosir/cleave.js/blob/master/doc/angularjs-directive-usage.md)
 
 ## Use in VueJs
+
 While this package does not have an official support for use in VueJs. This can be done in few simple steps.
 Please check [here](https://github.com/nosir/cleave.js/blob/master/doc/vue.md)
 
 ## jQuery fn usage
+
 Please check [here](https://github.com/nosir/cleave.js/issues/341)
 
 ## Playground
@@ -270,14 +284,17 @@ Publish (build, tests & lint)
 gulp publish
 ```
 
-> For contributors, please run `gulp publish` to ensure your PR passes tests and lint, also we have a [not in the plan](https://github.com/nosir/cleave.js/blob/master/doc/not-in-the-plan.md) list you may concern.
+> For contributors, please run `gulp publish` to ensure your PR passes tests and lint, also we have
+> a [not in the plan](https://github.com/nosir/cleave.js/blob/master/doc/not-in-the-plan.md) list you may concern.
 
 ## Get in touch
+
 - Twitter: [@rison](https://twitter.com/rison)
 
 ## References
 
-- Payment credit card number IIN https://en.wikipedia.org/wiki/Payment_card_number#Issuer_identification_number_.28IIN.29
+- Payment credit card number
+  IIN https://en.wikipedia.org/wiki/Payment_card_number#Issuer_identification_number_.28IIN.29
 - Google phone numbers formatting https://github.com/googlei18n/libphonenumber
 - Decimal mark and thousands separating style https://en.wikipedia.org/wiki/Decimal_mark#Examples_of_use
 
@@ -285,6 +302,7 @@ gulp publish
 
 Cleave.js is licensed under the [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
-- Google [libphonenumber](https://github.com/googlei18n/libphonenumber) is included under its [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
+- Google [libphonenumber](https://github.com/googlei18n/libphonenumber) is included under
+  its [Apache License Version 2.0](http://www.apache.org/licenses/LICENSE-2.0)
 
 [![Analytics](https://ga-beacon.appspot.com/UA-79828599-1/cleave.js?pixel)](https://github.com/igrigorik/ga-beacon)

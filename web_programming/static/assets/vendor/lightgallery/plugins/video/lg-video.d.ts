@@ -23,10 +23,11 @@
  * https://vimeo.zendesk.com/hc/en-us/articles/360000121668-Starting-playback-at-a-specific-timecode
  * https://vimeo.zendesk.com/hc/en-us/articles/360001494447-Using-Player-Parameters
  */
-import { LightGallery } from '../../lightgallery';
-import { lgQuery } from '../../lgQuery';
-import { CustomEventAfterSlide, CustomEventHasVideo, CustomEventSlideItemLoad } from '../../types';
-import { VideoSource } from './types';
+import {LightGallery} from '../../lightgallery';
+import {lgQuery} from '../../lgQuery';
+import {CustomEventAfterSlide, CustomEventHasVideo, CustomEventSlideItemLoad} from '../../types';
+import {VideoSource} from './types';
+
 declare global {
     interface Window {
         _wq: any;
@@ -36,14 +37,18 @@ declare global {
 export default class Video {
     private core;
     private settings;
+
     constructor(instance: LightGallery);
+
     init(): void;
+
     /**
      * @desc Event triggered when a slide is completely loaded
      *
      * @param {Event} event - lightGalley custom event
      */
     onSlideItemLoad(event: CustomEventSlideItemLoad): void;
+
     /**
      * @desc Event triggered when video url or poster found
      * Append video HTML is poster is not given
@@ -52,6 +57,7 @@ export default class Video {
      * @param {Event} event - Javascript Event object.
      */
     onHasVideo(event: CustomEventHasVideo): void;
+
     /**
      * @desc fired immediately before each slide transition.
      * Pause the previous video
@@ -62,6 +68,7 @@ export default class Video {
      * @param {number} index - Current index of the slide
      */
     onBeforeSlide(event: CustomEvent): void;
+
     /**
      * @desc fired immediately after each slide transition.
      * Play video if autoplayVideoOnSlide option is enabled.
@@ -72,18 +79,23 @@ export default class Video {
      * @todo should check on onSlideLoad as well if video is not loaded on after slide
      */
     onAfterSlide(event: CustomEventAfterSlide): void;
+
     loadAndPlayVideo(index: number): void;
+
     /**
      * Play HTML5, Youtube, Vimeo or Wistia videos in a particular slide.
      * @param {number} index - Index of the slide
      */
     playVideo(index: number): void;
+
     /**
      * Pause HTML5, Youtube, Vimeo or Wistia videos in a particular slide.
      * @param {number} index - Index of the slide
      */
     pauseVideo(index: number): void;
+
     getVideoHtml(src: any, addClass: any, index: number, html5Video: VideoSource): string;
+
     /**
      * @desc - Append videos to the slide
      *
@@ -96,9 +108,14 @@ export default class Video {
         index: number;
         html5Video: any;
     }): any;
+
     gotoNextSlideOnVideoEnd(src: any, index: number): void;
+
     controlVideo(index: number, action: string): void;
+
     loadVideoOnPosterClick($el: lgQuery, forcePlay?: boolean): void;
+
     onVideoLoadAfterPosterClick($el: lgQuery, index: number): void;
+
     destroy(): void;
 }

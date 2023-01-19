@@ -4,6 +4,7 @@ export interface RotateStrings {
     rotateLeft: string;
     rotateRight: string;
 }
+
 export interface RotateSettings {
     /**
      * Enable/Disable rotate option
@@ -34,6 +35,7 @@ export interface RotateSettings {
      */
     rotatePluginStrings: RotateStrings;
 }
+
 export declare const rotateSettings: {
     rotate: boolean;
     rotateSpeed: number;

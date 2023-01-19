@@ -1,6 +1,7 @@
-from tags.models import Tag
 from django import forms
 from django.utils.text import slugify
+
+from tags.models import Tag
 
 
 class TagCreateForm(forms.ModelForm):

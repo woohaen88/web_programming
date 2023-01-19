@@ -1,8 +1,24 @@
-{% extends 'layout.html' %}
+{% extends 'base.html' %}
 {% block content %}
 
 
-    <h1>detail</h1>
+    <h1>Detail</h1>
+    <p>title:: <a href="{{ camping.get_absolute_url }}">{{ camping.title }}</a></p>
+    <p>
+    Tag:: {% if camping.tag.exists %}
+            {% for tag in camping.tag.iterator %}
+                {{ tag.name }}//
+            {% endfor %}
+        {% endif %}
+    </p>
+    {% for image in camping.multiple_image.all %}
+        <img src="{{ image.images.url }}" alt="" style="width: 150px; height: 150px;">
+    {% endfor %}
+
+
+    <p>content:: {{ camping.content }}</p>
+    <p>Visited:: {{ camping.visited_dt | date:'Y-m-d'}}</p>
+
 
 
 

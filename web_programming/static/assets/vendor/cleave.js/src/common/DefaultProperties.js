@@ -16,7 +16,8 @@ var DefaultProperties = {
         target.creditCard = !!opts.creditCard;
         target.creditCardStrictMode = !!opts.creditCardStrictMode;
         target.creditCardType = '';
-        target.onCreditCardTypeChanged = opts.onCreditCardTypeChanged || (function () {});
+        target.onCreditCardTypeChanged = opts.onCreditCardTypeChanged || (function () {
+        });
 
         // phone
         target.phone = !!opts.phone;
@@ -49,7 +50,7 @@ var DefaultProperties = {
 
         // others
         target.swapHiddenInput = !!opts.swapHiddenInput;
-        
+
         target.numericOnly = target.creditCard || target.date || !!opts.numericOnly;
 
         target.uppercase = !!opts.uppercase;
@@ -85,7 +86,8 @@ var DefaultProperties = {
         target.backspace = false;
         target.result = '';
 
-        target.onValueChanged = opts.onValueChanged || (function () {});
+        target.onValueChanged = opts.onValueChanged || (function () {
+        });
 
         return target;
     }

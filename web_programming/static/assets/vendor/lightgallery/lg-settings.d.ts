@@ -1,19 +1,22 @@
-import { GalleryItem } from './lg-utils';
-import { LgQuery } from './lgQuery';
-import { LightGallery } from './lightgallery';
-import { AutoplaySettings } from './plugins/autoplay/lg-autoplay-settings';
-import { CommentSettings } from './plugins/comment/lg-comment-settings';
-import { FullscreenSettings } from './plugins/fullscreen/lg-fullscreen-settings';
-import { HashSettings } from './plugins/hash/lg-hash-settings';
-import { PagerSettings } from './plugins/pager/lg-pager-settings';
-import { RotateSettings } from './plugins/rotate/lg-rotate-settings';
-import { ShareSettings } from './plugins/share/lg-share-settings';
-import { ThumbnailsSettings } from './plugins/thumbnail/lg-thumbnail-settings';
-import { VideoSettings } from './plugins/video/lg-video-settings';
-import { ZoomSettings } from './plugins/zoom/lg-zoom-settings';
+import {GalleryItem} from './lg-utils';
+import {LgQuery} from './lgQuery';
+import {LightGallery} from './lightgallery';
+import {AutoplaySettings} from './plugins/autoplay/lg-autoplay-settings';
+import {CommentSettings} from './plugins/comment/lg-comment-settings';
+import {FullscreenSettings} from './plugins/fullscreen/lg-fullscreen-settings';
+import {HashSettings} from './plugins/hash/lg-hash-settings';
+import {PagerSettings} from './plugins/pager/lg-pager-settings';
+import {RotateSettings} from './plugins/rotate/lg-rotate-settings';
+import {ShareSettings} from './plugins/share/lg-share-settings';
+import {ThumbnailsSettings} from './plugins/thumbnail/lg-thumbnail-settings';
+import {VideoSettings} from './plugins/video/lg-video-settings';
+import {ZoomSettings} from './plugins/zoom/lg-zoom-settings';
+
 declare type LightGalleryCoreMobileSettings = Exclude<LightGalleryCoreSettings, 'mobileSettings'>;
+
 export interface MobileSettings extends LightGalleryCoreMobileSettings, Partial<ZoomSettings>, Partial<ThumbnailsSettings>, Partial<VideoSettings>, Partial<AutoplaySettings>, Partial<CommentSettings>, Partial<FullscreenSettings>, Partial<HashSettings>, Partial<PagerSettings>, Partial<RotateSettings>, Partial<ShareSettings> {
 }
+
 export interface LightGalleryCoreStrings {
     closeGallery: string;
     toggleMaximize: string;
@@ -22,8 +25,21 @@ export interface LightGalleryCoreStrings {
     download: string;
     playVideo: string;
 }
-export declare type LightGalleryAllSettings = LightGalleryCoreSettings & ZoomSettings & ThumbnailsSettings & VideoSettings & AutoplaySettings & CommentSettings & FullscreenSettings & HashSettings & PagerSettings & RotateSettings & ShareSettings;
+
+export declare type LightGalleryAllSettings =
+    LightGalleryCoreSettings
+    & ZoomSettings
+    & ThumbnailsSettings
+    & VideoSettings
+    & AutoplaySettings
+    & CommentSettings
+    & FullscreenSettings
+    & HashSettings
+    & PagerSettings
+    & RotateSettings
+    & ShareSettings;
 export declare type LightGallerySettings = Partial<LightGalleryAllSettings>;
+
 export interface LightGalleryCoreSettings {
     /**
      * Type of transition between images.
@@ -417,5 +433,6 @@ export interface LightGalleryCoreSettings {
     strings: LightGalleryCoreStrings;
     plugins: (new (instance: LightGallery, $LG: LgQuery) => any)[];
 }
+
 export declare const lightGalleryCoreSettings: LightGalleryCoreSettings;
 export {};

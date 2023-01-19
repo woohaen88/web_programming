@@ -1,6 +1,7 @@
 export interface AutoplayStrings {
     toggleAutoplay: string;
 }
+
 export interface AutoplaySettings {
     /**
      * Enable autoplay plugin
@@ -35,4 +36,5 @@ export interface AutoplaySettings {
      */
     autoplayPluginStrings: AutoplayStrings;
 }
+
 export declare const autoplaySettings: AutoplaySettings;

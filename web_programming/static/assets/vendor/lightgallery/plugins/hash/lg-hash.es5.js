@@ -20,7 +20,7 @@ OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 PERFORMANCE OF THIS SOFTWARE.
 ***************************************************************************** */
 
-var __assign = function() {
+var __assign = function () {
     __assign = Object.assign || function __assign(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
             s = arguments[i];
@@ -80,6 +80,7 @@ var Hash = /** @class */ (function () {
         this.settings = __assign(__assign({}, hashSettings), this.core.settings);
         return this;
     }
+
     Hash.prototype.init = function () {
         var _this = this;
         if (!this.settings.hash) {
@@ -107,8 +108,7 @@ var Hash = /** @class */ (function () {
                 this.settings.galleryId +
                 '&slide=' +
                 slideName);
-        }
-        else {
+        } else {
             window.location.hash =
                 'lg=' + this.settings.galleryId + '&slide=' + slideName;
         }
@@ -119,7 +119,9 @@ var Hash = /** @class */ (function () {
      * @returns {Number} Index of the slide.
      */
     Hash.prototype.getIndexFromUrl = function (hash) {
-        if (hash === void 0) { hash = window.location.hash; }
+        if (hash === void 0) {
+            hash = window.location.hash;
+        }
         var slideName = hash.split('&slide=')[1];
         var _idx = 0;
         if (this.settings.customSlideName) {
@@ -130,8 +132,7 @@ var Hash = /** @class */ (function () {
                     break;
                 }
             }
-        }
-        else {
+        } else {
             _idx = parseInt(slideName, 10);
         }
         return isNaN(_idx) ? 0 : _idx;
@@ -154,16 +155,13 @@ var Hash = /** @class */ (function () {
             this.oldHash.indexOf('lg=' + this.settings.galleryId) < 0) {
             if (history.replaceState) {
                 history.replaceState(null, '', this.oldHash);
-            }
-            else {
+            } else {
                 window.location.hash = this.oldHash;
             }
-        }
-        else {
+        } else {
             if (history.replaceState) {
                 history.replaceState(null, document.title, window.location.pathname + window.location.search);
-            }
-            else {
+            } else {
                 window.location.hash = '';
             }
         }
@@ -176,8 +174,7 @@ var Hash = /** @class */ (function () {
         // it galleryId doesn't exist in the url close the gallery
         if (_hash.indexOf('lg=' + this.settings.galleryId) > -1) {
             this.core.slide(index, false, false);
-        }
-        else if (this.core.lGalleryOn) {
+        } else if (this.core.lGalleryOn) {
             this.core.closeGallery();
         }
     };

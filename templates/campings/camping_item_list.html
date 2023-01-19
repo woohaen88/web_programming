@@ -1,10 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>This is caamping item list</h1>
-    <a href="{% url 'campings:camping_item_create' %}"><button>아이템 생성</button></a>
+    <h1>This is caamping item list</h1>
+    <a href="{% url 'campings:camping_item_create' %}">
+        <button>아이템 생성</button>
+    </a>
 
     {% for camping_item in camping_item_list %}
-    <p>name:: {{ camping_item.name }}</p>
+        <p>name:: {{ camping_item.name }}</p>
         <p>price: {{ camping_item.price }}</p>
         <p>url: <a href="{{ camping_item.shortened_url.url }}">{{ camping_item.shortened_url }}</a></p>
         <p>udpated: {{ camping_item.updated_at }}</p>

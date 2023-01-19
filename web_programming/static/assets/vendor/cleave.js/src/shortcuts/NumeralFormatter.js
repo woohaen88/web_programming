@@ -27,9 +27,9 @@ var NumeralFormatter = function (numeralDecimalMark,
 
 NumeralFormatter.groupStyle = {
     thousand: 'thousand',
-    lakh:     'lakh',
-    wan:      'wan',
-    none:     'none'    
+    lakh: 'lakh',
+    wan: 'wan',
+    none: 'none'
 };
 
 NumeralFormatter.prototype = {
@@ -76,7 +76,7 @@ NumeralFormatter.prototype = {
         } else {
             partSignAndPrefix = partSign;
         }
-        
+
         partInteger = value;
 
         if (value.indexOf(owner.numeralDecimalMark) >= 0) {
@@ -85,29 +85,29 @@ NumeralFormatter.prototype = {
             partDecimal = owner.numeralDecimalMark + parts[1].slice(0, owner.numeralDecimalScale);
         }
 
-        if(partSign === '-') {
+        if (partSign === '-') {
             partInteger = partInteger.slice(1);
         }
 
         if (owner.numeralIntegerScale > 0) {
-          partInteger = partInteger.slice(0, owner.numeralIntegerScale);
+            partInteger = partInteger.slice(0, owner.numeralIntegerScale);
         }
 
         switch (owner.numeralThousandsGroupStyle) {
-        case NumeralFormatter.groupStyle.lakh:
-            partInteger = partInteger.replace(/(\d)(?=(\d\d)+\d$)/g, '$1' + owner.delimiter);
+            case NumeralFormatter.groupStyle.lakh:
+                partInteger = partInteger.replace(/(\d)(?=(\d\d)+\d$)/g, '$1' + owner.delimiter);
 
-            break;
+                break;
 
-        case NumeralFormatter.groupStyle.wan:
-            partInteger = partInteger.replace(/(\d)(?=(\d{4})+$)/g, '$1' + owner.delimiter);
+            case NumeralFormatter.groupStyle.wan:
+                partInteger = partInteger.replace(/(\d)(?=(\d{4})+$)/g, '$1' + owner.delimiter);
 
-            break;
+                break;
 
-        case NumeralFormatter.groupStyle.thousand:
-            partInteger = partInteger.replace(/(\d)(?=(\d{3})+$)/g, '$1' + owner.delimiter);
+            case NumeralFormatter.groupStyle.thousand:
+                partInteger = partInteger.replace(/(\d)(?=(\d{3})+$)/g, '$1' + owner.delimiter);
 
-            break;
+                break;
         }
 
         if (owner.tailPrefix) {

@@ -1,8 +1,8 @@
-from rest_framework import viewsets
-from url_shortener.models import ShortenedUrls
-from accounts.serializers import UserSerializer
 from django.contrib.auth import get_user_model
 from rest_framework import permissions
+from rest_framework import viewsets
+
+from accounts.serializers import UserSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):

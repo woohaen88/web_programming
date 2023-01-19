@@ -6,6 +6,7 @@
   --swiper-navigation-color: var(--swiper-theme-color);
   */
 }
+
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
@@ -19,19 +20,23 @@
   align-items: center;
   justify-content: center;
   color: var(--swiper-navigation-color, var(--swiper-theme-color));
+
   &.swiper-button-disabled {
     opacity: 0.35;
     cursor: auto;
     pointer-events: none;
   }
+
   &.swiper-button-hidden {
     opacity: 0;
     cursor: auto;
     pointer-events: none;
   }
+
   .swiper-navigation-disabled & {
     display: none !important;
   }
+
   &:after {
     font-family: swiper-icons;
     font-size: var(--swiper-navigation-size);
@@ -41,22 +46,27 @@
     line-height: 1;
   }
 }
+
 .swiper-button-prev,
 .swiper-rtl .swiper-button-next {
   &:after {
     content: 'prev';
   }
+
   left: 10px;
   right: auto;
 }
+
 .swiper-button-next,
 .swiper-rtl .swiper-button-prev {
   &:after {
     content: 'next';
   }
+
   right: 10px;
   left: auto;
 }
+
 .swiper-button-lock {
   display: none;
 }

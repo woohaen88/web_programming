@@ -3,13 +3,13 @@
 let win;
 
 if ('undefined' !== typeof window) {
-  win = window;
+    win = window;
 } else if ('undefined' !== typeof global) {
-  win = global;
+    win = global;
 } else if ('undefined' !== typeof self) {
-  win = self;
+    win = self;
 } else {
-  win = {};
+    win = {};
 }
 
 export default win;
