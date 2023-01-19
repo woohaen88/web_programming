@@ -8,40 +8,43 @@ from django.urls import reverse
 from tags.models import Tag
 from django.utils.translation import gettext_lazy as _
 
+
 class Camping(models.Model):
-    title = models.CharField(max_length=100) # 캠핑장 이름
-    content = models.TextField() # 캠핑장 리뷰
-    created_dt = models.DateTimeField(auto_now_add=True) # 생성일자
-    updated_dt = models.DateTimeField(auto_now=True) # 수정일자
-    visited_dt = models.DateTimeField() # 방문일자
+    title = models.CharField(max_length=100)  # 캠핑장 이름
+    content = models.TextField()  # 캠핑장 리뷰
+    created_dt = models.DateTimeField(auto_now_add=True)  # 생성일자
+    updated_dt = models.DateTimeField(auto_now=True)  # 수정일자
+    visited_dt = models.DateTimeField()  # 방문일자
     address = models.CharField(max_length=255)
     site_url = models.URLField()
     price = models.PositiveIntegerField()
 
-    class IsCarCharge(models.TextChoices): # 전기차 충전
+    class IsCarCharge(models.TextChoices):  # 전기차 충전
         CAN = "1", _("충전가능")
         VAN = "2", _("충전불가")
         SEMI = "3", _("돈내면 가능")
         DONTKNOW = "4", _("모름")
+
     is_car_charge = models.CharField(
         max_length=10, choices=IsCarCharge.choices, default=IsCarCharge.DONTKNOW
     )
 
-
-    class IsParking(models.TextChoices): # 주차 가능
+    class IsParking(models.TextChoices):  # 주차 가능
         CAN = "1", _("사이트옆 주차")
         VAN = "2", _("주차장 멀음")
         DONTKNOW = "3", _("모름")
+
     is_parking = models.CharField(
         max_length=10, choices=IsParking.choices, default=IsParking.DONTKNOW
     )
 
-    contact = models.CharField(max_length=20) # 전화번호
+    contact = models.CharField(max_length=20)  # 전화번호
 
-    class IsAddCar(models.TextChoices): # 추가차량
+    class IsAddCar(models.TextChoices):  # 추가차량
         CAN = "1", _("가능")
         VAN = "2", _("불가")
         DONTKNOW = "3", _("모름")
+
     is_add_car = models.CharField(
         max_length=10, choices=IsAddCar.choices, default=IsAddCar.DONTKNOW
     )
@@ -50,14 +53,10 @@ class Camping(models.Model):
         CAN = "1", _("가능")
         VAN = "2", _("불가")
         DONTKNOW = "3", _("모름")
+
     is_add_human = models.CharField(
         max_length=10, choices=IsAddHuman.choices, default=IsAddHuman.DONTKNOW
     )
-
-
-
-
-
 
     # foreign key
     user = models.ForeignKey(

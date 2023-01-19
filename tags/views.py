@@ -15,8 +15,6 @@ class TagView(ListView):
         return qs
 
 
-
-
 class TagCreateView(CreateView):
     model = Tag
     form_class = TagCreateForm

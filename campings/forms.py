@@ -14,7 +14,7 @@ class CampingCreateForm(forms.ModelForm):
 
     tags = forms.CharField(
         label=_("태그입력"),
-        widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "태그입력폼"})
+        widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "태그입력폼"}),
     )
 
     class Meta:
@@ -25,14 +25,14 @@ class CampingCreateForm(forms.ModelForm):
             "image",
             "content",
             "visited_dt",
-            "address", # 주소
-            "site_url", # 사이트주소
-            "price", # 가격
-            "contact", # 대표번호
-            "is_car_charge", #충전여부
-            "is_parking", # 주차여부
-            "is_add_car", # 추가차량
-            "is_add_human", # 추가인원
+            "address",  # 주소
+            "site_url",  # 사이트주소
+            "price",  # 가격
+            "contact",  # 대표번호
+            "is_car_charge",  # 충전여부
+            "is_parking",  # 주차여부
+            "is_add_car",  # 추가차량
+            "is_add_human",  # 추가인원
         )
 
         labels = {
@@ -57,10 +57,18 @@ class CampingCreateForm(forms.ModelForm):
             "site_url": forms.TextInput(attrs={"class": "form-control"}),  # 사이트주소
             "price": forms.NumberInput(attrs={"class": "form-control"}),  # 가격
             "contact": forms.TextInput(attrs={"class": "form-control"}),  # 대표번호
-            "is_car_charge": forms.Select(attrs={"class": "form-control", "type": "radio"}),  # 충전여부
-            "is_parking": forms.Select(attrs={"class": "form-control", "type": "radio"}),  # 주차여부
-            "is_add_car": forms.Select(attrs={"class": "form-control", "type": "radio"}),  # 추가차량
-            "is_add_human": forms.Select(attrs={"class": "form-control", "type": "radio"}),  # 추가인원
+            "is_car_charge": forms.Select(
+                attrs={"class": "form-control", "type": "radio"}
+            ),  # 충전여부
+            "is_parking": forms.Select(
+                attrs={"class": "form-control", "type": "radio"}
+            ),  # 주차여부
+            "is_add_car": forms.Select(
+                attrs={"class": "form-control", "type": "radio"}
+            ),  # 추가차량
+            "is_add_human": forms.Select(
+                attrs={"class": "form-control", "type": "radio"}
+            ),  # 추가인원
         }
 
     def save(self, request, commit=True):
@@ -84,7 +92,6 @@ class CampingCreateForm(forms.ModelForm):
                 else:
                     tag_list.append(tag)
             # 없으면 Tag모델에 저장
-
 
         if commit:
             try:

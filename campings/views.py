@@ -9,14 +9,10 @@ from tags.forms import TagCreateForm
 from tags.models import Tag
 
 
-
-
 class CampingListView(ListView):
     model = Camping
     template_name = "campings/index.html"
     context_object_name = "camping_list"
-
-
 
 
 class CampingDetailView(DetailView):
