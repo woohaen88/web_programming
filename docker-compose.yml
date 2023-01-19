@@ -1,4 +1,4 @@
-version: "3"
+version: "3.7"
 
 services:
   nginx:
@@ -6,7 +6,7 @@ services:
     networks:
       - network
     volumes:
-      - /Users/malone/project/python/web_programming/nginx.conf:/etc/nginx/nginx.conf
+      - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
       - static-volume:/data/static
       - media-volume:/data/media
     ports:

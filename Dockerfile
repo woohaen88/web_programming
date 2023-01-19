@@ -1,6 +1,6 @@
 FROM python:3.10
 
-RUN echo "testing4"
+RUN echo "testing5"
 
 WORKDIR /home/
 
@@ -16,8 +16,6 @@ RUN pip install -r requirements.txt
 RUN python manage.py makemigrations &&\
     python manage.py migrate
 
-RUN python manage.py collectstatic
-
 EXPOSE 8000
 
-CMD ["bash", "-c", "python manage.py makemigrations --settings=web_programming.settings.prod && python manage.py migrate --settings=web_programming.settings.prod && gunicorn web_programming.wsgi --env DJANGO_SETTINGS_MODULE=web_programming.settings.prod --bind 0.0.0.0:8000"]
+CMD ["bash", "-c", "python manage.py collectstatic --noinput --settings=web_programming.settings.prod && python manage.py makemigrations --settings=web_programming.settings.prod && python manage.py migrate --settings=web_programming.settings.prod && gunicorn web_programming.wsgi --env DJANGO_SETTINGS_MODULE=web_programming.settings.prod --bind 0.0.0.0:8000"]
