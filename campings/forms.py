@@ -14,7 +14,9 @@ class CampingCreateForm(forms.ModelForm):
 
     tags = forms.CharField(
         label=_("태그입력"),
-        widget=forms.TextInput(attrs={"class": "form-control", "placeholder": "태그1, 태그2, ... "}),
+        widget=forms.TextInput(
+            attrs={"class": "form-control", "placeholder": "태그1, 태그2, ... "}
+        ),
     )
 
     class Meta:
@@ -50,13 +52,25 @@ class CampingCreateForm(forms.ModelForm):
         }
 
         widgets = {
-            "title": forms.TextInput(attrs={"class": "form-control", "placeholder":"0000캠핑장"}),
-            "content": forms.Textarea(attrs={"class": "form-control", "placeholder":"다음에 또가자!!"}),
+            "title": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "0000캠핑장"}
+            ),
+            "content": forms.Textarea(
+                attrs={"class": "form-control", "placeholder": "다음에 또가자!!"}
+            ),
             "visited_dt": forms.DateInput(attrs={"type": "date"}),
-            "address": forms.TextInput(attrs={"class": "form-control", "placeholder":"캠핑장주소를 입력하세요"}),  # 주소
-            "site_url": forms.TextInput(attrs={"class": "form-control", "placeholder":"캠핑장웹사이트 주소"}),  # 사이트주소
-            "price": forms.NumberInput(attrs={"class": "form-control", "placeholder":"캠핑장주소 가격을 입력하세요"}),  # 가격
-            "contact": forms.TextInput(attrs={"class": "form-control", "placeholder":"캠핑장전화번호를 입력하세요"}),  # 대표번호
+            "address": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "캠핑장주소"}
+            ),  # 주소
+            "site_url": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "캠핑장웹사이트 주소"}
+            ),  # 사이트주소
+            "price": forms.NumberInput(
+                attrs={"class": "form-control", "placeholder": "캠핑장주소 가격"}
+            ),  # 가격
+            "contact": forms.TextInput(
+                attrs={"class": "form-control", "placeholder": "캠핑장전화번호"}
+            ),  # 대표번호
             "is_car_charge": forms.Select(
                 attrs={"class": "form-control", "type": "radio"}
             ),  # 충전여부

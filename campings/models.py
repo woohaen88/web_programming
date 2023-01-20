@@ -10,7 +10,6 @@ from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
 
 
-
 class Camping(models.Model):
     title = models.CharField(max_length=100)  # 캠핑장 이름
     content = models.TextField()  # 캠핑장 리뷰

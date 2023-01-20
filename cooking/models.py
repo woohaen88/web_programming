@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 
+
 class Food(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -10,10 +11,13 @@ class Food(models.Model):
     thumbnail = models.ImageField(upload_to="images/food/thumbnail/%Y/%m/%d")
 
     # foreign_key
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="recipes")
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="recipes"
+    )
 
     def __str__(self):
         return self.name
+
 
 class Recipe(models.Model):
     food = models.ForeignKey(Food, on_delete=models.CASCADE, related_name="recipe")
@@ -36,5 +40,3 @@ class Ingredient(models.Model):
 
     def __str__(self):
         return f"Ingredient::{self.food.name}"
-
-

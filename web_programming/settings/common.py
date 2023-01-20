@@ -62,7 +62,6 @@ ROOT_URLCONF = "web_programming.urls"
 CSRF_TRUSTED_ORIGINS = [
     "https://www.woohaen88-webapp.com",
     "http://www.woohaen88-webapp.com",
-
 ]
 
 TEMPLATES = [

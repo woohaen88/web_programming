@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
+{% load bootstrap4 %}
 
 {% block content %}
+    <div class="container">
+    <div class="col-md-8 mt-3">
     <form action="{% url 'campings:create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">create</button>
+        {% bootstrap_form form %}
+
+        <button type="submit" class="btn btn-primary mt-3" >create</button>
+
     </form>
+    </div>
+    </div>
 {% endblock %}
