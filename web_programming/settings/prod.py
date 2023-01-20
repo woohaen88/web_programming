@@ -11,6 +11,7 @@ from .common import *
 #
 # SECRET_KEY = read_secret("DJANGO_SECRET_KEY")
 
+ALLOWED_HOSTS = ['*']
 
 SECRET_KEY = env("SECRET_KEY")
 
