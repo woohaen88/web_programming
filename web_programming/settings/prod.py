@@ -19,3 +19,8 @@ DEBUG = False
 DATABASES = {
     "default": env.db()
 }
+
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://www.woohaen88-webapp.com/'
+]
