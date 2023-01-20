@@ -21,5 +21,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://woohaen88-webapp.com/'
+    "https://www.woohaen88-webapp.com",
+    "http://www.woohaen88-webapp.com",
+
 ]
