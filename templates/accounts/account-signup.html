@@ -22,8 +22,8 @@
                     <h1 class="text-center text-xl-start mt-5">Create Account</h1>
                     <p class="text-center text-xl-start pb-3 mb-3">Already have an account? <a
                             href="{% url 'accounts:signin' %}">Sign in here.</a></p>
-                    <form class="needs-validation" method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
+                    <form class="needs-validation" method="post" enctype="multipart/form-data">{% csrf_token %}
+
                         <div class="row">
                             {% bootstrap_form form %}
 

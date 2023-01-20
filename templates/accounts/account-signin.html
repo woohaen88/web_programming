@@ -22,8 +22,8 @@
                     <p class="text-center text-xl-start pb-3 mb-3">Dont' have an account yet?<a
                             href="{% url 'accounts:signup' %}">Sign up here.</a></p>
                     <form action="{% url 'accounts:signin' %}" class="needs-validation" method="post"
-                          enctype="multipart/form-data">
-                        {% csrf_token %}
+                          enctype="multipart/form-data">{% csrf_token %}
+
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="position-relative mb-4">
