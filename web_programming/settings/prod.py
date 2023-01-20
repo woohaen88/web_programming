@@ -20,7 +20,6 @@ DATABASES = {
     "default": env.db()
 }
 
-
 CSRF_TRUSTED_ORIGINS = [
-    'https://www.woohaen88-webapp.com/'
+    'https://woohaen88-webapp.com/'
 ]
