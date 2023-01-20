@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for food in food_list %}
+
+    <p>{{ forloop.counter }}::::::{{ food.name }}</p>
+{% endfor %}
+
+{% endblock %}

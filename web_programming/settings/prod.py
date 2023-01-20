@@ -1,15 +1,11 @@
 from .common import *
 
 
-# def read_secret(secret_name):
-#     file = open("/run/secrets/" + secret_name)
-#     secret = file.read()
-#     secret = secret.strip()
-#     file.close()
-#     return secret
-#
-#
-# SECRET_KEY = read_secret("DJANGO_SECRET_KEY")
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+
+env = environ.Env(
+    DEBUG=(bool, False)
+)
 
 ALLOWED_HOSTS = ['*']
 

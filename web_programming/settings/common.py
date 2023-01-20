@@ -26,7 +26,7 @@ env = environ.Env(
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+# environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 # Application definition
 
 INSTALLED_APPS = [
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "bootstrap4",
     "rest_framework",
+    "cooking.apps.CookingConfig",
 ]
 
 MIDDLEWARE = [

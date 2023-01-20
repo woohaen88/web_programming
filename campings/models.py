@@ -7,6 +7,8 @@ from django.urls import reverse
 
 from tags.models import Tag
 from django.utils.translation import gettext_lazy as _
+from django.utils import timezone
+
 
 
 class Camping(models.Model):
@@ -14,9 +16,9 @@ class Camping(models.Model):
     content = models.TextField()  # 캠핑장 리뷰
     created_dt = models.DateTimeField(auto_now_add=True)  # 생성일자
     updated_dt = models.DateTimeField(auto_now=True)  # 수정일자
-    visited_dt = models.DateTimeField()  # 방문일자
+    visited_dt = models.DateTimeField(default=timezone.now)  # 방문일자
     address = models.CharField(max_length=255)
-    site_url = models.URLField()
+    site_url = models.URLField(blank=True)
     price = models.PositiveIntegerField()
 
     class IsCarCharge(models.TextChoices):  # 전기차 충전
