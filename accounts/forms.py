@@ -15,38 +15,38 @@ def get_random_strings(length):
 
 
 class AccountSignUpForm(UserCreationForm):
-    email = forms.EmailField(
-        required=True,
-        widget=forms.EmailInput(
-            attrs={
-                "class": "form-control form-control-lg",
-                "type": "email",
-                "id": "email",
-            }
-        ),
-    )
-
-    password1 = forms.CharField(
-        required=True,
-        widget=forms.PasswordInput(
-            attrs={
-                "type": "password",
-                "id": "password",
-                "class": "form-control form-control-lg",
-            }
-        ),
-    )
-
-    password2 = forms.CharField(
-        required=True,
-        widget=forms.PasswordInput(
-            attrs={
-                "type": "password",
-                "id": "password-confirm",
-                "class": "form-control form-control-lg",
-            }
-        ),
-    )
+    # email = forms.EmailField(
+    #     required=True,
+    #     widget=forms.EmailInput(
+    #         attrs={
+    #             # "class": "form-control form-control-lg",
+    #             "type": "email",
+    #             "id": "email",
+    #         }
+    #     ),
+    # )
+    #
+    # password1 = forms.CharField(
+    #     required=True,
+    #     widget=forms.PasswordInput(
+    #         attrs={
+    #             "type": "password",
+    #             "id": "password",
+    #             # "class": "form-control form-control-lg",
+    #         }
+    #     ),
+    # )
+    #
+    # password2 = forms.CharField(
+    #     required=True,
+    #     widget=forms.PasswordInput(
+    #         attrs={
+    #             "type": "password",
+    #             "id": "password-confirm",
+    #             # "class": "form-control form-control-lg",
+    #         }
+    #     ),
+    # )
 
     class Meta(UserCreationForm.Meta):
         model = User

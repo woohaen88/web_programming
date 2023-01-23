@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "accounts.apps.AccountsConfig",
     "campings.apps.CampingsConfig",
+    "instagram.apps.InstagramConfig",
     "tags.apps.TagsConfig",
     "comments.apps.CommentsConfig",
     "url_shortener.apps.UrlShortenerConfig",

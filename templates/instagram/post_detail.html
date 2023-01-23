@@ -1,0 +1,29 @@
+{% extends 'instagram/layout.html' %}
+{% block title %}
+디테일
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        {{ post.author.name }}
+                    </div>
+                    <div class="card-body">
+                        <img src="{{ post.photo.url }}" alt="" style="width: 100%;">
+                    </div>
+                    <div class="card-footer">
+                        {% for tag in post.tag_set.all %}
+                            <span class="badge badge-primary text-dark">
+                                #{{ tag.name }}
+                            </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

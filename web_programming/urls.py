@@ -13,6 +13,7 @@ urlpatterns = [
     path("camping/", include("campings.urls")),
     path("short/", include("url_shortener.urls")),
     path("cooking/", include("cooking.urls")),
+    path("instagram/", include("instagram.urls")),
     path("tag/", include("tags.urls")),
     path("api/", include(user_router.urls)),
     path("api/", include(url_router.urls)),

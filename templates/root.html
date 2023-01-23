@@ -1,0 +1,49 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %}
+
+    {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-5.3.0-alpha1-dist/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<div class="container">
+    <!-- NavBar -->
+    <div class="row">
+        <div class="sm-col-12">
+            <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom mt-2">
+                <span class="my-0 mr-md-auto font-weight-normal">Instagram(이것은 로고)</span>
+                <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                    <a class="me-3 py-2 text-dark text-decoration-none" href="#">Features</a>
+                    <a class="me-3 py-2 text-dark text-decoration-none" href="#">Enterprise</a>
+                    <a class="me-3 py-2 text-dark text-decoration-none" href="#">Support</a>
+                    <a class="btn btn-outline-primary py-2 text-decoration-none" href="#">Sign up</a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- NavBar -->
+    {% block content %}
+
+    {% endblock %}
+
+
+<script src="{% static 'bootstrap-5.3.0-alpha1-dist/js/bootstrap.bundle.js' %}"></script>
+<script src="{% static 'jquery/jquery-3-6-3.min.js' %}"></script>
+</body>
+</html>
