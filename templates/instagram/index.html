@@ -1,8 +1,53 @@
 {% extends 'instagram/layout.html' %}
 {% block title %}
-Title
+Index
 {% endblock %}
 
 {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="" class="btn btn-primary">새포스팅쓰기</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                Timeline
+                <hr>
+                {{ user.following_set.all }}
+            </div>
+            <div class="col-sm-4">
+                <!--Include Html-->
+                <div class="d-flex p-2">
+                    <small>{{ user.name }}</small>
+                </div>
 
+                <div class="card mb-3">
+                    <div class="card-header text-muted">
+                        Stories
+                    </div>
+                    <div class="card-body text-muted">
+                        Stories from people you follow will show up here
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-header text-muted">
+                        Suggestions for you
+                    </div>
+                    <div class="card-body text-muted">
+                        <!--timeline side bar user follower-->
+                        {% for suggested_user in suggested_user_list %}
+                            {% include 'instagram/includes/timeline_sidebar_user_follower.html'%}
+                        {% empty %}
+                            추천 친구가 없습니다.
+                        {% endfor %}
+                    </div>
+                </div>
+
+
+                <!--Include Html-->
+            </div>
+        </div>
+    </div>
 {% endblock %}

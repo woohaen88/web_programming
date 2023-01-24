@@ -1,0 +1,11 @@
+<div class="d-flex mb-1">
+  <div class="p-2">
+      {{ suggested_user.name }}
+  </div>
+
+  <div class="ms-auto p-2">
+      <a href="{% url 'instagram:user_follow' username=suggested_user.username %}">Follow</a>
+      <a href="{% url 'instagram:user_unfollow' username=suggested_user.username %}">UnFollow</a>
+  </div>
+</div>
+

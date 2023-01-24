@@ -7,6 +7,9 @@ class User(AbstractUser):
     created_at = models.DateTimeField(auto_now_add=True)
     url_count = models.IntegerField(default=0)
 
+    follower_set = models.ManyToManyField("self", blank=True)
+    following_set = models.ManyToManyField("self", blank=True)
+
     @property
     def name(self):
         return f"{self.email}"

@@ -10,8 +10,7 @@ User = get_user_model()
 
 def get_random_strings(length):
     gen_str = "".join(random.choice(string.ascii_lowercase) for _ in range(length))
-    gen_idx = random.choice(string.ascii_uppercase)
-    return f"{gen_idx}/{gen_str}"
+    return f"{gen_str}"
 
 
 class AccountSignUpForm(UserCreationForm):
