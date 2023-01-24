@@ -11,6 +11,8 @@ urlpatterns = [
     path("<username>/", views.UserPage.as_view(), name="user_page"),
     path("<username>/follow/", views.UserFollowView.as_view(), name="user_follow"),
     # path("<username>/follow/", views.user_follow, name="user_follow"),
-    path("<username>/unfollow/", views.UserUnFollowView.as_view(), name="user_unfollow"),
+    path(
+        "<username>/unfollow/", views.UserUnFollowView.as_view(), name="user_unfollow"
+    ),
     path("", views.InstagramIndexView.as_view(), name="index"),
 ]

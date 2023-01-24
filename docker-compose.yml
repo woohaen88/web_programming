@@ -1,59 +1,36 @@
-version: "3.7"
+version: '3.7'
 
 services:
   nginx:
     image: nginx:latest
-    networks:
-      - network
     volumes:
+      - static_volume:/data/static/
+      - media_volume:/data/media/
       - /home/ubuntu/nginx.conf:/etc/nginx/nginx.conf
-      - static-volume:/data/static
-      - media-volume:/data/media
     ports:
-      - "80:80"
+      - 80:80
+    depends_on:
+      - web_programming_gunicorn
+    networks:
+      - network
+
   web_programming_gunicorn:
-    image: web_programming
+    image: web_programming:1.0
+    command: gunicorn web_programming.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - static_volume:/home/web_programming/static/
+      - media_volume:/home/web_programming/media/
+    expose:
+      - 8000
+    env_file:
+      - /home/ubuntu/.env
     networks:
       - network
-    volumes:
-      - static-volume:/home/web_programming/static/
-      - media-volume:/home/web_programming/media/
-    secrets:
-      - MYSQL_ROOT_PASSWORD
-      - MYSQL_DATABASE
-      - DJANGO_SECRET_KEY
-  mysqlDB:
-    image: mysql
-    restart: always
-    networks:
-      - network
-    secrets:
-      - MYSQL_ROOT_PASSWORD
-      - MYSQL_DATABASE
-    environment:
-      MYSQL_DATABASE_FILE: /run/secrets/MYSQL_DATABASE
-      MYSQL_ROOT_PASSWORD_FILE: /run/secrets/MYSQL_ROOT_PASSWORD
-    volumes:
-      - db_volume:/var/lib/mysql
-    ports:
-      - "3306:3306"
-    command:
-      - --character-set-server=utf8mb4
-      - --collation-server=utf8mb4_unicode_ci
 
-
+    
 networks:
   network:
 
 volumes:
-  db_volume:
-  static-volume:
-  media-volume:
-
-secrets:
-  DJANGO_SECRET_KEY:
-    external: true
-  MYSQL_ROOT_PASSWORD:
-    external: true
-  MYSQL_DATABASE:
-    external: true
+  static_volume:
+  media_volume:

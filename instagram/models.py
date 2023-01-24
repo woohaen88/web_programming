@@ -13,6 +13,7 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     photo = models.ImageField(upload_to="image/%Y/%m/%d")
@@ -37,12 +38,16 @@ class Post(models.Model):
         tag_list = []
         for tag_name in tag_name_list:
             if not Tag.objects.filter(name=tag_name).exists():
-                tag, _ = Tag.objects.get_or_create(name=tag_name,
-                                                   slug=slugify(tag_name, allow_unicode=True))
+                tag, _ = Tag.objects.get_or_create(
+                    name=tag_name, slug=slugify(tag_name, allow_unicode=True)
+                )
                 tag_list.append(tag)
         return tag_list
 
     def get_absolute_url(self):
-        return reverse("instagram:post_detail", kwargs={"post_pk" : self.pk,})
-
-
+        return reverse(
+            "instagram:post_detail",
+            kwargs={
+                "post_pk": self.pk,
+            },
+        )
