@@ -12,7 +12,7 @@
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 {% buttons %}
-                    <button type="submit" class="btn btn-primary mt-2">
+                    <button type="submit" class="btn btn-secondary mt-2 col-12">
                         {{ submit_label|default:"Submit" }}
                     </button>
                 {% endbuttons %}

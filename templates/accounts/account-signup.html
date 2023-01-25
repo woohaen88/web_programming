@@ -7,5 +7,18 @@
 {% endblock %}
 
 {% block content %}
-    {% include "_form.html" with submit_label="회원가입" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong>회원가입</strong>
+                    </div>
+                    <div class="card-body">
+                        {% include "_form.html" with submit_label="회원가입" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

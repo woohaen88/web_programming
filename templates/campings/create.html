@@ -1,16 +1,116 @@
-{% extends 'base.html' %}
+{% extends "root.html" %}
 {% load bootstrap4 %}
+
+
+{% block title %}
+    Create
+{% endblock %}
 
 {% block content %}
     <div class="container">
-    <div class="col-md-8 mt-3">
-    <form action="{% url 'campings:create' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% bootstrap_form form %}
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        생성
+                    </div>
+                    <div class="card-body">
+                        <form action="" method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-floating mb-3">
+                                        {{ form.title }}
+                                        <label for="id_title">
+                                            {{ form.title.label}}
+                                        </label>
+                                    </div>
+                                </div>
 
-        <button type="submit" class="btn btn-primary mt-3" >create</button>
+                                <div class="col-sm-6 col-md-6">
+                                    <div class="form-floating mb-3">
+                                        {{ form.visited_dt }}
+                                        <label for="id_visited_dt">
+                                            {{ form.visited_dt.label }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-12 col-md-12">
+                                    {{ form.tags.label }}
+                                    {{ form.tags }}
+                                </div>
+                            </div>
 
-    </form>
-    </div>
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-12 col-md-12">
+                                    {{ form.image.label }}
+                                    {{ form.image }}
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-12 col-md-12">
+                                    {{ form.content.label }}
+                                    {{ form.content }}
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-6 col-md-6">
+                                    {{ form.address.label }}
+                                    {{ form.address }}
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    {{ form.site_url.label }}
+                                    {{ form.site_url }}
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-6 col-md-6">
+                                    {{ form.price.label }}
+                                    {{ form.price }}
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    {{ form.contact.label }}
+                                    {{ form.contact }}
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-6 col-md-6">
+                                    {{ form.is_car_charge.label }}
+                                    {{ form.is_car_charge }}
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    {{ form.is_parking.label }}
+                                    {{ form.is_parking }}
+                                </div>
+                            </div>
+
+                            <div class="row g-3 mb-3">
+                                <div class="col-sm-6 col-md-6">
+                                    {{ form.is_add_car.label }}
+                                    {{ form.is_add_car }}
+                                </div>
+
+                                <div class="col-sm-6 col-md-6">
+                                    {{ form.is_add_human.label }}
+                                    {{ form.is_add_human }}
+                                </div>
+                            </div>
+                                <button type="submit" class="btn btn-secondary mt-2 col-12">
+                                    생성
+                                </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 {% endblock %}

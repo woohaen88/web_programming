@@ -36,16 +36,16 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.humanize",
     "accounts.apps.AccountsConfig",
     "campings.apps.CampingsConfig",
     "instagram.apps.InstagramConfig",
+    "url_shortener.apps.UrlShortenerConfig",
+    "cooking.apps.CookingConfig",
     "tags.apps.TagsConfig",
     "comments.apps.CommentsConfig",
-    "url_shortener.apps.UrlShortenerConfig",
-    "widget_tweaks",
     "bootstrap4",
     "rest_framework",
-    "cooking.apps.CookingConfig",
 ]
 
 MIDDLEWARE = [
@@ -87,17 +87,6 @@ WSGI_APPLICATION = "web_programming.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# PRODUCT
-# DATABASES = {
-#     "default": env.db(),
-# }
-# TEST
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
 
 AUTH_USER_MODEL = "accounts.User"
 

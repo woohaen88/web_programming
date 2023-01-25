@@ -1,3 +1,5 @@
+import datetime
+
 from django import forms
 from django.utils.translation import gettext_lazy as _
 
@@ -9,14 +11,19 @@ from django.utils.text import slugify
 class CampingCreateForm(forms.ModelForm):
     image = forms.FileField(
         label=_("캠핑장사진"),
-        widget=forms.FileInput(attrs={"class": "form-control", "multiple": True}),
+        widget=forms.FileInput(attrs={
+            "class": "form-control",
+            "multiple": True
+        }),
     )
 
     tags = forms.CharField(
         label=_("태그입력"),
-        widget=forms.TextInput(
-            attrs={"class": "form-control", "placeholder": "태그1, 태그2, ... "}
-        ),
+        widget=forms.TextInput(attrs={
+            "class": "form-control",
+            "placeholder": "태그1, 태그2, ... "
+        }),
+        help_text=",를 기준으로 태그입력하세요."
     )
 
     class Meta:
@@ -41,7 +48,7 @@ class CampingCreateForm(forms.ModelForm):
             "title": _("캠핑장이름"),
             "content": _("캠핑장리뷰"),
             "visited_dt": _("방문일자"),
-            "address": _("주소"),  # 주소
+            "address": _("위치"),  # 주소
             "site_url": _("사이트주소"),  # 사이트주소
             "price": _("가격"),  # 가격
             "contact": _("대표번호"),  # 대표번호
@@ -53,35 +60,65 @@ class CampingCreateForm(forms.ModelForm):
 
         widgets = {
             "title": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "0000캠핑장"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "0000캠핑장",
+                }
             ),
             "content": forms.Textarea(
-                attrs={"class": "form-control", "placeholder": "다음에 또가자!!"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "캠핑장 리뷰를 입력하세요~",
+                    "rows": "5",
+                }
             ),
-            "visited_dt": forms.DateInput(attrs={"type": "date"}),
+            "visited_dt": forms.DateInput(
+                attrs={
+                    "class": "form-control",
+                    "type": "date",
+                }
+            ),
             "address": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "캠핑장주소"}
+                attrs={
+                    "class": "form-control", 
+                    "placeholder": "주소를 입력하세요",
+                }
             ),  # 주소
             "site_url": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "캠핑장웹사이트 주소"}
+                attrs={
+                    "class": "form-control", 
+                    "placeholder": "http로 시작하는 주소를 입력하세요",}
             ),  # 사이트주소
             "price": forms.NumberInput(
-                attrs={"class": "form-control", "placeholder": "캠핑장주소 가격"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "캠핑장주소 가격",
+                }
             ),  # 가격
             "contact": forms.TextInput(
-                attrs={"class": "form-control", "placeholder": "캠핑장전화번호"}
+                attrs={
+                    "class": "form-control",
+                    "placeholder": "캠핑장전화번호",}
             ),  # 대표번호
             "is_car_charge": forms.Select(
-                attrs={"class": "form-control", "type": "radio"}
+                attrs={
+                    "class": "form-select",
+                }
             ),  # 충전여부
             "is_parking": forms.Select(
-                attrs={"class": "form-control", "type": "radio"}
+                attrs={
+                    "class": "form-select",
+                }
             ),  # 주차여부
             "is_add_car": forms.Select(
-                attrs={"class": "form-control", "type": "radio"}
+                attrs={
+                    "class": "form-select",
+                }
             ),  # 추가차량
             "is_add_human": forms.Select(
-                attrs={"class": "form-control", "type": "radio"}
+                attrs={
+                    "class": "form-select",
+                }
             ),  # 추가인원
         }
 

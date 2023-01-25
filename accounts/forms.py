@@ -14,55 +14,9 @@ def get_random_strings(length):
 
 
 class AccountSignUpForm(UserCreationForm):
-    # email = forms.EmailField(
-    #     required=True,
-    #     widget=forms.EmailInput(
-    #         attrs={
-    #             # "class": "form-control form-control-lg",
-    #             "type": "email",
-    #             "id": "email",
-    #         }
-    #     ),
-    # )
-    #
-    # password1 = forms.CharField(
-    #     required=True,
-    #     widget=forms.PasswordInput(
-    #         attrs={
-    #             "type": "password",
-    #             "id": "password",
-    #             # "class": "form-control form-control-lg",
-    #         }
-    #     ),
-    # )
-    #
-    # password2 = forms.CharField(
-    #     required=True,
-    #     widget=forms.PasswordInput(
-    #         attrs={
-    #             "type": "password",
-    #             "id": "password-confirm",
-    #             # "class": "form-control form-control-lg",
-    #         }
-    #     ),
-    # )
-
     class Meta(UserCreationForm.Meta):
         model = User
-        fields = ("email", "password1", "password2")
-
-    def save(self, commit=True):
-        user = super().save(commit=False)
-
-        not_exist = True
-        while not_exist:
-            username = get_random_strings(8)
-            get_user = self.Meta.model.objects.filter(username=username)
-            if not get_user.exists():
-                user.username = username
-                not_exist = False
-        user.save()
-        return user
+        fields = ("email", "username", "password1", "password2")
 
 
 class AccountSignInForm(forms.Form):
@@ -70,9 +24,7 @@ class AccountSignInForm(forms.Form):
         required=True,
         widget=forms.EmailInput(
             attrs={
-                "class": "form-control form-control-lg",
                 "type": "email",
-                "id": "email",
             }
         ),
     )
@@ -82,8 +34,6 @@ class AccountSignInForm(forms.Form):
         widget=forms.PasswordInput(
             attrs={
                 "type": "password",
-                "id": "password",
-                "class": "form-control form-control-lg",
             }
         ),
     )

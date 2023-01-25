@@ -11,6 +11,16 @@ from django.utils import timezone
 
 
 class Camping(models.Model):
+    # foreign key
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        on_delete=models.SET_NULL,
+        null=True,
+        related_name="camping",
+    )
+
+    # many to many field
+    tag = models.ManyToManyField(Tag, related_name="camping", blank=True)
     title = models.CharField(max_length=100)  # 캠핑장 이름
     content = models.TextField()  # 캠핑장 리뷰
     created_dt = models.DateTimeField(auto_now_add=True)  # 생성일자
@@ -59,16 +69,7 @@ class Camping(models.Model):
         max_length=10, choices=IsAddHuman.choices, default=IsAddHuman.DONTKNOW
     )
 
-    # foreign key
-    user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.SET_NULL,
-        null=True,
-        related_name="camping",
-    )
 
-    # many to many field
-    tag = models.ManyToManyField(Tag, related_name="camping", blank=True)
 
     def __str__(self):
         return self.title

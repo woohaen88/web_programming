@@ -1,27 +1,77 @@
-{% extends 'base.html' %}
+{% extends 'root.html' %}
+{% load static %}
 {% block content %}
 
-    <a href="{% url 'url_shortener:index' %}">
-        <button>URL 앱</button>
-    </a>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-md-4 col-sm-6 mb-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'url_shortener:index' %}">
+                                    <img src="{% static 'assets/img/blog/01.jpg' %}" alt="" style="width: 100%;">
+                                </a>
+                            </div>
+                            <div class="card-footer">
+                                URL 앱
+                            </div>
+                        </div>
+                    </div>
 
-    <a href="{% url 'campings:camping_item_index' %}">
-        <button>캠핑용품 사고 싶은거</button>
-    </a>
+                    <div class="col-md-4 col-sm-6 mb-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'campings:camping_item_index' %}">
+                                    <img src="{% static 'assets/img/blog/02.jpg' %}" alt="" style="width: 100%;">
+                                </a>
+                            </div>
+                            <div class="card-footer">
+                                캠핑용품 사고 싶은거
+                            </div>
+                        </div>
+                    </div>
 
-    <a href="{% url 'campings:index' %}">
-        <button>캠핑</button>
-    </a>
+                    <div class="col-md-4 col-sm-6 mb-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'campings:index' %}">
+                                    <img src="{% static 'assets/img/blog/03.jpg' %}" alt="" style="width: 100%;">
+                                </a>
+                            </div>
+                            <div class="card-footer">
+                                캠핑
+                            </div>
+                        </div>
+                    </div>
 
-    <a href="{% url 'instagram:index' %}">
-        <button>인스타 </button>
-    </a>
+                    <div class="col-md-4 col-sm-6 mb-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'instagram:index' %}">
+                                    <img src="{% static 'assets/img/blog/04.jpg' %}" alt="" style="width: 100%;">
+                                </a>
+                            </div>
+                            <div class="card-footer">
+                                인스타
+                            </div>
+                        </div>
+                    </div>
 
-{#    <a href="{% url 'cooking:index' %}">#}
-{#        <button>요리</button>#}
-{#    </a>#}
-    <hr>
-    <p>현재 유져: {{ user.email }}</p>
-
-
+                    <div class="col-md-4 col-sm-6 mb-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <a href="{% url 'cooking:index' %}">
+                                    <img src="{% static 'assets/img/blog/05.jpg' %}" alt="" style="width: 100%;">
+                                </a>
+                            </div>
+                            <div class="card-footer">
+                                요리
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

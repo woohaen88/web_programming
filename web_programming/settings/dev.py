@@ -1,15 +1,13 @@
 from .common import *
 
 
-environ.Env.read_env(os.path.join(BASE_DIR, ".env.dev"))
-
-env = environ.Env(DEBUG=(bool, False))
-
-
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY="django-insecure-sg!9x9@w28+hj!a@r6^(f49el(kzeu$9b#w2!hrez2ymlqx=hh"
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-
-DATABASES = {"default": env.db()}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
